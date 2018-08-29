@@ -16,11 +16,13 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::get('/user/logout', 'Auth\LoginController@userLogout')->name('user.logout');
 
 Route::get('/home', 'HomeController@index');
 Route::prefix('admin')->group(function(){
     Route::get('/login', 'Auth\Admin\LoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\Admin\LoginController@login')->name('admin.login.submit');
-    Route::get('/', 'AdminController@index')->name('admin.dashboard');
+    Route::get('/', 'Admin\AdminController@index')->name('admin.home');
+    Route::get('/logout', 'Auth\Admin\LoginController@logout')->name('admin.logout');
 
 });
