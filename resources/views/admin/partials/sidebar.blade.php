@@ -25,7 +25,7 @@
           
         </li>
         <li>
-          <a href="pages/widgets.html">
+        <a href="{{route('unities.index')}}">
             <i class="fa fa-university"></i> <span>Colégios</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green">new</small>
