@@ -9,10 +9,10 @@
         </div>
         <div class="pull-left info">
           <p>{{Auth::guard()->user()->name}}</p>
-          <p>Administrador</p>
+          <p>Secretário</p>
         </div>
       </div>
-     
+      
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
@@ -25,8 +25,8 @@
           
         </li>
         <li>
-        <a href="{{route('unities.index')}}">
-            <i class="fa fa-university"></i> <span>Colégios</span>
+        <a href="#">
+            <i class="fa fa-university"></i> <span>Meu Colégio</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green">new</small>
             </span>
@@ -34,7 +34,7 @@
         </li>
         <li>
           <a href="pages/widgets.html">
-            <i class="fa fa-users"></i> <span>Secretários</span>
+            <i class="fa fa-users"></i> <span>Professores</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green">new</small>
             </span>

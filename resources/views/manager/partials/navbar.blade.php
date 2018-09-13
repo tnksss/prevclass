@@ -24,13 +24,13 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="{{asset('images/profile.jpg')}}" class="user-image" alt="User Image">
-              <span class="hidden-xs">{{Auth::guard()->user()->name}}</span>
+            <span class="hidden-xs">{{Auth::guard()->user()->name}}</span>
             </a>
          
           </li>
           <!-- Control Sidebar Toggle Button -->
           <li>
-          <a href="{{route('admin.logout')}}" data-toggle=""><i class="fa fa-power-off"></i></a>
+          <a href="{{route('manager.logout')}}" data-toggle=""><i class="fa fa-power-off"></i></a>
           </li>
         </ul>
       </div>
