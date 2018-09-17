@@ -14,6 +14,8 @@
       </a>
 
       <div class="navbar-custom-menu">
+          
+
         <ul class="nav navbar-nav">
           <!-- Messages: style can be found in dropdown.less-->
           
@@ -24,7 +26,7 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="{{asset('images/profile.jpg')}}" class="user-image" alt="User Image">
-              <span class="hidden-xs">{{Auth::guard()->user()->name}}</span>
+              <span class="hidden-xs">{{ Auth::guard('admin')->user()->name }}</span>
             </a>
          
           </li>

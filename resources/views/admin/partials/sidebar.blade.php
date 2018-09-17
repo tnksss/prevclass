@@ -8,7 +8,7 @@
           <img src="{{URL::asset('/images/profile.jpg')}}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>{{Auth::guard()->user()->name}}</p>
+          <p>{{ Auth::guard('admin')->user()->name }}</p>
           <p>Administrador</p>
         </div>
       </div>

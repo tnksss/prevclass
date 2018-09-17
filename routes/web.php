@@ -35,6 +35,6 @@ Route::prefix('manager')->group(function(){
     Route::post('/login', 'Auth\Manager\LoginController@login')->name('manager.login.submit');
     Route::get('/', 'Manager\ManagerController@index')->name('manager.home');
     Route::get('/logout', 'Auth\Manager\LoginController@logout')->name('manager.logout');
-    Route::resource('unities', 'Manager\UnityController');
+    // Route::resource('unities', 'Manager\UnityController');
 
 });
