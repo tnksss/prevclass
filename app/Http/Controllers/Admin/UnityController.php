@@ -24,6 +24,24 @@ class UnityController extends Controller
             'cities' => $cities
         ]);
     }
+
+    public function createManager($id)
+    {
+        
+        $unity = Unity::find($id);
+        return view('admin.unity.create_manager', [
+            'unity' => $unity
+        ]);
+    }
+    public function managerStore(Request $request)
+    {
+        $this->validate($request,[
+            'name' => 'required|between:2,100',
+            'email' => 'required',
+            'password' => 'required|min:6'
+        ]);
+    }
+
     public function store(Request $request)
     {
         $this->validate($request, [

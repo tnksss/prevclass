@@ -1,7 +1,7 @@
 <div class="responsive">
 	
 	<a href="{{ route('unities.show',['id' => $unity->id]) }}" class="btn-sm btn btn-info"><i class="fa fa-search"></i></a>
-	<a href="{{ route('unities.show',['id' => $unity->id]) }}" class="btn-sm btn btn-success"><i class="fa fa-user"></i></a>
+	<a href="{{ route('unities.manager',['id' => $unity->id]) }}" class="btn-sm btn btn-success"><i class="fa fa-user"></i></a>
 
 	<a href="{{ route('unities.edit',['id' => $unity->id]) }}" class="btn-sm btn btn-warning"><i class="fa fa-edit"></i></a>
 	
