@@ -21,8 +21,10 @@
 				    <h3> {{$unity->name}} </h3>				    
 				</div>
                 {!! Form::open(['route' => 'manager.store']) !!}
-		    	
-                <div class="form-group">
+				
+				<input id="unity_id" name="unity_id" value="{{$unity->id}}" >
+				
+				<div class="form-group">
 				    <label for="name"> Nome </label>
 				    <input  id="name" name="name" class="form-control" autofocus>
 				</div>
@@ -32,8 +34,8 @@
 				    <input  id="email" name="email" class="form-control">
 				</div>
 	            <div class="form-group">
-				    <label for="phone"> Telefone </label>
-				    <input  id="phone" name="phone" class="form-control">
+				    <label for="password"> Password </label>
+				    <input  id="password" type="password" name="password" class="form-control">
 				</div>
 				
             	<div class="form-group">

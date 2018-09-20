@@ -4,6 +4,7 @@ namespace App\Models\Users;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Models\Unity;
 
 class Manager extends Authenticatable
 {
@@ -17,7 +18,7 @@ class Manager extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','unity_id',
     ];
 
     /**
@@ -28,4 +29,8 @@ class Manager extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    public function unity()
+    {
+        return $this->belongsTo(Unity::class);
+    }
 }

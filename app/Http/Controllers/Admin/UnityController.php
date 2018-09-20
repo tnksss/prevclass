@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Unity;
 use App\Models\City;
+use App\Models\Users\Manager;
 
 class UnityController extends Controller
 {
@@ -38,8 +39,17 @@ class UnityController extends Controller
         $this->validate($request,[
             'name' => 'required|between:2,100',
             'email' => 'required',
-            'password' => 'required|min:6'
+            'password' => 'required|min:6',
+            'unity_id' => 'required'
         ]);
+        $fields = $request->only('name', 'email', 'password', 'unity_id');
+
+        $fields['password'] = bcrypt($fields['password']);
+
+        (new Manager($fields))->save();
+        return redirect()
+            ->route('unities.index')
+            ->with('success', 'Secretário adicionado com sucesso');
     }
 
     public function store(Request $request)
