@@ -33,7 +33,7 @@
           </a>
         </li>
         <li>
-          <a href="pages/widgets.html">
+        <a href="{{route('managers')}}">
             <i class="fa fa-users"></i> <span>Secretários</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green">new</small>
