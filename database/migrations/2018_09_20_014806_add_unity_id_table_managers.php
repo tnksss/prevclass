@@ -14,8 +14,8 @@ class AddUnityIdTableManagers extends Migration
     public function up()
     {
         Schema::table('managers', function (Blueprint $table) {
-            $table->integer('unity_id')->unsigned();
-            $table->foreign('unity_id')->references('id')->on('unities');
+            // $table->integer('unity_id')->unsigned();
+            // $table->foreign('unity_id')->references('id')->on('unities');
         });
     }
 
@@ -27,7 +27,7 @@ class AddUnityIdTableManagers extends Migration
     public function down()
     {
         Schema::table('managers', function (Blueprint $table) {
-            $table->dropColumn('unity_id');
+            // $table->dropColumn('unity_id');
         });
     }
 }

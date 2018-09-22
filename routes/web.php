@@ -32,6 +32,8 @@ Route::prefix('admin')->group(function(){
     Route::post('/unities/managers','Admin\UnityController@managerStore')->name('manager.store');    
     Route::get('/managers', 'Admin\AdminController@managers')->name('managers');
 
+    Route::get('/unities/{unity}/add_school_year','Admin\UnityController@addSchoolYear')->name('unities.schoolYear');
+    Route::post('/unities/school_years','Admin\UnityController@schoolYearStore')->name('schoolYear.store');
 });
 
 Route::prefix('manager')->group(function(){
@@ -39,6 +41,12 @@ Route::prefix('manager')->group(function(){
     Route::post('/login', 'Auth\Manager\LoginController@login')->name('manager.login.submit');
     Route::get('/', 'Manager\ManagerController@index')->name('manager.home');
     Route::get('/logout', 'Auth\Manager\LoginController@logout')->name('manager.logout');
-    // Route::resource('unities', 'Manager\UnityController');
+    Route::resource('unities', 'Manager\UnityController')->only([
+        'show','edit','update'
+    ])->names([
+        'show' => 'manager.unity.show',
+        'edit'=> 'manager.unity.edit',
+        'update'=> 'manager.unity.update'
+    ]);
 
 });

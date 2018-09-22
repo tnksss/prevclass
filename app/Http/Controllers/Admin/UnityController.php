@@ -119,4 +119,12 @@ class UnityController extends Controller
             ->route('unities.index')
             ->with('success', 'Unidade deletada com sucesso.');
     }
+    public function addSchoolYear($id)
+    {
+        $unity = Unity::find($id);
+        return view('admin.unity.add_school_year', [
+            'unity' => $unity
+        ]);
+
+    }
 }

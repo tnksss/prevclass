@@ -8,7 +8,7 @@
           <img src="{{URL::asset('/images/profile.jpg')}}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>{{Auth::guard()->user()->name}}</p>
+          <p>{{Auth::guard('manager')->user()->name}}</p>
           <p>Secretário</p>
         </div>
       </div>
@@ -18,14 +18,15 @@
         <li class="header">MAIN NAVIGATION</li>
       
         <li class="treeview">
-          <a href="#">
+        <a href="{{ route('manager.home') }}">
+        
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
 
           </a>
           
         </li>
         <li>
-        <a href="#">
+        <a href="{{ route('manager.unity.show',['id' => Auth::guard('manager')->user()->id]) }}">
             <i class="fa fa-university"></i> <span>Meu Colégio</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green">new</small>

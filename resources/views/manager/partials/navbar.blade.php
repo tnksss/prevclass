@@ -24,7 +24,7 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="{{asset('images/profile.jpg')}}" class="user-image" alt="User Image">
-            <span class="hidden-xs">{{Auth::guard()->user()->name}}</span>
+            <span class="hidden-xs">{{Auth::guard('manager')->user()->name}}</span>
             </a>
          
           </li>

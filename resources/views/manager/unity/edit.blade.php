@@ -16,8 +16,7 @@
 <div class=" container-fluid col-md-12 ">
 <div class="box box-warning ">
     <div class="box-header with-border">
-        <h3 class="box-title"><h3 class="box-title"><p><strong>Município:</strong> {{$unity->city->name}}</p>
-            <p><strong>Nome da Unidade:</strong> {{$unity->name}}</p></h3></h3>
+        <h3 class="box-title">Formulário de Edição de Cadastro</h3>
     </div>
     <div class="box-body">
 	{!! Form::open(['route' => ['unities.update', $unity->id], 'method' => 'patch']) !!} 
@@ -26,23 +25,14 @@
 				    <label for="name"> Nome da Unidade </label>
 				    <input  id="name" name="name" class="form-control" value="{{ old('name') ?? $unity->name ?? null }}" autofocus>
 				</div>
-				<div class="row">
-					<div class="col-md-8">
-							<div class="form-group">
-									<label for="address"> Endereço </label>
-									<input  id="address" name="address" class="form-control" value="{{ old('address') ?? $unity->address ?? null }}">
-								</div>
-
-					</div>
-					<div class="col-md-4">
-							<div class="form-group">
-									<label for="number"> Número </label>
-									<input  id="number" name="number" class="form-control" value="{{ old('number') ?? $unity->number ?? null}}">
-								</div>
-					</div>
+                <div class="form-group">
+				    <label for="address"> Endereço </label>
+				    <input  id="address" name="address" class="form-control" value="{{ old('address') ?? $unity->address ?? null }}">
 				</div>
-                
-                
+                <div class="form-group">
+				    <label for="number"> Número </label>
+				    <input  id="number" name="number" class="form-control" value="{{ old('number') ?? $unity->number ?? null}}">
+				</div>
 				<div class="form-group">
     				<label for="city_id">Município</label>
     				<select name="city_id" class="form-control">

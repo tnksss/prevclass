@@ -9,41 +9,7 @@ use App\Models\City;
 
 class UnityController extends Controller
 {
-    public function index(){
-
-        $unities = Unity::all();
-        return view('admin.unity.index',compact('unities'));
-    }
-
-    public function create()
-    {
-        
-        $cities = City::all();
-        return view('admin.unity.create', [
-            'unity' => new Unity(),
-            'cities' => $cities
-        ]);
-    }
-    public function store(Request $request)
-    {
-        $this->validate($request, [
-            'name' => 'required|between:2,100',
-            'address' => 'required|between:2,200',
-            'city_id',
-            'number',
-            'phone' => 'required',
-            'email' => 'required',
-
-        ]);
-
-        $fields = $request->only('name', 'address','number','phone','email','city_id');
-        (new Unity($fields))->save();
-
-        return redirect()
-            ->route('unities.index')
-            ->with('success', 'Unidade criada cadastrado com sucesso');
-    }
-
+    
     public function edit($id)
     {
         $cities = City::all();
@@ -79,16 +45,9 @@ class UnityController extends Controller
         
         // $employees = Employee::orderBy('id')->paginate(5);
         
-        return view('admin.unity.show', [
+        return view('manager.unity.show', [
             'unity' => $unity
         ]);
     }
-    public function destroy($id)
-    {
-        
-        Department::destroy($id);
-        return redirect()
-            ->route('unities.index')
-            ->with('success', 'Unidade deletada com sucesso.');
-    }
+    
 }
