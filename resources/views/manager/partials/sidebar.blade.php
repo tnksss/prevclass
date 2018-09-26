@@ -29,7 +29,16 @@
         <a href="{{ route('manager.unity.show',['id' => Auth::guard('manager')->user()->id]) }}">
             <i class="fa fa-university"></i> <span>Meu Colégio</span>
             <span class="pull-right-container">
-              <small class="label pull-right bg-green">new</small>
+              <small class="label pull-right bg-green">ok</small>
+            </span>
+          </a>
+        </li>
+        
+        <li>
+        <a href="{{route ('school-years',['id' => Auth::guard('manager')->user()->unity->id])}}">
+            <i class="fa fa-calendar"></i> <span>Ano Letivo</span>
+            <span class="pull-right-container">
+              <small class="label pull-right bg-green">ok</small>
             </span>
           </a>
         </li>
@@ -37,7 +46,39 @@
           <a href="pages/widgets.html">
             <i class="fa fa-users"></i> <span>Professores</span>
             <span class="pull-right-container">
-              <small class="label pull-right bg-green">new</small>
+              <small class="label pull-right bg-red">nop</small>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="pages/widgets.html">
+            <i class="fa fa-users"></i> <span>Turmas</span>
+            <span class="pull-right-container">
+              <small class="label pull-right bg-red">nop</small>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="pages/widgets.html">
+            <i class="fa fa-users"></i> <span>Professores / Turmas</span>
+            <span class="pull-right-container">
+              <small class="label pull-right bg-red">nop</small>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="pages/widgets.html">
+            <i class="fa fa-users"></i> <span>Alunos</span>
+            <span class="pull-right-container">
+              <small class="label pull-right bg-red">nop</small>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="pages/widgets.html">
+            <i class="fa fa-users"></i> <span>Matrículas</span>
+            <span class="pull-right-container">
+              <small class="label pull-right bg-red">nop</small>
             </span>
           </a>
         </li>

@@ -32,8 +32,8 @@ Route::prefix('admin')->group(function(){
     Route::post('/unities/managers','Admin\UnityController@managerStore')->name('manager.store');    
     Route::get('/managers', 'Admin\AdminController@managers')->name('managers');
 
-    Route::get('/unities/{unity}/add_school_year','Admin\UnityController@addSchoolYear')->name('unities.schoolYear');
-    Route::post('/unities/school_years','Admin\UnityController@schoolYearStore')->name('schoolYear.store');
+    // Route::get('/unities/{unity}/add_school_year','Admin\UnityController@addSchoolYear')->name('unities.schoolYear');
+    // Route::post('/unities/school_years','Admin\UnityController@storeSchoolYear')->name('schoolYear.store');
 });
 
 Route::prefix('manager')->group(function(){
@@ -48,5 +48,8 @@ Route::prefix('manager')->group(function(){
         'edit'=> 'manager.unity.edit',
         'update'=> 'manager.unity.update'
     ]);
+    Route::get('/unities/{unity}/school_years','Manager\UnityController@schoolYears')->name('school-years');
+    Route::get('/unities/{unity}/add_school_year','Manager\UnityController@addSchoolYear')->name('school-year.create');
+    Route::post('/unities/school_years','Manager\UnityController@storeSchoolYear')->name('school-year.store');
 
 });

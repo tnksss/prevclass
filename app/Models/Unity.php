@@ -18,4 +18,8 @@ class Unity extends Model
     {
         return $this->hasOne(Users\Manager::class);
     }
+    public function schoolYears()
+    {
+        return $this->hasMany(SchoolYear::class);
+    }
 }

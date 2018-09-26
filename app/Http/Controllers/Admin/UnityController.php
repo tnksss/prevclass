@@ -114,7 +114,7 @@ class UnityController extends Controller
     public function destroy($id)
     {
         
-        Department::destroy($id);
+        Unity::destroy($id);
         return redirect()
             ->route('unities.index')
             ->with('success', 'Unidade deletada com sucesso.');
@@ -125,6 +125,12 @@ class UnityController extends Controller
         return view('admin.unity.add_school_year', [
             'unity' => $unity
         ]);
-
+    }
+    public function storeSchoolYear(Request $request)
+    {
+        $this->validate($request,[
+            'year','status']);
+        
+        
     }
 }

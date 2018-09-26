@@ -22,17 +22,22 @@
 				</div>
                 {!! Form::open(['route' => 'schoolYear.store']) !!}
 				
-				<input id="unity_id" name="unity_id" value="{{$unity->id}}" >
+				<input id="unity_id" name="unity_id" type="hidden" value="{{$unity->id}}" >
+				
+				  
+
+
 				
 				<div class="form-group">
-				    <label for="year"> Ano </label>
-				    <input  id="year" name="year" class="form-control" autofocus>
+					<p><label for="year"> Ano </label></p>
+					{{ Form::selectRange('year', 2018,2010	) }}
 				</div>
-                
-                <div class="form-group">
-				    <label for="status"> Status </label>
-				    <input  id="status" name="status" class="form-control">
-				</div>
+             	<div class="form-group">
+				<p>{{ Form::label('status', 'Status') }}</p>
+				{{ Form::radio('status', '1') }} Aberto   
+				{{ Form::radio('status', '0') }} Fechado
+			</div>  
+				
             	<div class="form-group">
 					<input type="submit" class="btn btn-primary" value="Salvar">
 

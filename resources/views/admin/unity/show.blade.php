@@ -1,7 +1,5 @@
 @extends('admin.layout.app')
 
-
-
 @section('content_header')
 <h1>Unidade</h1>
 <ol class="breadcrumb">
@@ -48,7 +46,7 @@
     
     <div class="box box-info">
             <div class="box-header">
-              <h3 class="box-title">Secretários</h3>
+              <h3 class="box-title">Secretário</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body no-padding">
