@@ -105,7 +105,7 @@ class UnityController extends Controller
             
         $unity = Unity::find($id);
         
-        // $employees = Employee::orderBy('id')->paginate(5);
+        
         
         return view('admin.unity.show', [
             'unity' => $unity
@@ -119,18 +119,5 @@ class UnityController extends Controller
             ->route('unities.index')
             ->with('success', 'Unidade deletada com sucesso.');
     }
-    public function addSchoolYear($id)
-    {
-        $unity = Unity::find($id);
-        return view('admin.unity.add_school_year', [
-            'unity' => $unity
-        ]);
-    }
-    public function storeSchoolYear(Request $request)
-    {
-        $this->validate($request,[
-            'year','status']);
-        
-        
-    }
+    
 }

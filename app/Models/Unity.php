@@ -14,9 +14,9 @@ class Unity extends Model
     {
         return $this->belongsTo(City::class);
     }   
-    public function manager()
+    public function managers()
     {
-        return $this->hasOne(Users\Manager::class);
+        return $this->hasMany(Users\Manager::class);
     }
     public function schoolYears()
     {

@@ -46,8 +46,9 @@
     
     <div class="box box-info">
             <div class="box-header">
-              <h3 class="box-title">Secretário</h3>
+              <h3 class="box-title">Secretários</h3>
             </div>
+
             <!-- /.box-header -->
             <div class="box-body no-padding">
               <table class="table table-striped">
@@ -58,13 +59,17 @@
                   <th>CPF</th>
                   <th>Email</th>
                 </tr>
+                
+                @foreach($unity->managers as $manager)
                 <tr>
-                  <td>{{$unity->manager->id}}</td>
-                  <td>{{$unity->manager->name}}</td>
+                
+                  <td>{{$manager->id}}</td>
+                  <td>{{$manager->name}}</td>
                   <td>999999-9</td>
                   <td>444444444-44</td>
-                 <td>{{$unity->manager->email}}</td>
+                 <td>{{$manager->email}}</td>
                 </tr>
+                @endforeach
               </tbody></table>
             </div>
             <!-- /.box-body -->
