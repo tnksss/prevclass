@@ -52,5 +52,6 @@ Route::prefix('manager')->group(function(){
     Route::get('/unities/{unity}/school_years','Manager\UnityController@schoolYears')->name('school-years');
     Route::get('/unities/{unity}/add_school_year','Manager\UnityController@addSchoolYear')->name('school-year.create');
     Route::post('/unities/school_years','Manager\UnityController@storeSchoolYear')->name('school-year.store');
+    Route::resource('grades', 'Manager\GradeController');
 
 });

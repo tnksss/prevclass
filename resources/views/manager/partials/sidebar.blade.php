@@ -51,10 +51,10 @@
           </a>
         </li>
         <li>
-          <a href="pages/widgets.html">
+        <a href="{{route('grades.index')}}">
             <i class="fa fa-users"></i> <span>Turmas</span>
             <span class="pull-right-container">
-              <small class="label pull-right bg-red">nop</small>
+              <small class="label pull-right bg-yellow">nop</small>
             </span>
           </a>
         </li>
