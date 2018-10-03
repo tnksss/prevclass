@@ -16,6 +16,8 @@ class ManagersTableSeeder extends Seeder
             'name'      => 'Fernanda Malage',
             'email'     => 'manager@teste.com',
             'password'  => bcrypt('abc123'),
+    
         ]);
+    
     }
 }

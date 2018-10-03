@@ -44,7 +44,6 @@ class UnityController extends Controller
             
         $unity = Unity::find($id);
         
-        // $employees = Employee::orderBy('id')->paginate(5);
         
         return view('manager.unity.show', [
             'unity' => $unity
