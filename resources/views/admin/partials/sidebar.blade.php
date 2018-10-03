@@ -48,9 +48,8 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> Cursos</a></li>
-              <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Turmas</a></li>
-            <li><a href="{{route('disciplines.index')}}"><i class="fa fa-circle-o"></i> Disciplinas</a></li>
+              <li><a href="{{route('courses.index')}}"><i class="fa fa-circle-o"></i> Cursos</a></li>
+              <li><a href="{{route('disciplines.index')}}"><i class="fa fa-circle-o"></i> Disciplinas</a></li>
             </ul>
           </li>
         <li class="treeview">

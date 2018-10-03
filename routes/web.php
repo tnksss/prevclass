@@ -34,6 +34,7 @@ Route::prefix('admin')->group(function(){
 
     Route::get('/unities/{unity}/add_school_year','Admin\UnityController@addSchoolYear')->name('unities.schoolYear');
     Route::resource('disciplines', 'Admin\DisciplineController')->except(['show']);
+    Route::resource('courses', 'Admin\CourseController')->except(['show']);
 });
 
 Route::prefix('manager')->group(function(){
