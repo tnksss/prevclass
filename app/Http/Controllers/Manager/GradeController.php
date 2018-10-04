@@ -45,8 +45,16 @@ class GradeController extends Controller
 
     public function edit($id)
     {
+        $shifts = collect([ 1 => 'Manhã',
+                        2 => 'Intermediário-Manhã',
+						3 => 'Tarde',
+						4 => 'Intermediário-Tarde',
+                        5 => 'Noite']);
+                        dd($shifts);
         return view('manager.grades.edit', [
-            'grade' => Grade::find($id)
+            'grade' => Grade::find($id),
+            'courses' => Course::all(),
+            'shifts' => $shifts
         ]);
     }
 

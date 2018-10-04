@@ -12,15 +12,13 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-$this->call('CidadesParanaSeeder');
 
-       // $this->call('UnitiesTableSeeder');
-        //$this->call('UsersTableSeeder');        
-        //$this->call('ManagersTableSeeder');        
-
-         //$this->call('AdminsTableSeeder');        
-        // $this->call('ShiftsTableSeeder');
-    //   $this->call('DisciplinesTableSeeder');
+        $this->call('AdminsTableSeeder');        
+        $this->call('CidadesParanaSeeder');
+        $this->call('UnitiesTableSeeder');
+        $this->call('ManagersTableSeeder');
+        $this->call('DisciplinesTableSeeder');
+        $this->call('CoursesTableSeeder');
 
 
     }

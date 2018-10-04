@@ -47,8 +47,8 @@ class CourseController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'name' => 'required|between:2,100',
-            'code' => 'required|betwwen:2,10',
+            'name' => 'required',
+            'code' => 'required',
         ]);
 
         $fields = $request->only('name', 'code');

@@ -16,6 +16,14 @@ class ManagersTableSeeder extends Seeder
             'name'      => 'Fernanda Malage',
             'email'     => 'manager@teste.com',
             'password'  => bcrypt('abc123'),
+            'unity_id'  => 1,
+    
+        ]);
+        Manager::create([
+            'name'      => 'Lara Sophie Barbosa',
+            'email'     => 'laras@teste.com',
+            'password'  => bcrypt('abc123'),
+            'unity_id'  => 2,
     
         ]);
     
