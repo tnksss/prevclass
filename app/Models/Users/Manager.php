@@ -18,7 +18,7 @@ class Manager extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','unity_id',
+        'name', 'email', 'password','unity_id','avatar',
     ];
 
     /**

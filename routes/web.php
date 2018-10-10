@@ -53,5 +53,7 @@ Route::prefix('manager')->group(function(){
     Route::get('/unities/{unity}/add_school_year','Manager\UnityController@addSchoolYear')->name('school-year.create');
     Route::post('/unities/school_years','Manager\UnityController@storeSchoolYear')->name('school-year.store');
     Route::resource('grades', 'Manager\GradeController');
+    Route::get('profile','Manager\ManagerController@profile')->name('manager.profile');
+    Route::patch('profile','Manager\ManagerController@profileUpdate')->name('manager-profile.update');
 
 });
