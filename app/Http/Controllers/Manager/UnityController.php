@@ -7,9 +7,14 @@ use App\Http\Controllers\Controller;
 use App\Models\Unity;
 use App\Models\City;
 use App\Models\SchoolYear;
+use Auth;
 
 class UnityController extends Controller
 {
+    public function __construct()
+    {
+        $manager = Auth::guard('manager')->user();
+    }
     
     public function edit($id)
     {
@@ -52,7 +57,7 @@ class UnityController extends Controller
     public function schoolYears($id)
     {
         $unity = Unity::find($id);
-        return view('manager.school-year.index', compact('unity'));
+        return view('manager.school-year.index', compact(['unity','manager']));
     }
 
     public function addSchoolYear($id)

@@ -12,7 +12,7 @@
 
 @section('content')
 <div class="col-xs-12">
-          <div class="box">
+          <div class="box box-info">
             <div class="box-header">
               <a href="{{ route('disciplines.create') }}" class="btn btn-primary"><i class="fa fa-plus-circle"></i> <strong>Cadastrar Disciplina</strong></a>       
               
@@ -31,8 +31,8 @@
               <table class="table table-hover">
                 <tbody><tr>
                   <th>ID</th>
-                  <th>Nome</th>
                   <th>Código</th>
+                  <th>Disciplina</th>
                   <th>Ações</th>
                 </tr>
                 
@@ -47,9 +47,11 @@
                       </td>
                   </tr>
                 @endforeach    
+                
 
 
               </tbody></table>
+              {!! $disciplines->links() !!}
             </div>
             <!-- /.box-body -->
           </div>

@@ -11,7 +11,7 @@ class GradeController extends Controller
 {
     public function index(){
 
-        $grades = Grade::all();
+        $grades = Grade::all()->paginate(10);
         return view('manager.grades.index',compact('grades'));
     }
 

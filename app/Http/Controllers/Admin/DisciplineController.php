@@ -10,7 +10,8 @@ class DisciplineController extends Controller
 {
     public function index(){
 
-        $disciplines = Discipline::all();
+        $disciplines = Discipline::orderBy('code')->paginate(5);
+                                    
         return view('admin.discipline.index',compact('disciplines'));
     }
 

@@ -48,7 +48,7 @@
                   </tr>
                 @endforeach    
 
-
+                  {!!$courses->links()!!}
               </tbody></table>
             </div>
             <!-- /.box-body -->
