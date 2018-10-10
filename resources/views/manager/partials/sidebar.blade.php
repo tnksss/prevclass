@@ -5,7 +5,7 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="{{url('storage/managers/'.$manager->avatar)}}" class="img-circle" alt="User Image">
+          <img src="{{url('storage/managers/'.Auth::guard('manager')->user()->avatar)}}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>{{Auth::guard('manager')->user()->name}}</p>
@@ -60,17 +60,17 @@
         </li>
         <li>
           <a href="pages/widgets.html">
-            <i class="fa fa-users"></i> <span>Professores / Turmas</span>
+            <i class="fa fa-users"></i> <span>Suprimento</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-red">nop</small>
             </span>
           </a>
         </li>
         <li>
-          <a href="pages/widgets.html">
+        <a href="{{route('students.index')}}">
             <i class="fa fa-users"></i> <span>Alunos</span>
             <span class="pull-right-container">
-              <small class="label pull-right bg-red">nop</small>
+              <small class="label pull-right bg-yellow">+ ou -</small>
             </span>
           </a>
         </li>
