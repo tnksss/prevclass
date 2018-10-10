@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Discipline extends Model
 {
-    protected $fillable = ['name', 'code'];
+    protected $fillable = ['name', 'code','avatar'];
     protected $guarded = ['id', 'created_at', 'update_at'];	
 }

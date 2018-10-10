@@ -55,5 +55,6 @@ Route::prefix('manager')->group(function(){
     Route::resource('grades', 'Manager\GradeController');
     Route::get('profile','Manager\ManagerController@profile')->name('manager.profile');
     Route::patch('profile','Manager\ManagerController@profileUpdate')->name('manager-profile.update');
+    Route::resource('students', 'Manager\StudentController');
 
 });
