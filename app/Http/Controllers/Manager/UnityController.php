@@ -13,7 +13,7 @@ class UnityController extends Controller
 {
     public function __construct()
     {
-        $manager = Auth::guard('manager')->user();
+        $this->middleware('auth:manager');
     }
     
     public function edit($id)

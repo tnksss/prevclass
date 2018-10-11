@@ -8,6 +8,11 @@ use App\Models\Discipline;
 
 class DisciplineController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
+    
     public function index(){
 
         $disciplines = Discipline::orderBy('code')->paginate(5);

@@ -8,6 +8,10 @@ use App\Models\Course;
 
 class CourseController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
     public function index(){
 
         $courses = Course::orderBy('code')->paginate(5);

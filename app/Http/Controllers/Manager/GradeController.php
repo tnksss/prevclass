@@ -11,7 +11,7 @@ class GradeController extends Controller
 {
     public function index(){
 
-        $grades = Grade::all()->paginate(10);
+        $grades = Grade::orderBy('name')->paginate(10);
         return view('manager.grades.index',compact('grades'));
     }
 
@@ -84,5 +84,4 @@ class GradeController extends Controller
             ->route('grades.index')
             ->with('success', 'Turma deletada com sucesso.');
     }
-
 }
