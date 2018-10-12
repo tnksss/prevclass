@@ -20,7 +20,7 @@ class CoursesTableSeeder extends Seeder
             'Espanhol - BÁSICO' => '7002',
         ]);
 
-        $courses->each(function ($name,$code){
+        $courses->each(function ($code,$name){
             Course::create([
                 'name'      => $name,
                 'code'      => $code,    

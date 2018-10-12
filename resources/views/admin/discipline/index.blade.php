@@ -40,8 +40,8 @@
                   <tr>
                       
                       <td>{{ $discipline->id }}</td>
-                      <td>{{ $discipline->name }}</td>
                       <td>{{ $discipline->code }}</td>
+                      <td>{{ $discipline->name }}</td>
                       <td>
                         @include('admin.partials.discipline_buttons')
                       </td>

@@ -32,12 +32,6 @@
 					</select>
 					</div>
 				</div>
-				<div class="col-md-4">
-					<div class="form-group">
-						<label for="name"> Nome da Turma </label>
-					<input  id="name" name="name" class="form-control" value="{{old('name') ?? $grade->name ?? null }}">
-					</div>
-				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-4">
@@ -50,10 +44,10 @@
 					<div class="form-group">
 						<label for="shift">Turno</label>
 						<select name="shift" id="shift">
-							<option value=""> ----- </option>
+	
 							
 							@foreach($shifts as $key => $value):
-								{{'<option value="'.$key.'">'.$value.'</option>'}}
+								{!!'<option value="'.$key.'">'.$value.'</option>'!!}
 							@endforeach
 						</select>
 						

@@ -29,12 +29,6 @@
 					</select>
 				</div>
 			</div>
-			<div class="col-md-4">
-				<div class="form-group">
-					<label for="name"> Nome da Turma </label>
-					<input  id="name" name="name" class="form-control" value="" autofocus>
-				</div>
-			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-4">

@@ -27,9 +27,51 @@
               </div>
             </div>
             <!-- /.box-header -->
-            <div class="box-body table-responsive no-padding">
+            
+            @foreach($courses as $course)
+            
+            <div class="box">
+                <div class="box-header with-border">
+                <h3 class="box-title"><strong>{{$course->name}}</strong></h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                  <table class="table table-bordered">
+                    <tbody><tr>
+                      <th>Nome</th>
+                      <th>Ano/Série</th>                
+                      <th>Turno</th>
+                      <th>Turma</th>
+                      <th>Ações</th>
+                    </tr>
+                    @foreach($course->grades()->orderBy('name')
+                                            ->orderBy('degree')
+                                            ->orderBy('shift')
+                                            ->orderBy('order')->get() as $grade)
+                    
+                    <tr>
+                        <td>{{ $grade->name }}</td>
+                        <td>{{ $grade->degree }}</td>
+                        <td>{{ $grade->shift }}</td>
+                        <td>{{ $grade->order }}</td>
+                        <td>
+                            @include('manager.partials.grade_buttons')
+                        </td>
+                    </tr>
+                    
+                    @endforeach
+                    
+                  </tbody></table>
+                </div>
+                
+                
+              </div>
+            
+              @endforeach
+            {{-- <div class="box-body table-responsive no-padding">
               <table class="table table-hover">
-                <tbody><tr>
+                <tbody>
+                <tr>
                   <th>ID</th>
                   <th>Curso</th>
                   <th>Nome</th>
@@ -55,7 +97,7 @@
                 @endforeach    
 
 
-              </tbody></table>
+              </tbody></table> --}}
             </div>
             <!-- /.box-body -->
           </div>

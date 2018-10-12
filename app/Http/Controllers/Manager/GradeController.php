@@ -9,10 +9,17 @@ use App\Models\Course;
 
 class GradeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:manager');
+    }
+    
     public function index(){
 
-        $grades = Grade::orderBy('name')->paginate(10);
-        return view('manager.grades.index',compact('grades'));
+        $courses = Course::has('grades')->orderBy('name')
+                                        ->get();
+
+        return view('manager.grades.index',compact('courses'));
     }
 
     public function create()
@@ -28,14 +35,17 @@ class GradeController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|between:2,100',
             'degree' => 'required|between:2,10',
             'shift',
             'order' => 'required',
             'course_id' => 'required',
         ]);
 
-        $fields = $request->only('name', 'degree','shift','order','course_id');
+        $fields = $request->only('degree','shift','order','course_id');
+
+        $course = Course::find($fields['course_id'])->code;
+        $grade = substr($request['degree'],0,1);
+        $fields['name'] = "{$course}{$grade}{$fields['shift']}{$fields['order']}";
         (new Grade($fields))->save();
 
         return redirect()
@@ -50,7 +60,7 @@ class GradeController extends Controller
 						3 => 'Tarde',
 						4 => 'Intermediário-Tarde',
                         5 => 'Noite']);
-                        dd($shifts);
+                        
         return view('manager.grades.edit', [
             'grade' => Grade::find($id),
             'courses' => Course::all(),
@@ -61,14 +71,18 @@ class GradeController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'name' => 'required|between:2,100',
             'degree' => 'required|between:2,10',
             'shift' => 'required',
             'order' => 'required',
             'course_id' => 'required',
         ]);
 
-        $fields = $request->only('name', 'degree','shift','order','course_id');
+        $fields = $request->only('degree','shift','order','course_id');
+        
+        $course = Course::find($fields['course_id'])->code;
+        $grade = substr($request['degree'],0,1);
+        $fields['name'] = "{$course}{$grade}{$fields['shift']}{$fields['order']}";
+
         Grade::find($id)->fill($fields)->save();
 
         return redirect()

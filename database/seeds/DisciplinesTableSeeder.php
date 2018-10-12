@@ -31,7 +31,7 @@ class DisciplinesTableSeeder extends Seeder
 
         ]);
 
-        $disciplines->each(function ($name,$code){
+        $disciplines->each(function ($code,$name){
             Discipline::create([
                 'name'      => $name,
                 'code'      => $code,    
