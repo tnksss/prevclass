@@ -12,10 +12,10 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        // User::create([
-        //     'name'      => 'Usuário',
-        //     'email'     => 'user@teste.com',
-        //     'password'  => bcrypt('abc123'),
-        // ]);   
+        User::create([
+            'name'      => 'Usuário',
+            'email'     => 'user@teste.com',
+            'password'  => bcrypt('abc123'),
+        ]);   
      }
 }

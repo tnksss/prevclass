@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Unity;
 use App\Models\City;
 use App\Models\SchoolYear;
+use App\Models\Discipline;
+use App\Models\Supply;
+use App\Models\Users\User;
 use Auth;
 
 class UnityController extends Controller
@@ -82,5 +85,45 @@ class UnityController extends Controller
             ->route('school-years',$fields['unity_id'])
             ->with('success', 'Ano Letivo adicionado com sucesso');
     }
+    public function supplies()
+    {
+        $unity = Auth::guard('manager')->user()->unity;
+        $supplies = $unity->supplies;
+        return view('manager.unity.supply.show', 
+            compact(['unity','supplies'])
+        );
+    }
+    public function createSupply()
+    {
+        $unity = Auth::guard('manager')->user()->unity;
+        $teachers = User::all();
+        $disciplines = Discipline::all();
+        return view('manager.unity.supply.create', 
+            compact(['unity',
+                     'teachers',
+                     'disciplines'])
+        );
+        $fields = $request->only('user_id','discipline_id');
+    }
+    public function storeSupply(Request $request, Unity $unity)
+    {
+        $this->validate($request,[
+            'user_id' => 'required',
+            'discipline_id' => 'required'
+        ]);
+        $fields = $request->only('user_id','discipline_id');
+        $fields['unity_id'] = $unity->id;
+
+        dd($unity->id);
+        if((new Supply($fields))->save())
+            return redirect()
+                ->route('supplies.show')
+                ->with('success','Suprimento adicionado com sucesso');
+        
+        return redirect()
+            ->back()
+            ->with('error','reveja os campos');
+    }
+
     
 }

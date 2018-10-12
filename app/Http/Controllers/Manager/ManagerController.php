@@ -29,13 +29,13 @@ class ManagerController extends Controller
         $manager = Auth::guard('manager')->user();
         return view('manager.home',compact('manager'));
     }
+    
     public function profile()
     {
         $manager = Auth::guard('manager')->user();
         return view('manager.profile', compact('manager'));
     }
-    
-    
+        
     public function profileUpdate(Request $request)
     {
         $manager = Auth::guard('manager')->user();
@@ -46,8 +46,6 @@ class ManagerController extends Controller
         else
             unset($data['password']);
 
-        
-        
         $data['avatar'] = $manager->avatar;
         if ($request->hasFile('avatar') && $request->file('avatar')->isValid())
         {               
@@ -71,23 +69,5 @@ class ManagerController extends Controller
         return redirect()
                         ->back()
                         ->with('error', 'Falhou ao atualizar o perfil');
-        
-        
-
-
-        // $request->validate([
-        //     'avatar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        // ]);
-
-        // $avatarName = 
-        
-
-        
-        
-
-
-         
-        
-        
     }
 }

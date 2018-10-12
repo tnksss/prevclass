@@ -22,4 +22,17 @@ class Unity extends Model
     {
         return $this->hasMany(SchoolYear::class);
     }
+    public function suppliedTeachers()
+    {
+        return $this->hasManyThrough(Users\User::class, Supply::class);
+    }
+    public function teachers()
+    {
+        return $this->hasMany(Users\User::class);
+    }
+    
+    public function supplies()
+    {
+        return $this->hasMany(Supply::class);
+    }
 }

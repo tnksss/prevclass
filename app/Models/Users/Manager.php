@@ -29,7 +29,7 @@ class Manager extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-    public function unity()
+    public function unity() 
     {
         return $this->belongsTo(Unity::class);
     }

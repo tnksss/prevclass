@@ -56,4 +56,7 @@ Route::prefix('manager')->group(function(){
     Route::get('profile','Manager\ManagerController@profile')->name('manager.profile');
     Route::patch('profile','Manager\ManagerController@profileUpdate')->name('manager-profile.update');
     Route::resource('students', 'Manager\StudentController');
+    Route::get('supplies','Manager\UnityController@supplies')->name('supplies.show');
+    Route::get('supplies/create','Manager\UnityController@createSupply')->name('supplies.create');
+    Route::post('supplies','Manager\UnityController@storeSupply')->name('supplies.store');
 });

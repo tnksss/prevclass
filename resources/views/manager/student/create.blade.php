@@ -21,7 +21,7 @@
 			<div class="row">
 				<div class="col-md-8">
 					<div class="form-group">
-						<label for="name"> Nome da Aluno </label>
+						<label for="name"> Nome do Aluno </label>
 						<input  id="name" name="name" class="form-control" value="" autofocus>
 					</div>
 				</div>
