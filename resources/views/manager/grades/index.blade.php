@@ -52,7 +52,7 @@
                     <tr>
                         <td>{{ $grade->name }}</td>
                         <td>{{ $grade->degree }}</td>
-                        <td>{{ $grade->shift }}</td>
+                        <td>{{ $grade->shift($grade->shift) }}</td>
                         <td>{{ $grade->order }}</td>
                         <td>
                             @include('manager.partials.grade_buttons')
