@@ -14,13 +14,11 @@
 
 @section('content')
 <div class=" container-fluid col-md-12 ">
-<div class="box box-warning ">
-    <div class="box-header with-border">
-
-
-    </div>
-    <div class="box-body">
-	{!! Form::open(['route' => ['courses.update', $course->id], 'method' => 'patch']) !!} 
+	<div class="box box-warning ">
+		<div class="box-header with-border">
+		</div>
+		<div class="box-body">
+		{!! Form::open(['route' => ['courses.update', $course->id], 'method' => 'patch']) !!}
 			<div class="row">
 				<div class="col-md-8">
 		    		<div class="form-group">
@@ -37,16 +35,10 @@
 			</div>                
 			<div class="form-group">
 				<input type="submit" class="btn btn-primary" value="Salvar">
-					{!! Form::close() !!} 
-
-					<a href="{{ route('courses.index' )}}"class="btn btn-danger">Voltar</a>
-
-			</div> 
-                
-			
-				
-    </div>
-</div>
+				{!! Form::close() !!}
+				<a href="{{ route('courses.index' )}}"class="btn btn-danger">Voltar</a>
+			</div>
+    	</div>
+	</div>
 </div>
 @stop
-

@@ -70,4 +70,11 @@ class ManagerController extends Controller
                         ->back()
                         ->with('error', 'Falhou ao atualizar o perfil');
     }
+    public function myUnity()
+    {
+        $manager = Auth::guard('manager')->user();
+        $unity = $manager->unity;
+        
+        return view('manager.unity.show',compact('unity'));
+    }
 }

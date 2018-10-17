@@ -12,23 +12,29 @@ class Manager extends Authenticatable
 
     protected $guard = 'manager';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'name', 'email', 'password','unity_id','avatar',
     ];
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
+    
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    const RULES = [
+        'name' => 'required|between:3,100',
+        'email' => 'required',
+        'password' => 'required|between:6,20'
+
+    ];
+
+    const MESSAGES = [
+        'required'          => 'O campo :attribute é de preenchimento obrigatório!',
+        'name.between'      => 'O campo nome deve ter entre 3 e 100 caracteres',
+        'password.between'  => 'O campo senha deve ter entre 6 e 20 caracteres',
+    
+        
+    ];
+
     public function unity() 
     {
         return $this->belongsTo(Unity::class);

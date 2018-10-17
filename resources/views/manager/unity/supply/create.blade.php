@@ -31,7 +31,7 @@
 				    <h3> {{$unity->name}} </h3>				    
                 </div>
                 
-                {!! Form::open(['route' => 'supplies.store','unity'=> $unity]) !!}
+                {!! Form::open(['route' => 'supplies.store','id'=> $unity->id, 'method'=> 'post']) !!}
 				<div class="form-group">
 					<p><label for="year"> Ano </label></p>
 					{{ Form::selectRange('year', 2018,2010	) }}

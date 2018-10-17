@@ -46,6 +46,7 @@ class GradeController extends Controller
         $course = Course::find($fields['course_id'])->code;
         $grade = substr($request['degree'],0,1);
         $fields['name'] = "{$course}{$grade}{$fields['shift']}{$fields['order']}";
+        
         (new Grade($fields))->save();
 
         return redirect()

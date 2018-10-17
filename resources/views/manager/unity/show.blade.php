@@ -3,8 +3,7 @@
 @section('content_header')
 <h1>Unidade</h1>
 <ol class="breadcrumb">
-    <li><a href="{{ route('admin.home') }}">Dashboard</a></li>
-    <li><a href="{{ route('unities.index') }}">Unidade</a></li>
+    <li><a href="{{ route('manager.home') }}">Dashboard</a></li>
     <li><a href="{{ route('unities.show',['id' => $unity->id]) }}"></a>{{$unity->name}}</a></li>
 </ol>
 <br>

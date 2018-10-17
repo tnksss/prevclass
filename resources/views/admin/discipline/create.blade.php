@@ -22,13 +22,13 @@
 				<div class="col-md-8">
 					<div class="form-group">
 						<label for="name"> Nome da Disciplina </label>
-						<input  id="name" name="name" class="form-control" value="" autofocus>
+					<input  id="name" name="name" class="form-control" value="{{old('name')}}" autofocus>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="form-group">
 						<label for="code"> Código </label>
-						<input  id="code" name="code" class="form-control">
+						<input  id="code" name="code" class="form-control" value="{{old('code')}}">
 					</div>
 				</div>
 			</div>		    	

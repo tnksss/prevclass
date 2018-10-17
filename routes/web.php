@@ -42,10 +42,11 @@ Route::prefix('manager')->group(function(){
     Route::post('/login', 'Auth\Manager\LoginController@login')->name('manager.login.submit');
     Route::get('/', 'Manager\ManagerController@index')->name('manager.home');
     Route::get('/logout', 'Auth\Manager\LoginController@logout')->name('manager.logout');
+    Route::get('/my-unity','Manager\ManagerController@myUnity')->name('manager.myUnity');
     Route::resource('unities', 'Manager\UnityController')->only([
-        'show','edit','update'
+        'edit','update'
     ])->names([
-        'show' => 'manager.unity.show',
+        
         'edit'=> 'manager.unity.edit',
         'update'=> 'manager.unity.update'
     ]);

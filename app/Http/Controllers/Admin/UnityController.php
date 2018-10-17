@@ -41,15 +41,22 @@ class UnityController extends Controller
     }
     public function managerStore(Request $request)
     {
-        $this->validate($request,[
-            'name' => 'required|between:2,100',
-            'email' => 'required',
-            'password' => 'required|min:6',
-            'unity_id' => 'required'
-        ]);
+        // $this->validate($request,[
+        //     'name' => 'required|between:2,100',
+        //     'email' => 'required',
+        //     'password' => 'required|min:6',
+        //     'unity_id' => 'required'
+        // ]);
+        
         $fields = $request->only('name', 'email', 'password', 'unity_id');
+        $validate = validator($fields, Manager::RULES, Manager::MESSAGES);
 
         $fields['password'] = bcrypt($fields['password']);
+        if ($validate->fails())
+            return redirect()
+                ->back()
+                ->withErrors($validate)
+                ->withInput();
 
         (new Manager($fields))->save();
         return redirect()

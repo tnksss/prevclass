@@ -19,9 +19,7 @@
 
     </head>
     <body class="hold-transition skin-green sidebar-mini ">
-        
         <div class="wrapper">
-    
             @include('manager.partials.navbar')        
             @include('manager.partials.sidebar')
             <div class="content-wrapper">
@@ -31,14 +29,12 @@
                 @yield('content')
             </div>
         </div>
-
-    <script src="{{ asset('js/jquery/dist/jquery.min.js') }}"></script>
-    <script src="{{ asset('js/jquery/dist/jquery.slimscroll.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/select2.min.js') }}"></script>
-    <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('js/adminlte.min.js') }}"></script>
-
+        <script src="{{ asset('js/jquery/dist/jquery.min.js') }}"></script>
+        <script src="{{ asset('js/jquery/dist/jquery.slimscroll.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('js/select2.min.js') }}"></script>
+        <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+        <script src="{{ asset('js/adminlte.min.js') }}"></script>
     </body>
 </html>
 
