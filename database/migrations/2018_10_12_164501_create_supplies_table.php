@@ -17,12 +17,8 @@ class CreateSuppliesTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->integer('discipline_id')->unsigned();
-            $table->foreign('discipline_id')->references('id')->on('disciplines');
-            $table->integer('unity_id')->unsigned();
-            $table->foreign('unity_id')->references('id')->on('unities');
-            $table->string('year');
-
+            $table->integer('grade_id')->unsigned();
+            $table->foreign('grade_id')->references('id')->on('grades');
             $table->timestamps();
         });
     }

@@ -19,6 +19,8 @@ class CreateGradesTable extends Migration
             $table->string('degree');
             $table->integer('shift');
             $table->char('order');
+            $table->year('year');
+            $table->boolean('status');
             $table->integer('course_id')->unsigned();
             $table->foreign('course_id')->references('id')->on('courses');
 

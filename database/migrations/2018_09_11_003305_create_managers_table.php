@@ -18,6 +18,11 @@ class CreateManagersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('avatar')->default('profile-default.png');
+            $table->integer('unity_id')->unsigned();
+            $table->foreign('unity_id')->references('id')
+                                        ->on('unities')
+                                        ->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
         });

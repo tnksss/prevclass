@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddUnityIdTableManagers extends Migration
+class CreateMatricesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,13 @@ class AddUnityIdTableManagers extends Migration
      */
     public function up()
     {
-        Schema::table('managers', function (Blueprint $table) {
+        Schema::create('matrices', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('course_id')->unsigned();
+            $table->foreign('course_id')->references('id')->on('courses');
             $table->integer('unity_id')->unsigned();
             $table->foreign('unity_id')->references('id')->on('unities');
+            $table->timestamps();
         });
     }
 
@@ -26,8 +30,6 @@ class AddUnityIdTableManagers extends Migration
      */
     public function down()
     {
-        Schema::table('managers', function (Blueprint $table) {
-            $table->dropColumn('unity_id');
-        });
+        Schema::dropIfExists('matrices');
     }
 }
