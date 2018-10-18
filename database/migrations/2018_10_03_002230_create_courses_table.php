@@ -17,6 +17,10 @@ class CreateCoursesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('code');
+            $table->integer('unity_id')->unsigned();
+            $table->foreign('unity_id')->references('id')
+                                       ->on('unities')
+                                       ->onDelete('cascade');
             $table->timestamps();
         });
     }

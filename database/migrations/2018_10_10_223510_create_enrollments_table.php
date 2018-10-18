@@ -16,11 +16,12 @@ class CreateEnrollmentsTable extends Migration
         Schema::create('enrollments', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('student_id')->unsigned();
-            $table->foreign('student_id')->references('id')->on('students');
+            $table->foreign('student_id')->references('id')
+                                         ->on('students');
             $table->integer('grade_id')->unsigned();
-            $table->foreign('grade_id')->references('id')->on('grades');
+            $table->foreign('grade_id')->references('id')
+                                       ->on('grades');
             $table->string('enrollmentDate');
-
             $table->timestamps();
         });
     }
@@ -32,6 +33,6 @@ class CreateEnrollmentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('registrations');
+        Schema::dropIfExists('enrollments');
     }
 }

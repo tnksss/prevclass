@@ -46,7 +46,7 @@ class UnityController extends Controller
         //     'email' => 'required',
         //     'password' => 'required|min:6',
         //     'unity_id' => 'required'
-        // ]);
+        // ]); 
         
         $fields = $request->only('name', 'email', 'password', 'unity_id');
         $validate = validator($fields, Manager::RULES, Manager::MESSAGES);

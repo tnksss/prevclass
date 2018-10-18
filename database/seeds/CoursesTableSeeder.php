@@ -23,7 +23,15 @@ class CoursesTableSeeder extends Seeder
         $courses->each(function ($code,$name){
             Course::create([
                 'name'      => $name,
-                'code'      => $code,    
+                'code'      => $code,  
+                'unity_id'  => 1  
+            ]);
+        });
+        $courses->each(function ($code,$name){
+            Course::create([
+                'name'      => $name,
+                'code'      => $code,  
+                'unity_id'  => 2  
             ]);
         });
         

@@ -19,7 +19,9 @@ class CreateUnitiesTable extends Migration
             $table->string('address');
             $table->string('number');
             $table->integer('city_id')->unsigned();
-            $table->foreign('city_id')->references('id')->on('cities');
+            $table->foreign('city_id')->references('id')
+                                      ->on('cities')
+                                      ->onDelete('cascade');
             
             $table->string('phone');
             $table->string('email'); 
