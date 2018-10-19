@@ -31,10 +31,8 @@ Route::prefix('admin')->group(function(){
     Route::get('/unities/{unity}/create_manager','Admin\UnityController@createManager')->name('unities.manager');
     Route::post('/unities/managers','Admin\UnityController@managerStore')->name('manager.store');    
     Route::get('/managers', 'Admin\AdminController@managers')->name('managers');
-
-    Route::get('/unities/{unity}/add_school_year','Admin\UnityController@addSchoolYear')->name('unities.schoolYear');
     Route::resource('disciplines', 'Admin\DisciplineController')->except(['show']);
-    Route::resource('courses', 'Admin\CourseController')->except(['show']);
+    Route::resource('/unities/{unity}/courses', 'Admin\CourseController');
 });
 
 Route::prefix('manager')->group(function(){
@@ -50,9 +48,9 @@ Route::prefix('manager')->group(function(){
         'edit'=> 'manager.unity.edit',
         'update'=> 'manager.unity.update'
     ]);
-    Route::get('/unities/{unity}/school_years','Manager\UnityController@schoolYears')->name('school-years');
-    Route::get('/unities/{unity}/add_school_year','Manager\UnityController@addSchoolYear')->name('school-year.create');
-    Route::post('/unities/school_years','Manager\UnityController@storeSchoolYear')->name('school-year.store');
+    // Route::get('/unities/{unity}/school_years','Manager\UnityController@schoolYears')->name('school-years');
+    // Route::get('/unities/{unity}/add_school_year','Manager\UnityController@addSchoolYear')->name('school-year.create');
+    // Route::post('/unities/school_years','Manager\UnityController@storeSchoolYear')->name('school-year.store');
     Route::resource('grades', 'Manager\GradeController');
     Route::get('profile','Manager\ManagerController@profile')->name('manager.profile');
     Route::patch('profile','Manager\ManagerController@profileUpdate')->name('manager-profile.update');

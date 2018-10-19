@@ -1,8 +1,8 @@
 <div class="responsive">
 	
-        {{ Form::open(['method' => 'delete', 'route' => ['courses.destroy', $course->id]])}}
+        {{ Form::open(['method' => 'delete', 'route' => ['courses.destroy', $course->unity_id, $course->id]])}}
         
-        <a href="{{ route('courses.edit',['id' => $course->id]) }}" title="Editar" class="btn-sm btn btn-warning"><i class="fa fa-edit"></i></a>        
+        <a href="{{ route('courses.edit',[$course->id, $course->unity_id]) }}" title="Editar" class="btn-sm btn btn-warning"><i class="fa fa-edit"></i></a>        
         
         
         <button class="btn btn-sm btn-danger" type="submit" title="Deletar" onclick="return confirm('Tem certeza?')">

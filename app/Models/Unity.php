@@ -13,15 +13,17 @@ class Unity extends Model
     public function city()
     {
         return $this->belongsTo(City::class);
-    }   
+    }
+    
+    public function courses()
+    {
+        return $this->hasMany(Course::class);
+    }
     public function managers()
     {
         return $this->hasMany(Users\Manager::class);
     }
-    public function schoolYears()
-    {
-        return $this->hasMany(SchoolYear::class);
-    }
+   
     public function suppliedTeachers()
     {
         return $this->hasManyThrough(Users\User::class, Supply::class);

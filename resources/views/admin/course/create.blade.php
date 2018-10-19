@@ -3,7 +3,7 @@
     <h1>Cadastro de Curso</h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.home') }}">Dashboard</a></li>
-        <li><a href="{{ route('courses.index') }}">Cursos</a></li>
+        {{-- <li><a href="{{ route('courses.index') }}">Cursos</a></li> --}}
         <li>Novo</a></li>
 	</ol>
 	<br>	
@@ -15,7 +15,7 @@
 			<h3 class="box-title">Formulário de Cadastro</h3>
 		</div>
 		<div class="box-body">
-    	{!! Form::open(['route' => 'courses.store']) !!}
+    	{!! Form::open(['route' => ['courses.store', $id]]) !!}
 			<div class="row">
 				<div class="col-md-8">
 					<div class="form-group">
@@ -33,7 +33,7 @@
 			<div class="form-group">
 				<input type="submit" class="btn btn-primary" value="Salvar">
 				{!! Form::close() !!}
-				<a href="{{ route('courses.index' )}}"class="btn btn-danger">Voltar</a>
+				{{-- <a href="{{ route('courses.index' )}}"class="btn btn-danger">Voltar</a> --}}
 			</div>
     	</div>
 	</div>

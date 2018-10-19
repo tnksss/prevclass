@@ -18,26 +18,32 @@ class CourseController extends Controller
         return view('admin.course.index',compact('courses'));
     }
 
-    public function create()
+    public function create($id)
     {
+        
+        
         return view('admin.course.create', [
-            'course' => new Course()
+            'course' => new Course(),
+            'id' => $id
         ]);
     }
 
     
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
         $this->validate($request, [
             'name' => 'required|between:2,100',
             'code' => 'required|between:2,10',
         ]);
-
+            
         $fields = $request->only('name', 'code');
-        (new Course($fields))->save();
+        
+        $course = new Course($fields);
+        $course->unity_id = $id;
+        $course->save();
 
         return redirect()
-            ->route('courses.index')
+            ->route('unities.show',['id' => $course->unity_id])
             ->with('success', 'Curso criado cadastrado com sucesso');
     }
 
@@ -63,12 +69,12 @@ class CourseController extends Controller
             ->with('success', 'Curso atualizado com sucesso.');
     }
     
-    public function destroy($id)
+    public function destroy($unity_id, $course_id)
     {
         
-        Course::destroy($id);
+        Course::destroy($course_id);
         return redirect()
-            ->route('courses.index')
+        ->route('unities.show',['id' => $unity_id])
             ->with('success', 'Curso deletado com sucesso.');
     }
 }

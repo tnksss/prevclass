@@ -13,4 +13,8 @@ class Course extends Model
     {
         return $this->hasMany(Grade::class);
     }
+    public function unity()
+    {
+        return $this->belongsTo(Unity::class);
+    }
 }
