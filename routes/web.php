@@ -31,7 +31,7 @@ Route::prefix('admin')->group(function(){
     Route::get('/unities/{unity}/create_manager','Admin\UnityController@createManager')->name('unities.manager');
     Route::post('/unities/managers','Admin\UnityController@managerStore')->name('manager.store');    
     Route::get('/managers', 'Admin\AdminController@managers')->name('managers');
-    Route::resource('disciplines', 'Admin\DisciplineController')->except(['show']);
+    
     Route::resource('/unities/{unity}/courses', 'Admin\CourseController');
 });
 
@@ -55,6 +55,12 @@ Route::prefix('manager')->group(function(){
     Route::get('profile','Manager\ManagerController@profile')->name('manager.profile');
     Route::patch('profile','Manager\ManagerController@profileUpdate')->name('manager-profile.update');
     Route::resource('students', 'Manager\StudentController');
+    
+    Route::get('find-student','Manager\EnrollmentController@find')->name('enrollments.find-student');
+    Route::post('find-student','Manager\EnrollmentController@findStudent')->name('enrollment.find');
+    Route::post('enrollments','Manager\EnrollmentController@store')->name('enrollments.store');
+
+
     Route::get('supplies','Manager\UnityController@supplies')->name('supplies.show');
     Route::get('supplies/create','Manager\UnityController@createSupply')->name('supplies.create');
     Route::post('supplies','Manager\UnityController@storeSupply')->name('supplies.store');

@@ -76,7 +76,7 @@
           <div class="box box-warning">
                 <div class="box-header">
                   <h3 class="box-title">Ano Letivo</h3>
-                  <a href="{{ route('school-year.create', ['id' => $unity->id]) }}" class="btn btn-primary"><i class="fa fa-plus-circle"></i> <strong>Add Ano Letivo</strong></a>       
+                  {{-- <a href="{{ route('school-year.create', ['id' => $unity->id]) }}" class="btn btn-primary"><i class="fa fa-plus-circle"></i> <strong>Add Ano Letivo</strong></a>        --}}
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body no-padding">

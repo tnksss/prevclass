@@ -25,14 +25,6 @@
                 </a>
             </li>
             <li>
-                <a href="{{route ('school-years',['id' => Auth::guard('manager')->user()->unity->id])}}">
-                    <i class="fa fa-calendar"></i> <span>Ano Letivo</span>
-                    <span class="pull-right-container">
-                        <small class="label pull-right bg-green">ok</small>
-                    </span>
-                </a>
-            </li>
-            <li>
                 <a href="pages/widgets.html">
                     <i class="fa fa-users"></i> <span>Professores</span>
                     <span class="pull-right-container">
@@ -65,7 +57,7 @@
               </a>
             </li>
             <li>
-              <a href="pages/widgets.html">
+                <a href="{{route('enrollments.find-student')}}">
                 <i class="fa fa-users"></i> <span>Matrículas</span>
                 <span class="pull-right-container">
                   <small class="label pull-right bg-red">nop</small>

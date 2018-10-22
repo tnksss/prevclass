@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Grade extends Model
 {
-    protected $fillable = ['name', 'degree', 'shift','order','course_id'];
+    protected $fillable = ['name', 'degree', 'shift','order','course_id','year','status'];
     protected $guarded = ['id', 'created_at', 'update_at'];
 
 
@@ -29,5 +29,13 @@ class Grade extends Model
                 return "Noite";
         }
             
+    }
+    public function enrollments()
+    {
+        return $this->hasMany(Enrollment::class);
+    }
+    public function students()
+    {
+        return $this->hasManyThrough(Student::class,Enrollment::class);
     }
 }

@@ -19,7 +19,7 @@
         <div class="box-body">
         {!! Form::open(['route' => 'grades.store']) !!}
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-4">
                     <div class="form-group">
                         <label for="course_id">Curso</label>
                         <select name="course_id" class="form-control" >
@@ -28,6 +28,19 @@
                         @endforeach
                         </select>
                     </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="year"> Ano </label>
+                        <input id="year" type="text" name="year" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <p>{{ Form::label('status', 'Status') }}</p>
+                        {{ Form::radio('status', '1') }} Aberto   
+                        {{ Form::radio('status', '0') }} Fechado
+                    </div>  
                 </div>
             </div>
             <div class="row">
