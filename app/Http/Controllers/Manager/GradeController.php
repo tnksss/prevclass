@@ -19,7 +19,11 @@ class GradeController extends Controller
     public function index(){
         $unity = Auth::guard('manager')->user()->unity;
         
-        $courses = Course::where('unity_id',$unity->id);
+        $courses = Course::has('grades')
+                                    ->where('unity_id',$unity->id)
+                                    ->orderBy('name')
+                                    ->get();
+        
         // $courses = Course::has('grades')->orderBy('name')
         //                                 ->get();
 

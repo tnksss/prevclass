@@ -33,6 +33,7 @@
                   <th>ID</th>
                   <th>CGM</th>
                   <th>Nome</th>
+                  <th>Data de Nascimento</th>
                   
                 </tr>
                 
@@ -41,6 +42,7 @@
                       <td>{{ $student->id }}</td>
                       <td>{{ $student->cgm }}</td>
                       <td>{{ $student->name }}</td>
+                      <td>{{ $student->bornDate }}</td>
                   </tr>
                 @endforeach    
 

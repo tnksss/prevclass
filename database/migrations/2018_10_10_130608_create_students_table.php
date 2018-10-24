@@ -17,6 +17,7 @@ class CreateStudentsTable extends Migration
             $table->increments('id');
             $table->string('cgm')->unique();
             $table->string('name');
+            $table->date('bornDate');
             $table->string('avatar')->default('student-default.png');;
             $table->timestamps();
         });

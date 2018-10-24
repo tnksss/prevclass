@@ -17,4 +17,16 @@ class Course extends Model
     {
         return $this->belongsTo(Unity::class);
     }
+    const RULES = [
+        'name' => 'required|between:3,100',
+        'code' => 'required|between:2,10',        
+
+    ];
+
+    const MESSAGES = [
+        'required'          => 'O campo :attribute é de preenchimento obrigatório!',
+        'name.between'      => 'O campo nome deve ter entre 3 e 100 caracteres',
+        'code.between'  => 'O campo código deve ter entre 2 e 10 caracteres',
+    ];
+
 }

@@ -15,6 +15,7 @@ class ManagersTableSeeder extends Seeder
         Manager::create([
             'name'      => 'Fernanda Malage',
             'email'     => 'manager@teste.com',
+            'cpf'       => '06222476970',
             'password'  => bcrypt('abc123'),
             'unity_id'  => 1,
     
@@ -22,6 +23,7 @@ class ManagersTableSeeder extends Seeder
         Manager::create([
             'name'      => 'Lara Sophie Barbosa',
             'email'     => 'laras@teste.com',
+            'cpf'       => '02822476920',
             'password'  => bcrypt('abc123'),
             'unity_id'  => 2,
     

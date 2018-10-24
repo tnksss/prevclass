@@ -6,7 +6,7 @@
     <h1>Editar Curso</h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.home') }}">Dashboard</a></li>
-        <li><a href="{{ route('courses.index') }}">Cursos</a></li>
+        <li><a href="{{ route('admin.home') }}">Cursos</a></li>
         <li><a href=""></a>{{$course->name}}</a></li>
 	</ol>
 	<br>
@@ -16,6 +16,8 @@
 <div class=" container-fluid col-md-12 ">
 	<div class="box box-warning ">
 		<div class="box-header with-border">
+			<h3 class="box-title">Editar Curso</h3>
+			@include('admin.partials.errors')
 		</div>
 		<div class="box-body">
 		{!! Form::open(['route' => ['courses.update', $course->id], 'method' => 'patch']) !!}
@@ -36,7 +38,7 @@
 			<div class="form-group">
 				<input type="submit" class="btn btn-primary" value="Salvar">
 				{!! Form::close() !!}
-				<a href="{{ route('courses.index' )}}"class="btn btn-danger">Voltar</a>
+				<a href="{{ route('manager.home' )}}"class="btn btn-danger">Voltar</a>
 			</div>
     	</div>
 	</div>

@@ -31,20 +31,23 @@ class CourseController extends Controller
     
     public function store(Request $request, $id)
     {
-        $this->validate($request, [
-            'name' => 'required|between:2,100',
-            'code' => 'required|between:2,10',
-        ]);
+       
             
         $fields = $request->only('name', 'code');
+        $validate = validator($fields, Course::RULES, Course::MESSAGES);
+        
+        if ($validate->fails())
+            return redirect()
+                ->back()
+                ->withErrors($validate)
+                ->withInput();
         
         $course = new Course($fields);
         $course->unity_id = $id;
-        $course->save();
 
         return redirect()
-            ->route('unities.show',['id' => $course->unity_id])
-            ->with('success', 'Curso criado cadastrado com sucesso');
+                ->route('unities.show',['id' => $course->unity_id])
+                ->with('success', 'Curso cadastrado com sucesso');
     }
 
     public function edit($id)

@@ -17,6 +17,7 @@ class CreateManagersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('cpf')->unique();
             $table->string('password');
             $table->string('avatar')->default('profile-default.png');
             $table->integer('unity_id')->unsigned();

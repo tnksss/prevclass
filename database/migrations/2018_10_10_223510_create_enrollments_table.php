@@ -22,6 +22,7 @@ class CreateEnrollmentsTable extends Migration
             $table->foreign('grade_id')->references('id')
                                        ->on('grades');
             $table->string('enrollmentDate');
+            $table->string('status');
             $table->timestamps();
         });
     }
