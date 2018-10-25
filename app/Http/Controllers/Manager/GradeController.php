@@ -8,6 +8,7 @@ use App\Models\Grade;
 use App\Models\Course;
 use App\Models\Enrollment;
 use Auth;
+use Illuminate\Support\Facades\DB;
 
 class GradeController extends Controller
 {
@@ -55,19 +56,25 @@ class GradeController extends Controller
     
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'degree' => 'required|between:2,10',
-            'shift',
-            'order' => 'required',
-            'course_id' => 'required',
-            'year' => 'required',
-        ]);
-
         $fields = $request->only('degree','shift','order','course_id','year','status');
         
+        // Validação dos requests
+        $validate = validator($fields, Grade::RULES, Grade::MESSAGES);
+        if ($validate->fails())
+            return redirect()
+                ->back()
+                ->withErrors($validate)
+                ->withInput();     
         $course = Course::find($fields['course_id'])->code;
         $grade = substr($request['degree'],0,1);
         $fields['name'] = "{$course}{$grade}{$fields['shift']}{$fields['order']}";
+        
+        // Validação de existencia da turma no ano letivo da unidade
+        $grades = Auth::guard('manager')->user()->unity->grades->where('year',$fields['year'])->where('status','1');
+        if($grades->contains('name',$fields['name']))
+                return  redirect()
+                        ->back()
+                        ->with('error','Turma já existe neste período letivo');
         
         (new Grade($fields))->save();
 
