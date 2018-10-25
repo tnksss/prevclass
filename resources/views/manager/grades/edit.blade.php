@@ -2,6 +2,7 @@
 
 
 
+
 @section('content_header')
     <h1>Editar Turma</h1>
     <ol class="breadcrumb">
@@ -22,22 +23,18 @@
 			<div class="row">
 				<div class="col-md-4">
 					<div class="form-group">
-						<label for="course_id">Curso</label>
-						{{-- {!! Form::select('courses', $courses, $grade->course_id) !!} --}}
-						{{-- {!! Form::select('course_id', $courses, $selectedCourse, ['class' => 'form-control']) !!} --}}
-						{{-- <option value="{{ $grade->course_id }}" {{ $selectedCourse == $grade->course_id ? selected="selected" : '' }}>{{ $course->name }}</option> --}}
-
-						<select name="course_id" class="form-control" autofocus>
-						@foreach ($courses as $course)
-							<option class="form-control" value="{{old($grade->course->id) ?? $course->id ?? null }}">{{old($grade->course->name) ?? $course->name ?? null}}</option>
-						@endforeach
-						</select>
+							{{ Form::label('course_id','Curso')}}
+							{{ Form::select('course_id',
+											$courses->pluck('name','id'),
+											$grade->course_id,
+											['class'=>'form-control'])
+											}}						
 					</div>
 				</div>
 				<div class="col-md-4">
                     <div class="form-group">
-                        <label for="year"> Ano </label>
-					<input id="year" type="text" name="year" class="form-control" value="{{old('year') ?? $grade->year ?? null }}">
+							{{ Form::label('year','Ano')}}
+							{{ Form::selectRange('year', 2018, 2015,$grade->year,array('class' => 'form-control','placeholder'=>'Selecione um ano')) }}
                     </div>
                 </div>
 				<div class="col-md-4">
@@ -56,27 +53,20 @@
 			<div class="row">
 				<div class="col-md-4">
 					<div class="form-group">
-						<label for="degree"> Série/Ano </label>
-						<input  id="degree" name="degree" class="form-control" value="{{old('degree') ?? $grade->degree ?? null }}">
+						{{ Form::label('degree','Seriação')}}
+						{{ Form::text('degree', $grade->degree, array_merge(['class' => 'form-control'])) }}                        
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="form-group">
-						<label for="shift" >Turno</label>
-						<select name="shift" id="shift" class="form-control">
-						@foreach($shifts as $key => $value):
-						
-							{!!'<option class= "form-control" value="'.$key.'">'.$value.'</option>'!!}
-						@endforeach
-						</select>
-						
-
+						{{ Form::label('shift','Turno')}}
+						{{ Form::select('shift', $shifts ,$grade->shift,['class'=>'form-control']) }}
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="form-group">
-						<label for="order"> Turma </label>
-						<input  id="order" name="order" class="form-control" value="{{old('order') ?? $grade->order ?? null }}">
+							{{ Form::label('order','Turma')}}
+							{{ Form::text('order', $grade->order, array_merge(['class' => 'form-control', 'style' => 'width:40px;'])) }}                        
 					</div>
 				</div>
 			</div>

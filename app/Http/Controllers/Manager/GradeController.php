@@ -34,13 +34,21 @@ class GradeController extends Controller
     {
         $unity = Auth::guard('manager')->user()->unity;
         
-        $courses = Course::all()->where('unity_id',$unity->id);
+        $courses = Course::where('unity_id',$unity->id)->get();
         
+        $shifts = array(
+            1 => 'Manhã',
+            2 => 'Intermediário-Manhã',
+            3 => 'Tarde',
+            4 => 'Intermediário-Tarde',
+            5 => 'Noite');
         
         
         return view('manager.grades.create', [
             'grade' => new Grade(),
-            'courses' => $courses
+            'courses' => $courses,
+            'shifts' => $shifts
+
         ]);
     }
 
@@ -56,7 +64,7 @@ class GradeController extends Controller
         ]);
 
         $fields = $request->only('degree','shift','order','course_id','year','status');
-
+        
         $course = Course::find($fields['course_id'])->code;
         $grade = substr($request['degree'],0,1);
         $fields['name'] = "{$course}{$grade}{$fields['shift']}{$fields['order']}";
@@ -87,6 +95,7 @@ class GradeController extends Controller
         $courses = Course::all();
         $grade = Grade::find($id);
         $selectedCourse = $grade->course_id;
+        
                         
         return view('manager.grades.edit', [
             'grade'             => $grade,

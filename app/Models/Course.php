@@ -26,7 +26,7 @@ class Course extends Model
     const MESSAGES = [
         'required'          => 'O campo :attribute é de preenchimento obrigatório!',
         'name.between'      => 'O campo nome deve ter entre 3 e 100 caracteres',
-        'code.between'  => 'O campo código deve ter entre 2 e 10 caracteres',
+        'code.between'      => 'O campo código deve ter entre 2 e 10 caracteres',
     ];
 
 }

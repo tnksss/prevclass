@@ -23,31 +23,38 @@
                     <p>{{$student->cgm}}</p>                        
                 </div>
                 
-                <div class="col-md-8">
+                <div class="col-md-6    ">
                     <p><strong> Nome: </strong></p>
                     <p>{{$student->name}}</p>                        
                 </div>                
             </div>
+            <hr>
             {!! Form::open(['route' => ['enrollments.store', $student->id]]) !!}
-            
-            <input id="student_id" name="student_id" value="{{$student->id}}" type="hidden">
+             {{ Form::hidden('student_id',$student->id)}}
+            {{-- <input id="student_id" name="student_id" value="{{$student->id}}" type="hidden"> --}}
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-6">
                     <div class="form-group">
-                        <label for="grade_id"> Turma </label>
+                        {{ Form::label('grade_id','Turma')}}
                         <select name="grade_id" class="form-control">
                                 @foreach ($grades as $grade)
-                                    <option class="form-control" value="{{$grade->id}}">
+                                    <option class="form-control" value="{{$grade->id}}" >
                                         {{$grade->course->name .' - '. $grade->degree.' '. $grade->order.' - '
                                         .$grade->shift($grade->shift)}}</option>
                                 @endforeach
                         </select>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
+                    <div class="form-group">                            
+                        {{ Form::label('status', 'Situação Matrícula')}}
+                        {{ Form::select('status',$statuses,null,['class'=>'form-control', 'placeholder' => 'Informe a situação'])}}                        
+                    </div>
+                </div>
+                <div class="col-md-3">
                     <div class="form-group">
-                        <label for="enrollmentDate"> Data da Matrícula </label>
-                        <input  id="enrollmentDate" name="enrollmentDate" class="form-control" value="" type=date>
+                        {{ Form::label('enrollmentDate', 'Data da Matrícula')}}
+                        {{ Form::date('enrollmentDate', '\Carbon\Carbon::now()',array('class'=> 'form-control') )}}
                     </div>
                 </div>
             </div>		    	        

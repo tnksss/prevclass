@@ -14,11 +14,11 @@ class StudentsTableSeeder extends Seeder {
     {
         DB::table('students')->insert([
         	
-            ['cgm' => '1004147134','name'=>'ÁGATHA MELO','bornDate' => '16/01/18'],
-            ['cgm' => '359122438','name'=>'AGNER CRISTIANO HARTT','bornDate' => '16/01/18'],
+            ['cgm' => '1004147134','name'=>'ÁGATHA MELO','bornDate' => '2007/01/20'],
+            ['cgm' => '359122438','name'=>'AGNER CRISTIANO HARTT','bornDate' => '2006/01/04'],
             ['cgm' => '1003548739','name'=>'AMANDA APARECIDA DE MORAES','bornDate' => '16/01/18'],
-            ['cgm' => '1003547716','name'=>'ANA CAROLINI DA CRUZ','bornDate' => '19/02/18'],
-            ['cgm' => '1006206790','name'=>'CAUANE CRISTINA CALDAS','bornDate' => '16/01/18'],
+            ['cgm' => '1003547716','name'=>'ANA CAROLINI DA CRUZ','bornDate' => '2008/02/18'],
+            ['cgm' => '1006206790','name'=>'CAUANE CRISTINA CALDAS','bornDate' => '2006/01/18'],
             ['cgm' => '1004439887','name'=>'DANIELI DE LIMA PADILHA','bornDate' => '16/01/18'],
             ['cgm' => '1006211662','name'=>'ELOIZA BARBOSA DOS SANTOS','bornDate' => '16/01/18'],
             ['cgm' => '1006211182','name'=>'GABRIEL DE OLIVEIRA','bornDate' => '16/01/18'],

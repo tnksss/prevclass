@@ -21,23 +21,20 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label for="course_id">Curso</label>
-                        <select name="course_id" class="form-control" >
-                        @foreach ($courses as $course)
-                            <option class="form-control" value="{{$course->id}}">{{$course->name}}</option>
-                        @endforeach
-                        </select>
+                        {{ Form::label('course_id','Curso')}}
+                        {{ Form::select('course_id',$courses->pluck('name','id'),null,['placeholder'=>'Selecione um curso','class'=>'form-control'])}}
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label for="year"> Ano </label>
-                        <input id="year" type="text" name="year" class="form-control">
+                        {{ Form::label('year','Ano')}}
+                        {{ Form::selectRange('year', 2018, 2015,null,array('class' => 'form-control','placeholder'=>'Selecione um ano')) }}
+
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <p>{{ Form::label('status', 'Status') }}</p>
+                     <p>{{ Form::label('status', 'Status') }}</p>
                         {{ Form::radio('status', '1') }} Aberto   
                         {{ Form::radio('status', '0') }} Fechado
                     </div>  
@@ -46,25 +43,21 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label for="degree"> Série/Ano </label>
-                        <input  id="degree" name="degree" class="form-control">
+                        {{ Form::label('degree','Seriação')}}
+                        {{ Form::text('degree', null, array_merge(['class' => 'form-control'])) }}                        
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label for="shift">Turno</label>
-                        {{ Form::select('shift', array(1 => 'Manhã',
-                                                      2 => 'Intermediário-Manhã',
-                                                      3 => 'Tarde',
-                                                      4 => 'Intermediário-Tarde',
-                                                      5 => 'Noite'),['class'=>'form-control']) }}
+                        {{ Form::label('shift','Turno')}}
+                        {{ Form::select('shift', $shifts ,null,['placeholder'=>'Selecione um turno','class'=>'form-control']) }}
 
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label for="order"> Turma </label>
-                        <input  id="order" name="order" class="form-control" width="20px">
+                        {{ Form::label('order','Turma')}}
+                        {{ Form::text('order', null, array_merge(['class' => 'form-control', 'style' => 'width:40px;'])) }}                        
                     </div>
                 </div>
             </div>

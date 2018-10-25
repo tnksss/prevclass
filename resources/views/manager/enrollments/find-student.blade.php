@@ -15,6 +15,7 @@
 <div class="box box-info ">
     <div class="box-header with-border">
         <h3 class="box-title">Busca por CGM</h3>
+        @include('admin.partials.errors')
     </div>
     <div class="box-body">
                 {!! Form::open(['route' => 'enrollment.find']) !!}				

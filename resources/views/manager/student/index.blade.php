@@ -46,8 +46,9 @@
                   </tr>
                 @endforeach    
 
-
+                  
               </tbody></table>
+              {{$students->links()}}
             </div>
             <!-- /.box-body -->
           </div>

@@ -35,7 +35,7 @@
                     <tbody>
                         <tr>
                             <th>Nome</th>
-                            <th>Ano/Série</th>
+                            <th>Seriação</th>
                             <th>Turno</th>
                             <th>Turma</th>
                             <th>Ações</th>
