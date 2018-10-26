@@ -70,7 +70,10 @@ class GradeController extends Controller
         $fields['name'] = "{$course}{$grade}{$fields['shift']}{$fields['order']}";
         
         // Validação de existencia da turma no ano letivo da unidade
-        $grades = Auth::guard('manager')->user()->unity->grades->where('year',$fields['year'])->where('status','1');
+        $grades = Auth::guard('manager')->user()
+                                        ->unity
+                                        ->grades->where('year',$fields['year'])
+                                                ->where('status','1');
         if($grades->contains('name',$fields['name']))
                 return  redirect()
                         ->back()

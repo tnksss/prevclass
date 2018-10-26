@@ -44,6 +44,7 @@ class CourseController extends Controller
         
         $course = new Course($fields);
         $course->unity_id = $id;
+        $course->save();
 
         return redirect()
                 ->route('unities.show',['id' => $course->unity_id])

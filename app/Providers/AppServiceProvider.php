@@ -28,6 +28,9 @@ class AppServiceProvider extends ServiceProvider {
      */
     public function register() {
         //
+        //\DB::listen(function($sql){
+        //    error_log($sql->sql);
+        //});
     }
 
 }

@@ -44,7 +44,8 @@ class EnrollmentController extends Controller
         // $courses = DB::table('courses')->select('id')->where('unity_id',$unity->id)->get();
         // $grades = Grade::all()->whereIn('course_id',$courses);
         // dd($grades);
-        $grades = Grade::all();
+        
+        $grades = Auth::guard('manager')->user()->unity->grades->where('year','2018')->where('status','1');
         return view('manager.enrollments.create',[
             'student'   => $student,
             'grades'    => $grades,
@@ -56,13 +57,14 @@ class EnrollmentController extends Controller
     {
         
         $this->validate($request, [
-            'student_id' => 'required|unique:grades,id',
-            // 'student_id' => 'unique:enrollments,grade_id',
-            'grade_id' => 'required',
+            // 'student_id' => 'required|unique:grades,id',
+             'grade_id' => "required|unique:enrollments,grade_id,NULL,id,student_id,{$request['student_id']}",
+            //'grade_id' => 'required',
             'enrollmentDate' => 'required',
             'status' => 'required',
         ]);
-
+        $enrollments = Enrollment::where('grade_id',$request['student_id'])->where('grade_id',$request['student_id']);
+        // dd($enrollments->count());
         
         $fields = $request->only('student_id','grade_id','enrollmentDate','status');
         

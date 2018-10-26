@@ -74,25 +74,32 @@
 
           {{-- Anos letivos --}}
           <div class="box box-warning">
-                <div class="box-header">
-                  <h3 class="box-title">Ano Letivo</h3>
-                  {{-- <a href="{{ route('school-year.create', ['id' => $unity->id]) }}" class="btn btn-primary"><i class="fa fa-plus-circle"></i> <strong>Add Ano Letivo</strong></a>        --}}
-                </div>
-                <!-- /.box-header -->
-                <div class="box-body no-padding">
-                  <table class="table table-striped">
-                    <tbody><tr>
-                      <th>Ano</th>
-                      <th>Status</th>
-                    </tr>
-                    <tr>
-                      <td>###</td>
-                      <td>###</td>
-                    </tr>
-                  </tbody></table>
-                </div>
-                <!-- /.box-body -->
-              </div>
+            <div class="box-header">
+                <h3 class="box-title">Cursos</h3>
+                
+                {{-- <a href="{{ route('unities.schoolYear', ['id' => $unity->id]) }}" class="btn btn-primary"><i class="fa fa-plus-circle"></i> <strong>Curso</strong></a> --}}
+            </div>
+            <div class="box-body no-padding">
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            
+                            <th>Código</th>
+                            <th>Nome</th>
+                
+                        </tr>
+                        @foreach($unity->courses as $course)
+                        <tr>
+                            
+                            <td>{{$course->code}}</td>
+                            <td>{{$course->name}}</td>
+                
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
 </div>
 @stop
     
