@@ -48,9 +48,7 @@ Route::prefix('manager')->group(function(){
         'edit'=> 'manager.unity.edit',
         'update'=> 'manager.unity.update'
     ]);
-    // Route::get('/unities/{unity}/school_years','Manager\UnityController@schoolYears')->name('school-years');
-    // Route::get('/unities/{unity}/add_school_year','Manager\UnityController@addSchoolYear')->name('school-year.create');
-    // Route::post('/unities/school_years','Manager\UnityController@storeSchoolYear')->name('school-year.store');
+    
     Route::resource('grades', 'Manager\GradeController');
     Route::get('profile','Manager\ManagerController@profile')->name('manager.profile');
     Route::patch('profile','Manager\ManagerController@profileUpdate')->name('manager-profile.update');
@@ -60,8 +58,8 @@ Route::prefix('manager')->group(function(){
     Route::post('find-student','Manager\EnrollmentController@findStudent')->name('enrollment.find');
     Route::post('enrollments','Manager\EnrollmentController@store')->name('enrollments.store');
 
-
-    Route::get('supplies','Manager\UnityController@supplies')->name('supplies.show');
-    Route::get('supplies/create','Manager\UnityController@createSupply')->name('supplies.create');
-    Route::post('supplies','Manager\UnityController@storeSupply')->name('supplies.store');
+    Route::resource('teachers','Manager\TeacherController');
+    // Route::get('supplies','Manager\UnityController@supplies')->name('supplies.show');
+    // Route::get('supplies/create','Manager\UnityController@createSupply')->name('supplies.create');
+    // Route::post('supplies','Manager\UnityController@storeSupply')->name('supplies.store');
 });

@@ -33,8 +33,8 @@
 				</div>
 			</div>		    					
 			<div class="form-group">
-				{{ Form::input('submit','salvar',['class' => 'btn btn-primary'])}}
-				{{-- <input type="submit" class="btn btn-primary" value="Salvar"> --}}
+				{{-- {{ Form::input('submit','salvar',['class' => 'btn btn-primary'])}} --}}
+				<input type="submit" class="btn btn-primary" value="Salvar">
 			{!! Form::close() !!} 
 				<a href="{{ route('students.index' )}}"class="btn btn-danger">Voltar</a>
 			</div>

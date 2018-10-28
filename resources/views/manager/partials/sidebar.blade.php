@@ -25,7 +25,7 @@
                 </a>
             </li>
             <li>
-                <a href="pages/widgets.html">
+                <a href="{{route('teachers.index')}}">
                     <i class="fa fa-users"></i> <span>Professores</span>
                     <span class="pull-right-container">
                         <small class="label pull-right bg-red">nop</small>

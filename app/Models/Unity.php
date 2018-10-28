@@ -13,8 +13,7 @@ class Unity extends Model
     public function city()
     {
         return $this->belongsTo(City::class);
-    }
-    
+    }    
     public function courses()
     {
         return $this->hasMany(Course::class);
@@ -26,7 +25,12 @@ class Unity extends Model
     public function managers()
     {
         return $this->hasMany(Users\Manager::class);
-    }   
+    }
+    public function supplies()
+    {
+        return $this->hasMany(Supply::class);
+    }
+
     const RULES = [
         'name'      => 'required|between:3,100',
         'address'   => 'required|max:256', 

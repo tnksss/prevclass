@@ -4,7 +4,8 @@ namespace App\Models\Users;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use App\Models\Grade;
+use App\Models\Supply;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -15,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','cpf',
     ];
 
     /**
@@ -25,5 +26,25 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password', 'remember_token',
+    ];
+
+    public function supplies()
+    {
+        return $this->hasMany(Supply::class);
+    }
+    public function grades()
+    {
+        return $this->hasManyThrough(Grade::class,Supply::class);
+    }
+
+    const RULES = [
+        'name'  => 'required|between:3,100',
+        'cpf'   => 'required|numeric|digits:11',
+        'email' => 'required|email'
+    ];
+    const MESSAGES = [
+        'required'          => 'O campo :attribute é de preenchimento obrigatório!',
+        'name.between'      => 'O campo nome deve ter entre 3 e 100 caracteres',
+        'digits'            => 'O campo cpf deve ter 11 caracteres',
     ];
 }

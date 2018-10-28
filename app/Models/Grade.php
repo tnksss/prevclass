@@ -14,6 +14,12 @@ class Grade extends Model
     {
         return $this->belongsTo(Course::class);
     }
+
+    public function teachers()
+    {
+        return $this->hasManyThrough(Users/User::class,Supply::class);
+    }
+
     public function shift($shift)
     {
         switch ($shift){
