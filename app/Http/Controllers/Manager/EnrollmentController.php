@@ -34,46 +34,53 @@ class EnrollmentController extends Controller
                             ->back()
                             ->with('error','CGM não encontrado!');
 
-        $statuses = [
-            'MATRICULADO' => 'MATRICULADO',
-            'REMANEJADO' => 'REMANEJADO',
-            'TRANSFERIDO'=> 'TRANSFERIDO',
-            'DESISTENTE'=> 'DESISTENTE',
-        ];
-        // $unity = Auth::guard('manager')->user()->unity;
-        // $courses = DB::table('courses')->select('id')->where('unity_id',$unity->id)->get();
-        // $grades = Grade::all()->whereIn('course_id',$courses);
-        // dd($grades);
         
         $grades = Auth::guard('manager')->user()->unity->grades->where('year','2018')->where('status','1');
         return view('manager.enrollments.create',[
             'student'   => $student,
             'grades'    => $grades,
-            'statuses'  => $statuses
+            'statuses'  => Enrollment::STATUSES
             ]);
     }
 
     public function store(Request $request)
     {
-        
-        $this->validate($request, [
-            // 'student_id' => 'required|unique:grades,id',
-             'grade_id' => "required|unique:enrollments,grade_id,NULL,id,student_id,{$request['student_id']}",
-            //'grade_id' => 'required',
-            'enrollmentDate' => 'required',
-            'status' => 'required',
-        ]);
-        $enrollments = Enrollment::where('grade_id',$request['student_id'])->where('grade_id',$request['student_id']);
-        // dd($enrollments->count());
-        
         $fields = $request->only('student_id','grade_id','enrollmentDate','status');
         
-        $enrollment = new Enrollment($fields);
+        $rules = [
+            'grade_id' => "required|unique:enrollments,grade_id,NULL,id,student_id,{$request['student_id']}",
+            'enrollmentDate' => 'required',
+            'status' => 'required',
+        ];
+        $messages = [
+            'required'        => 'O campo :attribute é de preenchimento obrigatório!',
+            'grade_id.unique' => 'Aluno com matricula ativa nesta turma'
+        ];
         
+        $validate = validator($fields,$rules,$messages);
+        if ($validate->fails())
+            return redirect()
+                        ->back()
+                        ->withErrors($validate)
+                        ->withInput();
+        
+        $enrollments = Enrollment::where('student_id',$request['student_id'])
+                                 ->where('status','MATRICULADO')
+                                 ->get();
+        
+        foreach ($enrollments as $enrollment){
+        //    dd(Grade::find($request['grade_id'])->shift,$enrollment->grade->shift);
+            if($enrollment->grade->shift == Grade::find($request['grade_id'])->shift);
+                return redirect()
+                            ->back()
+                            ->with('error','Aluno com matrícula ativa no mesmo turno')
+                            ->withInput();
+        }
+        
+        $enrollment = new Enrollment($fields);
         $enrollment->save();
         return redirect()
             ->route('grades.show',['id' => $enrollment->grade_id])
             ->with('success', 'Aluno matriculado com sucesso!');
-
     }
 }

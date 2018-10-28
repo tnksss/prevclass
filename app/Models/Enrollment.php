@@ -17,16 +17,12 @@ class Enrollment extends Model
     {
         return $this->belongsTo(Grade::class);
     }
-    const RULES = [
-        'student_id' => 'required|unique:grades,id',
-        'grade_id' => 'unique:shifts,id',
-        'grade_id' => 'required',
-        'enrollmentDate' => 'required|date',
-        'status' => 'required',
+    const STATUSES = [
+        'MATRICULADO' => 'MATRICULADO',
+        'REMANEJADO' => 'REMANEJADO',
+        'TRANSFERIDO'=> 'TRANSFERIDO',
+        'DESISTENTE'=> 'DESISTENTE',
     ];
 
-    const MESSAGES = [
-        'required'          => 'O campo :attribute é de preenchimento obrigatório!',
-        'student_id.unique' => 'O aluno já possui matrícula nesta turma',
-    ];
+    
 }

@@ -31,7 +31,6 @@
             <hr>
             {!! Form::open(['route' => ['enrollments.store', $student->id]]) !!}
              {{ Form::hidden('student_id',$student->id)}}
-            {{-- <input id="student_id" name="student_id" value="{{$student->id}}" type="hidden"> --}}
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">

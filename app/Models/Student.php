@@ -14,6 +14,11 @@ class Student extends Model
         return Carbon::parse($this->bornDate)->diffInYears(Carbon::now());
     }
 
+    public function enrollments()
+    {
+        return $this->hasMany(Enrollment::class);
+    }
+
     const RULES = [
         'name' => 'required|between:3,100',
         'cgm' => 'required|between:2,10|numeric', 
