@@ -19,6 +19,7 @@ class CreateSuppliesTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->integer('grade_id')->unsigned();
             $table->foreign('grade_id')->references('id')->on('grades');
+            $table->date('supplyDate');
             $table->timestamps();
         });
     }

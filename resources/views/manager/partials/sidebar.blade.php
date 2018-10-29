@@ -41,10 +41,10 @@
                 </a>
             </li>
             <li>
-              <a href="pages/widgets.html">
+                <a href="{{route('supplies.find-teacher')}}">
                 <i class="fa fa-users"></i> <span>Suprimento</span>
                 <span class="pull-right-container">
-                  <small class="label pull-right bg-red">nop</small>
+                  <small class="label pull-right bg-yellow">+ ou -</small>
                 </span>
               </a>
             </li>

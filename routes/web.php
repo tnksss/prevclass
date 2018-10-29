@@ -18,8 +18,8 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::get('/user/logout', 'Auth\LoginController@userLogout')->name('user.userLogout');
+Route::get('/teacher/home', 'Teacher\TeacherController@index');
 
-Route::get('/home', 'HomeController@index');
 
 Route::prefix('admin')->group(function(){
     Route::get('/login', 'Auth\Admin\LoginController@showLoginForm')->name('admin.login');
@@ -59,6 +59,11 @@ Route::prefix('manager')->group(function(){
     Route::post('enrollments','Manager\EnrollmentController@store')->name('enrollments.store');
 
     Route::resource('teachers','Manager\TeacherController');
+    
+    Route::get('find-teacher','Manager\SupplyController@find')->name('supplies.find-teacher');
+    Route::post('find-teacher','Manager\SupplyController@findTeacher')->name('supplies.find');
+    Route::post('supplies','Manager\SupplyController@store')->name('supplies.store');
+    
     // Route::get('supplies','Manager\UnityController@supplies')->name('supplies.show');
     // Route::get('supplies/create','Manager\UnityController@createSupply')->name('supplies.create');
     // Route::post('supplies','Manager\UnityController@storeSupply')->name('supplies.store');

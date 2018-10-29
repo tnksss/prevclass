@@ -13,14 +13,14 @@ class DatabaseSeeder extends Seeder
     {
 
 
-        // $this->call('AdminsTableSeeder');        
-        // $this->call('CidadesParanaSeeder');
-        // $this->call('UnitiesTableSeeder');
-        // $this->call('ManagersTableSeeder');
-        // $this->call('CoursesTableSeeder');
-        // $this->call('StudentsTableSeeder');
-
+        $this->call('AdminsTableSeeder');        
+        $this->call('CidadesParanaSeeder');
+        $this->call('UnitiesTableSeeder');
+        $this->call('ManagersTableSeeder');
+        $this->call('CoursesTableSeeder');
+        $this->call('StudentsTableSeeder');
         $this->call('UsersTableSeeder');
+        
 
 
     }
