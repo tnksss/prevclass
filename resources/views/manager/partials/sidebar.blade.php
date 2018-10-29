@@ -28,7 +28,7 @@
                 <a href="{{route('teachers.index')}}">
                     <i class="fa fa-users"></i> <span>Professores</span>
                     <span class="pull-right-container">
-                        <small class="label pull-right bg-red">nop</small>
+                        <small class="label pull-right bg-yellow">+ ou -</small>
                     </span>
                 </a>
             </li>
@@ -60,7 +60,7 @@
                 <a href="{{route('enrollments.find-student')}}">
                 <i class="fa fa-users"></i> <span>Matrículas</span>
                 <span class="pull-right-container">
-                  <small class="label pull-right bg-yellow">+ ou -</small>
+                  <small class="label pull-right bg-green">testar</small>
                 </span>
               </a>
             </li>
