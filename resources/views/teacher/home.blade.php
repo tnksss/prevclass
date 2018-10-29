@@ -6,6 +6,10 @@
     </section>
     <section class="content">
         <p>You are logged in!</p>
+        @foreach ($teacher->supplies as $supply)
+            <li>{{$supply->grade->name}}</li>
+            
+        @endforeach
     </section>
 @endsection
 

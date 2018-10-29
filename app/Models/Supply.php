@@ -13,8 +13,8 @@ class Supply extends Model
     {
         return $this->belongsTo(Users/User::class);
     }
-    public function unity()
+    public function grade()
     {
-        return $this->belongsTo(Unity::class);
+        return $this->belongsTo(Grade::class);
     }
 }

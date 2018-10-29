@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Models\Grade;
 use App\Models\Supply;
+use Carbon\Carbon;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -30,11 +31,24 @@ class User extends Authenticatable
 
     public function supplies()
     {
+        
         return $this->hasMany(Supply::class);
     }
+
     public function grades()
     {
-        return $this->hasManyThrough(Grade::class,Supply::class);
+        return $this->hasManyThrough(
+            Grade::class,
+            Supply::class,
+            'grade_id',
+            'supply_id',
+            'id',
+            'id'
+        );
+    }
+
+    public function grades2()
+    {
     }
 
     const RULES = [
