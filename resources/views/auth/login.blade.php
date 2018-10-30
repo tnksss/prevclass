@@ -1,6 +1,30 @@
-@extends('layouts.app')
+@extends('layouts.sessions')
 
 @section('content')
+<div class="body"></div>
+		<div class="grad"></div>
+		<div class="header">
+      <div><strong>Prev<span>Class</span></></strong></div>
+		</div>
+        <br>
+        {!!Form::open(['route' => ['login']])!!}
+		<div class="login">
+			<input type="text" placeholder="email" name="user"><br>
+            <input type="password" placeholder="senha" name="password"><br>
+            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+
+            <input type="button" value="Acessar">
+            {!!Form::close()!!}
+            <a href="{{ route('password.request') }}">
+                <p>    Esqueceu a senha?</p>
+                </a>
+        </div>
+        
+        @endsection
+
+
+
+{{-- @section('content')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -66,4 +90,4 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection --}}
