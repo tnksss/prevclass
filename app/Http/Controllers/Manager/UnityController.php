@@ -57,34 +57,7 @@ class UnityController extends Controller
             'unity' => $unity
         ]);
     }
-    public function schoolYears($id)
-    {
-        $unity = Unity::find($id);
-        return view('manager.school-year.index', compact(['unity','manager']));
-    }
-
-    public function addSchoolYear($id)
-    {
-        $unity = Unity::find($id);
-        
-        return view('manager.school-year.create', compact('unity'));
-    }
     
-
-    public function storeSchoolYear(Request $request)
-    {
-        $this->validate($request,[
-            'year' => 'required',
-            'status' => 'required',
-            'unity_id' => 'required'
-        ]);
-        $fields = $request->only('year', 'status', 'unity_id');
-        
-        (new SchoolYear($fields))->save();
-        return redirect()
-            ->route('school-years',$fields['unity_id'])
-            ->with('success', 'Ano Letivo adicionado com sucesso');
-    }
     public function supplies()
     {
         $unity = Auth::guard('manager')->user()->unity;

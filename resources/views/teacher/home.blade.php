@@ -15,9 +15,9 @@
                 <!-- small box -->
                 <div class="small-box bg-aqua">
                     <div class="inner">
-                    <h3><li>{{$supply->grade->degree}} {{$supply->grade->order}}</li></h3>
+                    <h3>{{$supply->grade->degree}} {{$supply->grade->order}}</h3>
         
-                        <p>New Orders</p>
+                    <p>{{$supply->grade->course->unity->name}}</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-bag"></i>

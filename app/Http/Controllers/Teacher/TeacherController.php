@@ -8,10 +8,13 @@ use Auth;
 
 class TeacherController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');   
+    }
     public function index()
     {
         $teacher = Auth::user();
-        
         return view('teacher.home',compact('teacher'));
     }
 }

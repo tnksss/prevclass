@@ -4,7 +4,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>P</b>C</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Prev</b>Class</span>
+      <span class="logo-lg"><img src="{{asset('prevclass.png')}}" heigh="45px" width="45px" alt=""><b>Prev</b>Class</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">

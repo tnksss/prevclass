@@ -18,8 +18,8 @@ Route::get('/', function () {
 
 
 Auth::routes();
-Route::get('/user/logout', 'Auth\LoginController@userLogout')->name('user.userLogout');
-Route::get('/teacher/home', 'Teacher\TeacherController@index');
+Route::get('/logout', 'Auth\LoginController@logout')->name('teacher.logout');
+Route::get('/home', 'Teacher\TeacherController@index')->name('teacher.home');
 
 
 Route::prefix('admin')->group(function(){

@@ -2,25 +2,28 @@
 
 @section('content')
 <div class="body"></div>
-		<div class="grad"></div>
-		<div class="header">
-      <div><strong>Prev<span>Class</span></></strong></div>
+    <div class="grad"></div>
+    @include('admin.partials.errors')
+    	<div class="header">
+            <div>
+                <strong>Prev<span>Class</span></></strong>
+            </div>
 		</div>
-        <br>
-        {!!Form::open(['route' => ['login']])!!}
+        <br> 
+        <form method="POST" action="{{ route('login') }}">
+                {{ csrf_field() }}
 		<div class="login">
-			<input type="text" placeholder="email" name="user"><br>
-            <input type="password" placeholder="senha" name="password"><br>
-            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-
-            <input type="button" value="Acessar">
-            {!!Form::close()!!}
+			<input type="text" placeholder="email" name="email" id="email"><br>
+            <input type="password" placeholder="senha" name="password" id="password"><br>
+            <input type="checkbox" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+            
+            <input type="submit" value="Acessar">
+        </form>
             <a href="{{ route('password.request') }}">
                 <p>    Esqueceu a senha?</p>
-                </a>
-        </div>
-        
-        @endsection
+            </a>
+        </div>        
+@endsection
 
 
 
