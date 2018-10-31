@@ -7,6 +7,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Models\Grade;
 use App\Models\Supply;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -30,21 +32,19 @@ class User extends Authenticatable
     ];
 
     public function supplies()
-    {
-        
+    {        
         return $this->hasMany(Supply::class);
     }
 
     public function grades()
     {
-        return $this->hasManyThrough(
-            Grade::class,
-            Supply::class,
-            'grade_id',
-            'supply_id',
-            'id',
-            'id'
-        );
+        return DB::select(DB::raw('SELECT u.id u_id, u.name u_name, g.*
+                            FROM grades g
+                            JOIN courses c ON (g.course_id = c.id)
+                            JOIN unities u ON (c.unity_id = u.id)
+                            JOIN supplies s ON (s.grade_id = g.id)
+                            WHERE s.user_id = :teacher_id
+                            ORDER BY u.name, u.id'),array('teacher_id' => $this->id));
     }
 
     public function grades2()

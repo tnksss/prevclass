@@ -11,7 +11,7 @@ class Supply extends Model
 
     public function teacher()
     {
-        return $this->belongsTo(Users/User::class);
+        return $this->belongsTo(Users\User::class);
     }
     public function grade()
     {

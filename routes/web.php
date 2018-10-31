@@ -20,6 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout')->name('teacher.logout');
 Route::get('/home', 'Teacher\TeacherController@index')->name('teacher.home');
+Route::get('grades/{grade}','Teacher\GradeController@show')->name('teacher.grade.show');
 
 
 Route::prefix('admin')->group(function(){

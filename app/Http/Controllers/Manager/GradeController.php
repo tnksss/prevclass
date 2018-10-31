@@ -28,6 +28,10 @@ class GradeController extends Controller
         // $courses = Course::has('grades')->orderBy('name')
         //                                 ->get();
 
+        
+
+
+
          return view('manager.grades.index',compact('courses'));
     }
 
