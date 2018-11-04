@@ -36,7 +36,7 @@ class User extends Authenticatable
         return $this->hasMany(Supply::class);
     }
 
-    public function grades()
+    public function grades2()
     {
         return DB::select(DB::raw('SELECT u.id u_id, u.name u_name, g.*
                             FROM grades g
@@ -47,8 +47,9 @@ class User extends Authenticatable
                             ORDER BY u.name, u.id'),array('teacher_id' => $this->id));
     }
 
-    public function grades2()
+    public function grades()
     {
+        return $this->belongsToMany(Grade::class,'supplies');
     }
 
     const RULES = [

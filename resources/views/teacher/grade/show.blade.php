@@ -31,6 +31,7 @@
         <div class="box box-success">
             <div class="box-header">
               <h3 class="box-title">Alunos:</h3>
+              
             </div>
             <!-- /.box-header -->
             <div class="box-body no-padding">
@@ -42,6 +43,7 @@
                   <th>Nome</th>
                   <th>Idade</th>
                   <th>Sit. Matrícula</th>
+                  <th>Avaliar</th>
                   
                 </tr>
                 
@@ -54,6 +56,24 @@
                   <td>{{$enrollment->student->name}}</td>
                   <td>{{$enrollment->student->age()}}</td>
                   <td>{{$enrollment->status}}</td>
+                  <td>
+                    <button type="button"
+                            class="btn btn-{{$enrollment->teacherConcept()->filled ? "primary" : "warning"}}"
+                            data-myconceptid  ="{{$enrollment->teacherConcept()->id}}"
+                            data-mycomment    ="{{$enrollment->teacherConcept()->comment}}"
+                            data-mycriterion1 ="{{$enrollment->teacherConcept()->criterion_1}}"
+                            data-mycriterion2 ="{{$enrollment->teacherConcept()->criterion_2}}"
+                            data-mycriterion3 ="{{$enrollment->teacherConcept()->criterion_3}}"
+                            data-mycriterion4 ="{{$enrollment->teacherConcept()->criterion_4}}"
+                            data-mycriterion5 ="{{$enrollment->teacherConcept()->criterion_5}}"
+                            data-mycriterion6 ="{{$enrollment->teacherConcept()->criterion_6}}"
+                            data-mycriterion7 ="{{$enrollment->teacherConcept()->criterion_7}}"
+                            data-mycriterion8 ="{{$enrollment->teacherConcept()->criterion_8}}"
+
+                            data-toggle="modal" data-target="#exampleModal">
+                      Avaliar
+                    </button>
+                  </td>
                   
                 </tr>
                 @endforeach
@@ -66,6 +86,73 @@
     
           
 
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel">Selecione as opções</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-6">
+            <form action="{{route('concepts.update','test')}}" method="POST">
+                {{method_field('patch')}}
+                {{csrf_field()}}
+              <input type="hidden" name="concept_id" id="concept_id" value="">
+              <label class="container-checkbox"> Desinteresse
+                  {{Form::checkbox('criterion_1',null)}}
+                  <span class="checkmark"></span>
+                </label>
+                <label class="container-checkbox"> Não Produz
+                    {{Form::checkbox('criterion_2')}}
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container-checkbox"> Excesso de Faltas
+                    {{Form::checkbox('criterion_3')}}
+                    <span class="checkmark"></span>
+                  </label>
+                <label class="container-checkbox"> Indisciplina
+                      {{Form::checkbox('criterion_4')}}
+                      <span class="checkmark"></span>
+                </label>
+          </div>
+          <div class="col-sm-6">
+              <label class="container-checkbox"> Dificuldade
+                  {{Form::checkbox('criterion_5')}}
+                  <span class="checkmark"></span>
+                </label>
+                <label class="container-checkbox"> Bom Comportamento
+                    {{Form::checkbox('criterion_6')}}
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container-checkbox"> Boa Nota
+                    {{Form::checkbox('criterion_7')}}
+                    <span class="checkmark"></span>
+                  </label>
+                <label class="container-checkbox"> Sem Média
+                      {{Form::checkbox('criterion_8')}}
+                      <span class="checkmark"></span>
+                </label>
+          </div>
+        </div>
+          {{ Form::label('comment','Observações')}}
+          {{ Form::text('comment',null,['class'=>'form-control', 'rows' => 4, 'cols' => 40])}}
+          
+				
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+      </div>
+    </form>
+    </div>
+  </div>
 </div>
 @stop
     

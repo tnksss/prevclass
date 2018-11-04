@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Concept;
 
 class Enrollment extends Model
 {
@@ -17,6 +18,10 @@ class Enrollment extends Model
     {
         return $this->belongsTo(Grade::class);
     }
+    public function concepts()
+    {
+        return $this->hasMany(Concept::class);
+    }
     const STATUSES = [
         'MATRICULADO' => 'MATRICULADO',
         'REMANEJADO' => 'REMANEJADO',
@@ -24,5 +29,21 @@ class Enrollment extends Model
         'DESISTENTE'=> 'DESISTENTE',
     ];
 
+    public function teacherConcept()
+    {
+        $concept = Concept::where([
+            ['user_id', '=', \Auth::user()->id],
+            ['enrollment_id', '=', $this->id]
+        ])->first();
+        
+        if (is_null($concept)){
+            
+            $concept = new Concept;
+            $concept->user_id = \Auth::user()->id;
+            $concept->enrollment_id = $this->id;
+            $concept->save();    
+        }
+        return $concept;
+    }    
     
 }
