@@ -55,7 +55,7 @@ class UnityController extends Controller
 
         (new Manager($fields))->save();
         return redirect()
-            ->route('unities.index')
+            ->route('unities.show', $request->unity_id)
             ->with('success', 'Secretário adicionado com sucesso');
     }
 
@@ -81,6 +81,7 @@ class UnityController extends Controller
 
     public function edit($id)
     {
+        
         $cities = City::all();
 
         return view('admin.unity.edit', [

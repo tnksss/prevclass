@@ -1,6 +1,6 @@
 @extends('admin.layout.app')
 @section('content_header')
-    <h1>Cadastro de Curso</h1>
+    <h1>Curso</h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.home') }}">Dashboard</a></li>
         {{-- <li><a href="{{ route('courses.index') }}">Cursos</a></li> --}}
@@ -36,7 +36,7 @@
 			<div class="form-group">
 				<input type="submit" class="btn btn-primary" value="Salvar">
 				{!! Form::close() !!}
-				{{-- <a href="{{ route('courses.index' )}}"class="btn btn-danger">Voltar</a> --}}
+				<a href="{{ Route('unities.show', $id) }}"class="btn btn-danger">Voltar</a>
 			</div>
     	</div>
 	</div>

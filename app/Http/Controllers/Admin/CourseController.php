@@ -51,14 +51,15 @@ class CourseController extends Controller
                 ->with('success', 'Curso cadastrado com sucesso');
     }
 
-    public function edit($id)
+    public function edit($unity_id, $course_id)
     {
+        
         return view('admin.course.edit', [
-            'course' => Course::find($id)
+            'course' => Course::find($course_id)
         ]);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $course, $id)
     {
         $this->validate($request, [
             'name' => 'required',
@@ -66,10 +67,10 @@ class CourseController extends Controller
         ]);
 
         $fields = $request->only('name', 'code');
-        Course::find($id)->fill($fields)->save();
+        Course::find($course)->fill($fields)->save();
 
         return redirect()
-            ->route('courses.index')
+            ->route('unities.show',['id' => $id])
             ->with('success', 'Curso atualizado com sucesso.');
     }
     

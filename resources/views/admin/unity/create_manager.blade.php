@@ -1,11 +1,11 @@
 @extends('admin.layout.app')
 
 @section('content_header')
-    <h1>Cadastro de Secretário</h1>
+    <h1>Secretário</h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.home') }}">Dashboard</a></li>
-        <li><a href="{{ route('unities.index') }}">Unidades</a></li>
-        <li>Nova</a></li>
+		<li><a href="{{ route('unities.show', $unity->id) }}">{{$unity->name}}</a></li>
+        <li>Novo secretário</a></li>
 	</ol>
 	<br>	
 @stop
@@ -22,7 +22,7 @@
 				<h3> {{$unity->name}} </h3>
 			</div>
 			{!! Form::open(['route' => 'manager.store']) !!}
-			<input id="unity_id" name="unity_id" value="{{$unity->id}}" >
+			<input  type=hidden id="unity_id" name="unity_id" value="{{$unity->id}}" >
 			<div class="form-group">
 				<label for="name"> Nome </label>
 				<input  id="name" name="name" class="form-control" autofocus>

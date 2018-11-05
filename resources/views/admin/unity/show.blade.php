@@ -14,6 +14,7 @@
 <div class=" container-fluid col-md-12 ">
     <div class="box box-success">
         <div class="box-header with-border">
+            @include('admin.partials.errors')
             <h3 class="box-title"><p><strong>Município:</strong> {{$unity->city->name}}</p>
             <p><strong>Nome da Unidade:</strong> {{$unity->name}}</p></h3>
         </div>
@@ -46,6 +47,8 @@
         <div class="box box-info">
             <div class="box-header">
                 <h3 class="box-title">Secretários</h3>
+                <a href="{{ route('unities.manager',['id' => $unity->id]) }}" class="btn btn-primary"><i class="fa fa-plus-circle"></i></a>
+                
             </div>
             <div class="box-body no-padding">
                 <table class="table table-striped">
@@ -73,8 +76,7 @@
         <div class="box box-warning">
             <div class="box-header">
                 <h3 class="box-title">Cursos</h3>
-                <a href="{{ route('courses.create', ['id' => $unity->id]) }}" class="btn btn-primary"><i class="fa fa-plus-circle"></i> <strong>Curso</strong></a>
-                {{-- <a href="{{ route('unities.schoolYear', ['id' => $unity->id]) }}" class="btn btn-primary"><i class="fa fa-plus-circle"></i> <strong>Curso</strong></a> --}}
+                <a href="{{ route('courses.create', ['id' => $unity->id]) }}" class="btn btn-primary"><i class="fa fa-plus-circle"></i> </a>
             </div>
             <div class="box-body no-padding">
                 <table class="table table-striped">

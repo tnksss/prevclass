@@ -19,10 +19,10 @@
             
             
             <li>
-                <a href="{{route('grades.index')}}">
-                    <i class="fa fa-users"></i> <span>Turmas</span>
+                <a href="">
+                    <i class="fa fa-users"></i> <span>Meu Perfil</span>
                     <span class="pull-right-container">
-                        <small class="label pull-right bg-green">ok</small>
+                        <small class="label pull-right bg-green">\\\\</small>
                     </span>
                 </a>
             </li>

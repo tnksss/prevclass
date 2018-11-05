@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('css/font-awesome/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/Ionicons/css/ionicons.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('custom/select2.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/custom/select2.css') }}">
     <link rel="stylesheet" href="{{ asset('css/adminlte/dist/css/AdminLTE.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/adminlte/dist/css/skins/skin-green.min.css') }} ">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">    
@@ -31,8 +31,7 @@
         </div>
         <script src="{{ asset('js/jquery/dist/jquery.min.js') }}"></script>
         <script src="{{ asset('js/jquery/dist/jquery.slimscroll.min.js') }}"></script>
-        <script src="{{ asset('js/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-        <script src="{{ asset('js/select2.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
         <script src="{{ asset('js/adminlte.min.js') }}"></script>
     </body>

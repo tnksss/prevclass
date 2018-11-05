@@ -7,7 +7,7 @@
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.home') }}">Dashboard</a></li>
         <li><a href="{{ route('admin.home') }}">Cursos</a></li>
-        <li><a href=""></a>{{$course->name}}</a></li>
+        {{-- <li><a href=""></a>{{$course->name}}</a></li> --}}
 	</ol>
 	<br>
 @stop
@@ -20,7 +20,7 @@
 			@include('admin.partials.errors')
 		</div>
 		<div class="box-body">
-		{!! Form::open(['route' => ['courses.update', $course->unity->id,$course->id], 'method' => 'patch']) !!}
+		{!! Form::open(['route' => ['courses.update', 'unity' => $course->unity->id,'course'=>$course->id],  'method' => 'patch']) !!}
 			<div class="row">
 				<div class="col-md-8">
 		    		<div class="form-group">
@@ -38,7 +38,7 @@
 			<div class="form-group">
 				<input type="submit" class="btn btn-primary" value="Salvar">
 				{!! Form::close() !!}
-				<a href="{{ route('manager.home' )}}"class="btn btn-danger">Voltar</a>
+				<a href="{{ Route('unities.show', $course->unity->id) }}"class="btn btn-danger">Voltar</a>
 			</div>
     	</div>
 	</div>
