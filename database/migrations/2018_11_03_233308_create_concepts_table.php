@@ -30,7 +30,7 @@ class CreateConceptsTable extends Migration
             $table->boolean('criterion_7')->default(false);
             $table->boolean('criterion_8')->default(false);
             $table->boolean('filled')->default(false);
-            $table->string('comment')->default('');
+            $table->string('comment')->nullable();
                                       
             $table->timestamps();
         });

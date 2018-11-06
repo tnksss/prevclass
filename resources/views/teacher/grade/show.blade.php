@@ -86,7 +86,7 @@
     
           
 
-</div>
+</div> 
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -105,44 +105,66 @@
                 {{method_field('patch')}}
                 {{csrf_field()}}
               <input type="hidden" name="concept_id" id="concept_id" value="">
-              <label class="container-checkbox"> Desinteresse
-                  {{Form::checkbox('criterion_1',null)}}
-                  <span class="checkmark"></span>
-                </label>
-                <label class="container-checkbox"> Não Produz
-                    {{Form::checkbox('criterion_2')}}
-                    <span class="checkmark"></span>
-                </label>
-                <label class="container-checkbox"> Excesso de Faltas
-                    {{Form::checkbox('criterion_3')}}
-                    <span class="checkmark"></span>
+
+
+              
+                <div class="checkbox">
+                  <label for="criterion_1">
+                    <input type="checkbox" name="criterion_1" id="criterion_1"value="1">
+                    Desinteresse
                   </label>
-                <label class="container-checkbox"> Indisciplina
-                      {{Form::checkbox('criterion_4')}}
-                      <span class="checkmark"></span>
-                </label>
-          </div>
-          <div class="col-sm-6">
-              <label class="container-checkbox"> Dificuldade
-                  {{Form::checkbox('criterion_5')}}
-                  <span class="checkmark"></span>
-                </label>
-                <label class="container-checkbox"> Bom Comportamento
-                    {{Form::checkbox('criterion_6')}}
-                    <span class="checkmark"></span>
-                </label>
-                <label class="container-checkbox"> Boa Nota
-                    {{Form::checkbox('criterion_7')}}
-                    <span class="checkmark"></span>
+                </div>
+                <div class="checkbox">
+                    <label for="criterion_2">
+                      <input type="checkbox" name="criterion_2" id="criterion_2"value="1">
+                      Não Produz
                   </label>
-                <label class="container-checkbox"> Sem Média
-                      {{Form::checkbox('criterion_8')}}
-                      <span class="checkmark"></span>
-                </label>
-          </div>
-        </div>
-          {{ Form::label('comment','Observações')}}
+                </div>
+                <div class="checkbox">
+                    <label for="criterion_3">
+                      <input type="checkbox" name="criterion_3" id="criterion_3"value="1">
+                      Faltas
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label for="criterion_4">
+                      <input type="checkbox" name="criterion_4" id="criterion_4"value="1">
+                      Indisciplina
+                    </label>
+                </div>
+
+              </div>
+              <div class="col-md-6">
+                  <div class="checkbox">
+                    <label for="criterion_5">
+                      <input type="checkbox" name="criterion_5" id="criterion_5"value="1">
+                      Dificuldade
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                      <label for="criterion_6">
+                        <input type="checkbox" name="criterion_6" id="criterion_6"value="1">
+                          Bom Comportamento
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                      <label for="criterion_7">
+                        <input type="checkbox" name="criterion_7" id="criterion_7"value="1">
+                         Boas notas
+                      </label>
+                  </div>
+                  <div class="checkbox">
+                      <label for="criterion_8">
+                        <input type="checkbox" name="criterion_8" id="criterion_8" value="1">
+                        Sem Média
+                      </label>
+                  </div>
+  
+                </div>
+                {{ Form::label('comment','Observações')}}
           {{ Form::text('comment',null,['class'=>'form-control', 'rows' => 4, 'cols' => 40])}}
+        </div>
+          
           
 				
       </div>
