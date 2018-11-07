@@ -1,15 +1,6 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+
 
 Route::get('/', function () {
     return redirect()
@@ -67,7 +58,4 @@ Route::prefix('manager')->group(function(){
     Route::post('find-teacher','Manager\SupplyController@findTeacher')->name('supplies.find');
     Route::post('supplies','Manager\SupplyController@store')->name('supplies.store');
     
-    // Route::get('supplies','Manager\UnityController@supplies')->name('supplies.show');
-    // Route::get('supplies/create','Manager\UnityController@createSupply')->name('supplies.create');
-    // Route::post('supplies','Manager\UnityController@storeSupply')->name('supplies.store');
 });

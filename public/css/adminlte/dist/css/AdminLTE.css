@@ -3246,7 +3246,18 @@ table.text-center th {
 }
 .login-page,
 .register-page {
-  background: #d2d6de;
+  position: absolute;
+	top: -20px;
+	left: -20px;
+	right: -40px;
+	bottom: -40px;
+	width: auto;
+	height: 100%;
+	background-image: url(https://i2.wp.com/www.techtrends.co.zm/wp-content/uploads/2016/03/Picture1-1.png?fit=940%2C470);
+	background-size: cover;
+	/* -webkit-filter: blur(5px); */
+	z-index: 0;
+
 }
 .login-box,
 .register-box {

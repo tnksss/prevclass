@@ -11,14 +11,14 @@
     {{ Html::style('css/bootstrap.css')}}
     {{ Html::style('css/font-awesome/css/font-awesome.min.css')}}
     {{ Html::style('css/Ionicons/css/ionicons.min.css')}}  
-    {{ Html::style('css/adminlte/dist/css/AdminLTE.min.css')}}
+    {{ Html::style('css/adminlte/dist/css/AdminLTE.css')}}
     {{ Html::style('css/adminlte/plugins/iCheck/square/blue.css')}}  
     {{ Html::style('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic')}}
   </head>
 
   <body class="hold-transition login-page">
     
-    @section('content')
+    @yield('content')
 
     {{ Html::script('js/jquery/dist/jquery.min.js') }}        
     {{ Html::script('js/bootstrap.min.js') }}
