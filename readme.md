@@ -1,4 +1,4 @@
-<p align="center"><img src="{{asset('prevclass.png')}}"></p>
+<p align="center"><img src="https://github.com/tnksss/prevclass/blob/master/public/prevclass.png"></p>
 
 
 
