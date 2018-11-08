@@ -16,7 +16,8 @@
         <div class="box-header with-border">
             @include('admin.partials.errors')
             <h3 class="box-title"><p><strong>Município:</strong> {{$unity->city->name}}</p>
-            <p><strong>Nome da Unidade:</strong> {{$unity->name}}</p></h3>
+            <p><strong>Nome da Unidade:</strong> {{$unity->name}}</p>
+            <p><strong>Código Inep:</strong> {{$unity->code}}</p></h3>
         </div>
         <div class="box-body">
             <div class="row">
@@ -47,7 +48,7 @@
         <div class="box box-info">
             <div class="box-header">
                 <h3 class="box-title">Secretários</h3>
-                <a href="{{ route('unities.manager',['id' => $unity->id]) }}" class="btn btn-primary"><i class="fa fa-plus-circle"></i></a>
+                <a href="{{ route('unities.managers.create',['id' => $unity->id]) }}" class="btn btn-primary"><i class="fa fa-plus-circle"></i></a>
                 
             </div>
             <div class="box-body no-padding">
@@ -56,17 +57,19 @@
                         <tr>
                             <th style="width: 10px">ID</th>
                             <th>Nome</th>
-                            <th>RG</th>
                             <th>CPF</th>
                             <th>Email</th>
+                            <th>Ações</th>
                         </tr>
                         @foreach($unity->managers as $manager)
                         <tr>
                             <td>{{$manager->id}}</td>
                             <td>{{$manager->name}}</td>
-                            <td>999999-9</td>
-                            <td>444444444-44</td>
+                            <td>{{$manager->cpf}}</td>
                             <td>{{$manager->email}}</td>
+                            <td>
+                                @include('admin.partials.manager_buttons')
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>

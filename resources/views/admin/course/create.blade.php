@@ -3,7 +3,6 @@
     <h1>Curso</h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.home') }}">Dashboard</a></li>
-        {{-- <li><a href="{{ route('courses.index') }}">Cursos</a></li> --}}
         <li>Novo</a></li>
 	</ol>
 	<br>	

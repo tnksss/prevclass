@@ -1,6 +1,8 @@
 @extends('admin.layout.app')
 @section('content_header')
     <h1>Unidade</h1>
+    @include('admin.partials.errors')
+
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.home') }}">Dashboard</a></li>
         <li><a href="{{ route('unities.index') }}">Unidades</a></li>
@@ -17,8 +19,10 @@
             <p><strong>Nome da Unidade:</strong> {{$unity->name}}</p></h3></h3>
         </div>
         <div class="box-body">
-	    {!! Form::open(['route' => ['unities.update', $unity->id], 'method' => 'patch']) !!}
-		   	<div class="form-group">
+        {!! Form::open(['route' => ['unities.update', $unity->id], 'method' => 'patch']) !!}
+            @include('admin.unity.form')
+        
+		   	{{-- <div class="form-group">
 			    <label for="name"> Nome da Unidade </label>
 			    <input  id="name" name="name" class="form-control" value="{{ old('name') ?? $unity->name ?? null }}" autofocus>
 			</div>
@@ -35,7 +39,7 @@
                         <input  id="number" name="number" class="form-control" value="{{ old('number') ?? $unity->number ?? null}}">
                     </div>
                 </div>
-            </div>
+            </div> 
             <div class="form-group">
                 <label for="city_id">Município</label>
                 <select name="city_id" class="form-control">
@@ -51,7 +55,7 @@
             <div class="form-group">
                 <label for="email"> E-mail </label>
                 <input  id="email" name="email" class="form-control" value="{{ old('email') ?? $unity->email ?? null}}">
-            </div>
+            </div> --}}
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Salvar">
                 {!! Form::close() !!}

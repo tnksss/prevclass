@@ -5,6 +5,8 @@
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.home') }}">Dashboard</a></li>
         <li>Unidades</a></li>
+        @include('admin.partials.errors')
+
     </ol>
     <br>	
 @stop

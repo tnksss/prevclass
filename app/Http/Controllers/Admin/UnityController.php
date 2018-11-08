@@ -14,39 +14,32 @@ class UnityController extends Controller
     {
         $this->middleware('auth:admin');
     }
-    
     public function index(){
-
         $unities = Unity::all();
         return view('admin.unity.index',compact('unities'));
     }
-
     public function create()
-    {
-        
+    {   
         $cities = City::all();
         return view('admin.unity.create', [
             'unity' => new Unity(),
             'cities' => $cities
         ]);
     }
-
     public function createManager($id)
-    {
-        
+    {   
         $unity = Unity::find($id);
         return view('admin.unity.create_manager', [
             'unity' => $unity
         ]);
     }
     public function managerStore(Request $request)
-    {
-    
-        
-        $fields = $request->only('name', 'email', 'password', 'unity_id');
+    {   
+        $fields = $request->only('name', 'email', 'cpf', 'unity_id');
         $validate = validator($fields, Manager::RULES, Manager::MESSAGES);
-
-        $fields['password'] = bcrypt($fields['password']);
+        
+        $password = str_replace(["-","."],"",$fields['cpf']);
+        $fields['password'] = bcrypt($password);
         if ($validate->fails())
             return redirect()
                 ->back()
@@ -58,30 +51,19 @@ class UnityController extends Controller
             ->route('unities.show', $request->unity_id)
             ->with('success', 'Secretário adicionado com sucesso');
     }
-
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required|between:2,100',
-            'address' => 'required|between:2,200',
-            'city_id',
-            'number',
-            'phone' => 'required',
-            'email' => 'required',
+        $this->validate($request, Unity::RULES);
 
-        ]);
-
-        $fields = $request->only('name', 'address','number','phone','email','city_id');
+        $fields = $request->only('code','name', 'address','number','phone','email','city_id');
         (new Unity($fields))->save();
 
         return redirect()
             ->route('unities.index')
             ->with('success', 'Unidade criada cadastrado com sucesso');
     }
-
     public function edit($id)
     {
-        
         $cities = City::all();
 
         return view('admin.unity.edit', [
@@ -89,19 +71,12 @@ class UnityController extends Controller
             'cities' => $cities
         ]);
     }
-
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'name' => 'required|between:2,100',
-            'address' => 'required',
-            'city_id',
-            'number',
-            'phone',
-            'email',
-        ]);
-
-        $fields = $request->only('name', 'address','number','phone','email','city_id');
+        
+        $this->validate($request, Unity::RULES);
+        
+        $fields = $request->only('code','name', 'address','number','phone','email','city_id');
         Unity::find($id)->fill($fields)->save();
 
         return redirect()
@@ -109,11 +84,9 @@ class UnityController extends Controller
             ->with('success', 'Unidade atualizada com sucesso.');
     }
     public function show($id)
-    {
-            
+    {            
         $unity = Unity::find($id);
-        $courses = $unity->courses;
-        
+        $courses = $unity->courses;       
         
         return view('admin.unity.show', [
             'unity' => $unity,
@@ -122,11 +95,9 @@ class UnityController extends Controller
     }
     public function destroy($id)
     {
-        
         Unity::destroy($id);
         return redirect()
             ->route('unities.index')
             ->with('success', 'Unidade deletada com sucesso.');
     }
-    
 }

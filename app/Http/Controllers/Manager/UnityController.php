@@ -32,15 +32,16 @@ class UnityController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'name' => 'required|between:2,100',
-            'address' => 'required',
-            'city_id',
-            'number',
-            'phone',
-            'email',
+            'code'      => 'unique|required|numeric|between:3,12',
+            'name'      => 'required|between:3,100',
+            'address'   => 'required|max:256', 
+            'number'    => 'required|min:1|max:5',
+            'phone'     => 'required|min:8|max:12',
+            'email'     => 'required|email',
+            'city_id'   => 'required',
         ]);
 
-        $fields = $request->only('name', 'address','number','phone','email','city_id');
+        $fields = $request->only('code','name', 'address','number','phone','email','city_id');
         Unity::find($id)->fill($fields)->save();
 
         return redirect()
@@ -97,6 +98,4 @@ class UnityController extends Controller
             ->back()
             ->with('error','reveja os campos');
     }
-
-    
 }

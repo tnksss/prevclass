@@ -13,6 +13,7 @@ class UnitiesTableSeeder extends Seeder
     public function run()
     {
         Unity::create([
+            'code'      => '41101057',
             'name'      => 'Colégio Estadual do Campo Dom Pedro I',
             'address'   => 'Rua Emilio Lack',
             'number'    => '459',
@@ -20,16 +21,15 @@ class UnitiesTableSeeder extends Seeder
             'phone'     => '42 36251438',
             'email'     => 'grpdompedro@seed.pr.gov.br',
             
-    
         ]);
         Unity::create([
+            'code'      => '41100409',
             'name'      => 'Escola Municipal Franscisco Peixoto de Lacerda e Werneck',
             'address'   => 'Rua da Agrária',
             'number'    => '180',
             'city_id'   => 80,
             'phone'     => '42 36251154',
             'email'     => 'escolalacerda@escola.com.br',
-            
     
         ]);
     

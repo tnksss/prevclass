@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Unity extends Model
 {
-    protected $fillable = ['name', 'address', 'number', 'phone', 'email','city_id'];
-    protected $guarded = ['id', 'created_at', 'update_at'];	
+    protected $fillable = ['code','name', 'address', 'number', 'phone', 'email','city_id'];
+    protected $guarded  = ['id', 'created_at', 'update_at'];	
 
 
     public function city()
@@ -32,10 +32,11 @@ class Unity extends Model
     }
 
     const RULES = [
+        'code'      => 'required|numeric|unique:unities,name,{$this->id},id',
         'name'      => 'required|between:3,100',
         'address'   => 'required|max:256', 
         'number'    => 'required|min:1|max:5',
-        'phone'     => 'required|min:8|max:12',
+        'phone'     => 'required',
         'email'     => 'required|email',
         'city_id'   => 'required',
     ];
@@ -45,5 +46,4 @@ class Unity extends Model
         'number.between'      => 'O campo número deve ter entre 1 e 5 caracteres',
         'phone.between'      => 'O campo telefone deve ter entre 8 e 12 caracteres',
     ];
-
 }

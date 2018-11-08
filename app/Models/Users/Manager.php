@@ -13,7 +13,7 @@ class Manager extends Authenticatable
     protected $guard = 'manager';
 
     protected $fillable = [
-        'name', 'email', 'password','unity_id','avatar',
+        'name', 'email', 'cpf','password','unity_id','avatar',
     ];
     
     protected $hidden = [
@@ -23,16 +23,13 @@ class Manager extends Authenticatable
     const RULES = [
         'name' => 'required|between:3,100',
         'email' => 'required',
-        'password' => 'required|between:6,20'
+        'cpf' => 'required'
 
     ];
 
     const MESSAGES = [
         'required'          => 'O campo :attribute é de preenchimento obrigatório!',
         'name.between'      => 'O campo nome deve ter entre 3 e 100 caracteres',
-        'password.between'  => 'O campo senha deve ter entre 6 e 20 caracteres',
-    
-        
     ];
 
     public function unity() 

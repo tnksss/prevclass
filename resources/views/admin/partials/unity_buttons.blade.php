@@ -2,7 +2,7 @@
 
 	{!! Form::open(['method' => 'delete', 'route' => ['unities.destroy', $unity->id], 'class' => 'inline-block'	]) !!}
 	<a href="{{ route('unities.show',['id' => $unity->id]) }}" class="btn-sm btn btn-info"><i class="fa fa-search"></i></a>
-	<a href="{{ route('unities.manager',['id' => $unity->id]) }}" class="btn-sm btn btn-success"><i class="fa fa-user"></i></a>
+	<a href="{{ route('unities.managers.create',['id' => $unity->id]) }}" class="btn-sm btn btn-success"><i class="fa fa-user"></i></a>
 
 
 

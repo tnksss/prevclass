@@ -37,7 +37,11 @@
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('js/adminlte.min.js') }}"></script>
-
+    {{ Html::script('js/jquery/dist/jquery.mask.js')}}
+    <script>
+            $("#phone").mask("(99) 9999-9999");
+            $("#cpf").mask("999.999.999-99");
+    </script>
     </body>
 </html>
 

@@ -21,9 +21,9 @@ Route::prefix('admin')->group(function(){
     Route::get('/', 'Admin\AdminController@index')->name('admin.home');
     Route::get('/logout', 'Auth\Admin\LoginController@logout')->name('admin.logout');
     Route::resource('unities', 'Admin\UnityController');
-       
-    Route::get('/unities/{unity}/create_manager','Admin\UnityController@createManager')->name('unities.manager');
-    Route::post('/unities/managers','Admin\UnityController@managerStore')->name('manager.store');    
+    Route::resource('unities.managers', 'Admin\ManagerController');   
+    Route::get('/unities/{unity}/create_manager','Admin\ManagerController@create')->name('unities.manager');
+    Route::post('/unities/managers','Admin\ManagerController@store')->name('manager.store');    
     Route::get('/managers', 'Admin\AdminController@managers')->name('managers');
     
     Route::resource('/unities/{unity}/courses', 'Admin\CourseController');

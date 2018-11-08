@@ -32,8 +32,8 @@
 				<input  id="email" name="email" class="form-control">
 			</div>
 			<div class="form-group">
-				<label for="password"> Password </label>
-				<input  id="password" type="password" name="password" class="form-control">
+				<label for="cpf"> cpf </label>
+				<input  id="cpf" type="text" name="cpf" class="form-control">
 			</div>
 			<div class="form-group">
 				<input type="submit" class="btn btn-primary" value="Salvar">
