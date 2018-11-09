@@ -24,7 +24,7 @@
           <li class="dropdown user user-menu">
           <a href="{{route('manager.profile')}}" class="dropdown-toggle" data-toggle="dropdown">
               {{-- <img src="{{asset('images/profile.jpg')}}" class="user-image" alt="User Image"> --}}
-              <img class="user-image" src="{{url('storage/managers/'.Auth::guard('web')->user()->avatar)}}" />
+              <img class="user-image" src="{{url('storage/managers/'.Auth::guard('web')->user()->avatar)}}"/>
 
             <span class="hidden-xs">{{Auth::user()->name}}</span>
             </a>

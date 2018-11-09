@@ -33,8 +33,11 @@ class Grade extends Model
                 return "Intermediário Tarde";
             case 5:
                 return "Noite";
-        }
-            
+        }            
+    }
+    public function fullName()
+    {
+        return $this->degree.' '.$this->order;
     }
     public function enrollments()
     {

@@ -3,9 +3,8 @@
 @section('content_header')
 <h1>Lançar Conceitos - {{$grade->course->unity->name}}</h1>
 <ol class="breadcrumb">
-    <li><a href="{{ route('manager.home') }}">Dashboard</a></li>
-    <li><a href="{{ route('grades.index') }}"></a>Turmas</a></li>
-    <li>{{$grade->name}}</li>
+    <li><a href="{{ route('teacher.home') }}">Dashboard</a></li>
+    <li>{{$grade->fullName()}}</li>
 </ol>
 <br>
 @stop
@@ -53,7 +52,7 @@
                   {{-- <td>student->avatar</td> --}}
                   
                   
-                  <td>{{$enrollment->student->name}}</td>
+                   <td><a href="{{route('grades.students.show',['grade'=>$enrollment->grade->id, 'student' => $enrollment->student->id])}}">{{$enrollment->student->name}}</a></td>
                   <td>{{$enrollment->student->age()}}</td>
                   <td>{{$enrollment->status}}</td>
                   <td>

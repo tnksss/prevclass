@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Concept;
+use Carbon\Carbon;
 
 class Enrollment extends Model
 {
@@ -44,6 +45,11 @@ class Enrollment extends Model
             $concept->save();    
         }
         return $concept;
+    }
+    public function enrollmentDate()
+    {
+        return Carbon::parse($this->enrollmentDate)->format('d-m-Y');
     }    
+
     
 }

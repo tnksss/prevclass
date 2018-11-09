@@ -42,7 +42,7 @@
                       <td>{{ $student->id }}</td>
                       <td>{{ $student->cgm }}</td>
                       <td>{{ $student->name }}</td>
-                      <td>{{ $student->bornDate }}</td>
+                      <td>{{ $student->bornDate() }}</td>
                   </tr>
                 @endforeach    
 

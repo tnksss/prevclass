@@ -13,6 +13,7 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('teacher.logout');
 Route::get('/home', 'Teacher\TeacherController@index')->name('teacher.home');
 Route::get('grades/{grade}','Teacher\GradeController@show')->name('teacher.grade.show');
 Route::patch('concepts/update','Teacher\ConceptController@update')->name('concepts.update');
+Route::resource('grades.students','Teacher\StudentController')->only(['show']);
 
 
 Route::prefix('admin')->group(function(){

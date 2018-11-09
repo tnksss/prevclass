@@ -53,7 +53,7 @@
                   <td>{{$enrollment->student->name}}</td>
                   <td>{{$enrollment->student->age()}}</td>
                   <td>{{$enrollment->status}}</td>
-                  <td>{{$enrollment->enrollmentDate}}</td>
+                  <td>{{$enrollment->enrollmentDate()}}</td>
                 </tr>
                 @endforeach
               </tbody></table>
