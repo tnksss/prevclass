@@ -2,7 +2,9 @@
       <section class="sidebar">
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="{{url('storage/managers/'.Auth::guard('manager')->user()->avatar)}}" class="img-circle" alt="User Image">
+                <a href="{{route('manager.profile')}}">
+                <img src="{{url('storage/managers/'.Auth::guard('manager')->user()->avatar)}}" class="img-circle img-mini" alt="User Image">
+                </a>
             </div>
             <div class="pull-left info">
                 <p>{{Auth::guard('manager')->user()->name}}</p>
@@ -58,9 +60,9 @@
             </li>
             <li>
                 <a href="{{route('enrollments.find-student')}}">
-                <i class="fa fa-users"></i> <span>Matrículas</span>
+                <i class="fa fa-users"></i> <span>Matrícular</span>
                 <span class="pull-right-container">
-                  <small class="label pull-right bg-green">testar</small>
+                  <small class="label pull-right bg-green">ok</small>
                 </span>
               </a>
             </li>

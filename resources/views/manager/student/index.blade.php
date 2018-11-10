@@ -27,6 +27,7 @@
       <div class="box-body table-responsive no-padding">
         <table class="table table-hover">
           <tbody><tr>
+            <td>Foto</td>
             <th>ID</th>
             <th>CGM</th>
             <th>Nome</th>
@@ -36,7 +37,8 @@
           </tr>
           
           @foreach($students as $student)
-          <tr>            
+          <tr>       
+            <td><img class="img-circle img-bordered-sm img-mini" src="{{url('storage/managers/profile-default.png')}}" alt="User Image"></td>     
             <td>{{ $student->id }}</td>
             <td>{{ $student->cgm }}</td>
             <td>{{ $student->name }}</td>

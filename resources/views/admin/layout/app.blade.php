@@ -15,23 +15,22 @@
     <link rel="stylesheet" href="{{ asset('css/adminlte/dist/css/skins/skin-yellow.min.css') }} ">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">    
     <link rel="shortcut icon" href="{{ asset('prevclass.ico') }}" >
-    @include('admin.partials.shim')
+    @include('layouts.shim')
 
     </head>
     <body class="hold-transition skin-yellow sidebar-mini ">
-        
         <div class="wrapper">
-    
             @include('admin.partials.navbar')        
             @include('admin.partials.sidebar')
             <div class="content-wrapper">
                 <section class="content-header">
                     @yield('content_header')
                 </section>
-                @yield('content')
+                <section class="content">
+                    @yield('content')
+                </section>
             </div>
         </div>
-
     <script src="{{ asset('js/jquery/dist/jquery.min.js') }}"></script>
     <script src="{{ asset('js/jquery/dist/jquery.slimscroll.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>

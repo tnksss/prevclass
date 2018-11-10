@@ -1,7 +1,7 @@
 @extends('manager.layout.app')
 
 @section('content_header')
-<h1>Unidade</h1>
+<h1>Turma</h1>
 <ol class="breadcrumb">
     <li><a href="{{ route('manager.home') }}">Dashboard</a></li>
     <li><a href="{{ route('grades.index') }}"></a>Turmas</a></li>
@@ -26,6 +26,7 @@
                 </tr>
               </tbody>
             </table>
+            <a href="{{URL::previous()}}"class="btn btn-info  btn-xs">Voltar</a>
         </div>
         <div class="box box-success">
             <div class="box-header">

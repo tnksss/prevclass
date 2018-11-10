@@ -24,7 +24,7 @@
 
         <ul class="list-group list-group-unbordered">
           <li class="list-group-item">
-            <b>Data de Nascimento:</b> <p class="pull-right">{{$enrollment->student->bornDate()}}</p>
+            <b>Data de Nascimento:</b> <p class="pull-right">{{$enrollment->student->bornDateFormatted()}}</p>
           </li>
           <li class="list-group-item">
             <b>Idade: </b> <p class="pull-right">{{$enrollment->student->age()}}</p>
@@ -38,80 +38,7 @@
       <!-- /.box-body -->
     </div>
     <!-- /.box -->
-    <!-- Profile Image -->
-    <div class="box box-primary">
-        <div class="box-body box-profile">
-          <img class="profile-user-img img-responsive img-circle" src="{{url('storage/managers/profile-default.png')}}" alt="User profile picture">
-  
-          <h3 class="profile-username text-center">{{$enrollment->student->name}}</h3>
-  
-          <p class="text-muted text-center">Turma: {{$enrollment->grade->fullName()}}</p>
-  
-          <ul class="list-group list-group-unbordered">
-            <li class="list-group-item">
-              <b>Data de Nascimento:</b> <p class="pull-right">{{$enrollment->student->bornDate()}}</p>
-            </li>
-            <li class="list-group-item">
-              <b>Idade: </b> <p class="pull-right">{{$enrollment->student->age()}}</p>
-            </li>
-            
-          </ul>
-  
-          <a href="#" class="btn btn-primary  btn-block"><b>Avaliar</b></a>
-          <a href="{{URL::previous()}}" class="btn btn-warning btn-block"><b>Voltar para a turma</b></a>
-        </div>
-        <!-- /.box-body -->
-      </div>
-      <!-- /.box -->
-      <!-- Profile Image -->
-    <div class="box box-primary">
-        <div class="box-body box-profile">
-          <img class="profile-user-img img-responsive img-circle" src="{{url('storage/managers/profile-default.png')}}" alt="User profile picture">
-  
-          <h3 class="profile-username text-center">{{$enrollment->student->name}}</h3>
-  
-          <p class="text-muted text-center">Turma: {{$enrollment->grade->fullName()}}</p>
-  
-          <ul class="list-group list-group-unbordered">
-            <li class="list-group-item">
-              <b>Data de Nascimento:</b> <p class="pull-right">{{$enrollment->student->bornDate()}}</p>
-            </li>
-            <li class="list-group-item">
-              <b>Idade: </b> <p class="pull-right">{{$enrollment->student->age()}}</p>
-            </li>            
-          </ul>
-  
-          <a href="#" class="btn btn-primary  btn-block"><b>Avaliar</b></a>
-          <a href="{{URL::previous()}}" class="btn btn-warning btn-block"><b>Voltar para a turma</b></a>
-        </div>
-        <!-- /.box-body -->
-      </div>
-      <!-- /.box -->
-      <!-- Profile Image -->
-    <div class="box box-primary">
-        <div class="box-body box-profile">
-          <img class="profile-user-img img-responsive img-circle" src="{{url('storage/managers/profile-default.png')}}" alt="User profile picture">
-  
-          <h3 class="profile-username text-center">{{$enrollment->student->name}}</h3>
-  
-          <p class="text-muted text-center">Turma: {{$enrollment->grade->fullName()}}</p>
-  
-          <ul class="list-group list-group-unbordered">
-            <li class="list-group-item">
-              <b>Data de Nascimento:</b> <p class="pull-right">{{$enrollment->student->bornDate()}}</p>
-            </li>
-            <li class="list-group-item">
-              <b>Idade: </b> <p class="pull-right">{{$enrollment->student->age()}}</p>
-            </li>
-            
-          </ul>
-  
-          <a href="#" class="btn btn-primary  btn-block"><b>Avaliar</b></a>
-          <a href="{{URL::previous()}}" class="btn btn-warning btn-block"><b>Voltar para a turma</b></a>
-        </div>
-        <!-- /.box-body -->
-      </div>
-      <!-- /.box -->
+    
 
     
   </div>
@@ -187,7 +114,9 @@
                     <ul class="nav nav-stacked">
                       @if($concepts->where('comment', !null)->count() > 0)
                         @foreach($concepts as $concept)
-                          <li><p>{{$concept->comment}}</p></li>
+                        
+                        <li><strong>:</strong><p>{{$concept->comment}}</p></li>
+                        {{dd($concept->teacher)}}
                         @endforeach
                       @else
                       <li>

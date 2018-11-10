@@ -1,4 +1,7 @@
 /* Customize the label (the container-checkbox) */
+.img-mini{
+  width: 40px; height:40px;
+}
 .container-checkbox {
     display: block;
     position: relative;

@@ -29,6 +29,7 @@
     <div class="box-body table-responsive no-padding">
       <table class="table table-hover">
         <tbody><tr>
+          <th>Foto</th>
           <th>ID</th>
           <th>Nome</th>
           <th>CPF</th>
@@ -37,7 +38,9 @@
         </tr>
         
         @foreach($teachers as $teacher)
-        <tr>            
+        <tr>           
+          {{-- <td><img class="user-image image-mini" src="{{url('storage/users/'.$user->avatar)}}" /></td>  --}}
+          <td></td>
           <td>{{ $teacher->id }}</td>
           <td>{{ $teacher->name }}</td>
           <td>{{ $teacher->cpf }}</td>
