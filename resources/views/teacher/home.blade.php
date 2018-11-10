@@ -21,11 +21,11 @@
                     <p>{{$grade->course->unity->name}}</p>
                     </div>
                     <div class="icon">
-                        <i class="ion ion-bag"></i>
-                    </div>
+                            <i class="fa fa-child"></i>
+                          </div>
                     <a href="{{route('teacher.grade.show', ['id' => $grade->id])}}"
                         class="small-box-footer">
-                                More info <i class="fa fa-arrow-circle-right"></i>
+                                Detalhes <i class="fa fa-arrow-circle-right"></i>
                     </a>
                 </div>
             </div>     

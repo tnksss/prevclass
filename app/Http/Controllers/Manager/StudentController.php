@@ -32,10 +32,12 @@ class StudentController extends Controller
         $this->validate($request, [
             'name'      => 'required|between:2,100',
             'cgm'       => 'required|between:2,10',
+            'bornDate'  => 'required',
             'avatar'    => 'image',
         ]);
 
-        $fields = $request->only('name', 'cgm','avatar');
+        $fields = $request->only('name', 'cgm','bornDate','avatar');
+        $fields['name'] = strtoupper($fields['name']);
         (new Student($fields))->save();
             return redirect()
                 ->route('students.index')
@@ -53,10 +55,12 @@ class StudentController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|between:2,100',
-            'cgm' => 'required|betwwen:2,10',
+            'cgm' => 'required|between:2,10',
+            'bornDate' => 'required'
         ]);
 
-        $fields = $request->only('name', 'cgm');
+        $fields = $request->only('name', 'cgm', 'bornDate');
+        $fields['name'] = strtoupper($fields['name']);
         Student::find($id)->fill($fields)->save();
 
         return redirect()

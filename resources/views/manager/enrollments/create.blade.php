@@ -7,10 +7,10 @@
         <li><a href="{{ route('grades.index') }}">Turmas</a></li>
         <li>Nova</a></li>
 	</ol>
-	<br>	
 @stop
 
 @section('content')
+<div class="row">
 <div class=" container-fluid col-md-12 ">
     <div class="box box-info ">
         <div class="box-header with-border">
@@ -64,6 +64,7 @@
             </div>    
         </div>
     </div>
+</div>
 </div>
 @stop
 

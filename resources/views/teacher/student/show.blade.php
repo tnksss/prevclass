@@ -32,11 +32,86 @@
           
         </ul>
 
-        <a href="#" class="btn btn-primary btn-block"><b>Avaliar</b></a>
+        <a href="#" class="btn btn-primary  btn-block"><b>Avaliar</b></a>
+        <a href="{{URL::previous()}}" class="btn btn-warning btn-block"><b>Voltar para a turma</b></a>
       </div>
       <!-- /.box-body -->
     </div>
     <!-- /.box -->
+    <!-- Profile Image -->
+    <div class="box box-primary">
+        <div class="box-body box-profile">
+          <img class="profile-user-img img-responsive img-circle" src="{{url('storage/managers/profile-default.png')}}" alt="User profile picture">
+  
+          <h3 class="profile-username text-center">{{$enrollment->student->name}}</h3>
+  
+          <p class="text-muted text-center">Turma: {{$enrollment->grade->fullName()}}</p>
+  
+          <ul class="list-group list-group-unbordered">
+            <li class="list-group-item">
+              <b>Data de Nascimento:</b> <p class="pull-right">{{$enrollment->student->bornDate()}}</p>
+            </li>
+            <li class="list-group-item">
+              <b>Idade: </b> <p class="pull-right">{{$enrollment->student->age()}}</p>
+            </li>
+            
+          </ul>
+  
+          <a href="#" class="btn btn-primary  btn-block"><b>Avaliar</b></a>
+          <a href="{{URL::previous()}}" class="btn btn-warning btn-block"><b>Voltar para a turma</b></a>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
+      <!-- Profile Image -->
+    <div class="box box-primary">
+        <div class="box-body box-profile">
+          <img class="profile-user-img img-responsive img-circle" src="{{url('storage/managers/profile-default.png')}}" alt="User profile picture">
+  
+          <h3 class="profile-username text-center">{{$enrollment->student->name}}</h3>
+  
+          <p class="text-muted text-center">Turma: {{$enrollment->grade->fullName()}}</p>
+  
+          <ul class="list-group list-group-unbordered">
+            <li class="list-group-item">
+              <b>Data de Nascimento:</b> <p class="pull-right">{{$enrollment->student->bornDate()}}</p>
+            </li>
+            <li class="list-group-item">
+              <b>Idade: </b> <p class="pull-right">{{$enrollment->student->age()}}</p>
+            </li>            
+          </ul>
+  
+          <a href="#" class="btn btn-primary  btn-block"><b>Avaliar</b></a>
+          <a href="{{URL::previous()}}" class="btn btn-warning btn-block"><b>Voltar para a turma</b></a>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
+      <!-- Profile Image -->
+    <div class="box box-primary">
+        <div class="box-body box-profile">
+          <img class="profile-user-img img-responsive img-circle" src="{{url('storage/managers/profile-default.png')}}" alt="User profile picture">
+  
+          <h3 class="profile-username text-center">{{$enrollment->student->name}}</h3>
+  
+          <p class="text-muted text-center">Turma: {{$enrollment->grade->fullName()}}</p>
+  
+          <ul class="list-group list-group-unbordered">
+            <li class="list-group-item">
+              <b>Data de Nascimento:</b> <p class="pull-right">{{$enrollment->student->bornDate()}}</p>
+            </li>
+            <li class="list-group-item">
+              <b>Idade: </b> <p class="pull-right">{{$enrollment->student->age()}}</p>
+            </li>
+            
+          </ul>
+  
+          <a href="#" class="btn btn-primary  btn-block"><b>Avaliar</b></a>
+          <a href="{{URL::previous()}}" class="btn btn-warning btn-block"><b>Voltar para a turma</b></a>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
 
     
   </div>
@@ -56,143 +131,77 @@
       </ul>
       <div class="tab-content">
         <div class="active tab-pane" id="activity">
-          <div class="post">
-            <div class="row">
-              <div class="col-sm-6">
-                  <p><strong>Desinteresse: </strong> {{ $concepts->where('criterion_1',1)->count()}}</p>
-                  <p><strong>Não Produz: </strong> {{ $concepts->where('criterion_2',1)->count()}}</p>
-                  <p><strong>Faltoso: </strong> {{ $concepts->where('criterion_3',1)->count()}}</p>
-                  <p><strong>Indisciplinado: </strong> {{ $concepts->where('criterion_4',1)->count()}}</p>
-                  <p><strong>Dificuldade de Aprendizagem: </strong> {{ $concepts->where('criterion_5',1)->count()}}</p>
-                  <p><strong>Com Comportament: </strong> {{ $concepts->where('criterion_6',1)->count()}}</p>
-                  <p><strong>Boas Notas: </strong> {{ $concepts->where('criterion_7',1)->count()}}</p>
-                  <p><strong>Sem Média: </strong> {{ $concepts->where('criterion_8',1)->count()}}</p>
-              </div>
+          <div class="row">
             <div class="col-sm-6">
-              <h4>Comentários</h4>
-              @foreach($concepts as $concept)
-                <p>{{$concept->comment}}</p>
-                @endforeach
-            </div>
-          </div>
-                
+                <div class="box box-widget widget-user-2">
+                    <!-- Add the bg color to the header using any of the bg-* classes -->
+                    <div class="widget-user-header bg-aqua">
+                      
+                      <!-- /.widget-user-image -->
+                      <h3 class="widget-user-username">Total de Conceitos</h3>
+                      
+                    </div>
+                    <div class="box-footer no-padding">
+                        <ul class="nav nav-stacked">
+                            @if($concepts->where('criterion_1',1)->count()>0)
+                              <li><p><strong>Desinteresse: </strong><span class="pull-right badge bg-red">{{ $concepts->where('criterion_1',1)->count()}}</span></a></li>
+                            @endif
+                            @if($concepts->where('criterion_2',1)->count()>0)
+                              <li><p><strong>Não Produz: </strong><span class="pull-right badge bg-red">{{ $concepts->where('criterion_2',1)->count()}}</span></a></li>
+                            @endif
+                            @if($concepts->where('criterion_3',1)->count()>0)
+                              <li><p><strong>Faltoso: </strong><span class="pull-right badge bg-yellow">{{ $concepts->where('criterion_3',1)->count()}}</span></a></li>
+                            @endif
+                            @if($concepts->where('criterion_4',1)->count()>0)
+                              <li><p><strong>Indisciplinado: </strong><span class="pull-right badge bg-red">{{ $concepts->where('criterion_4',1)->count()}}</span></a></li>
+                            @endif
+                            @if($concepts->where('criterion_5',1)->count()>0)
+                              <li><p><strong>Dificuldade de Aprendizagem: </strong><span class="pull-right badge bg-yellow">{{ $concepts->where('criterion_5',1)->count()}}</span></a></li>
+                            @endif
+                            @if($concepts->where('criterion_6',1)->count()>0)      
+                              <li><p><strong>Bom Comportamento: </strong><span class="pull-right badge bg-blue">{{ $concepts->where('criterion_6',1)->count()}}</span></a></li>
+                            @endif
+                            @if($concepts->where('criterion_7',1)->count()>0)
+                              <li><p><strong>Boas Notas: </strong><span class="pull-right badge bg-blue">{{ $concepts->where('criterion_7',1)->count()}}</span></a></li>
+                            @endif
+                            @if($concepts->where('criterion_8',1)->count()>0)    
+                              <li><p><strong>Sem Média: </strong><span class="pull-right badge bg-yellow">{{ $concepts->where('criterion_8',1)->count()}}</span></a></li>
+                            @endif
+                            
 
-
-          </div>
-          {{-- 
-          <!-- Post -->
-          <div class="post">
-            <div class="user-block">
-              <img class="img-circle img-bordered-sm" src="../../dist/img/user1-128x128.jpg" alt="user image">
-                  <span class="username">
-                    <a href="#">Jonathan Burke Jr.</a>
-                    <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
-                  </span>
-              <span class="description">Shared publicly - 7:30 PM today</span>
-            </div>
-            <!-- /.user-block -->
-            <p>
-              Lorem ipsum represents a long-held tradition for designers,
-              typographers and the like. Some people hate it and argue for
-              its demise, but others ignore the hate as they create awesome
-              tools to help create filler text for everyone from bacon lovers
-              to Charlie Sheen fans.
-            </p>
-            <ul class="list-inline">
-              <li><a href="#" class="link-black text-sm"><i class="fa fa-share margin-r-5"></i> Share</a></li>
-              <li><a href="#" class="link-black text-sm"><i class="fa fa-thumbs-o-up margin-r-5"></i> Like</a>
-              </li>
-              <li class="pull-right">
-                <a href="#" class="link-black text-sm"><i class="fa fa-comments-o margin-r-5"></i> Comments
-                  (5)</a></li>
-            </ul>
-
-            <input class="form-control input-sm" type="text" placeholder="Type a comment">
-          </div>
-          <!-- /.post -->
-
-          <!-- Post -->
-          <div class="post clearfix">
-            <div class="user-block">
-              <img class="img-circle img-bordered-sm" src="../../dist/img/user7-128x128.jpg" alt="User Image">
-                  <span class="username">
-                    <a href="#">Sarah Ross</a>
-                    <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
-                  </span>
-              <span class="description">Sent you a message - 3 days ago</span>
-            </div>
-            <!-- /.user-block -->
-            <p>
-              Lorem ipsum represents a long-held tradition for designers,
-              typographers and the like. Some people hate it and argue for
-              its demise, but others ignore the hate as they create awesome
-              tools to help create filler text for everyone from bacon lovers
-              to Charlie Sheen fans.
-            </p>
-
-            <form class="form-horizontal">
-              <div class="form-group margin-bottom-none">
-                <div class="col-sm-9">
-                  <input class="form-control input-sm" placeholder="Response">
+                        </ul>  
+                    </div>
                 </div>
-                <div class="col-sm-3">
-                  <button type="submit" class="btn btn-danger pull-right btn-block btn-sm">Send</button>
-                </div>
-              </div>
-            </form>
-          </div>
-          <!-- /.post -->
-
-          <!-- Post -->
-          <div class="post">
-            <div class="user-block">
-              <img class="img-circle img-bordered-sm" src="../../dist/img/user6-128x128.jpg" alt="User Image">
-                  <span class="username">
-                    <a href="#">Adam Jones</a>
-                    <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
-                  </span>
-              <span class="description">Posted 5 photos - 5 days ago</span>
             </div>
-            <!-- /.user-block -->
-            <div class="row margin-bottom">
-              <div class="col-sm-6">
-                <img class="img-responsive" src="../../dist/img/photo1.png" alt="Photo">
-              </div>
-              <!-- /.col -->
-              <div class="col-sm-6">
-                <div class="row">
-                  <div class="col-sm-6">
-                    <img class="img-responsive" src="../../dist/img/photo2.png" alt="Photo">
-                    <br>
-                    <img class="img-responsive" src="../../dist/img/photo3.jpg" alt="Photo">
+            <div class="col-sm-6">
+                <!-- Widget: user widget style 1 -->
+                <div class="box box-widget widget-user-2">
+                  <!-- Add the bg color to the header using any of the bg-* classes -->
+                  <div class="widget-user-header bg-aqua">
+                    
+                    <!-- /.widget-user-image -->
+                    <h3 class="widget-user-username">Comentários</h3>
+                    
                   </div>
-                  <!-- /.col -->
-                  <div class="col-sm-6">
-                    <img class="img-responsive" src="../../dist/img/photo4.jpg" alt="Photo">
-                    <br>
-                    <img class="img-responsive" src="../../dist/img/photo1.png" alt="Photo">
+                  <div class="box-footer no-padding">
+                    <ul class="nav nav-stacked">
+                      @if($concepts->where('comment', !null)->count() > 0)
+                        @foreach($concepts as $concept)
+                          <li><p>{{$concept->comment}}</p></li>
+                        @endforeach
+                      @else
+                      <li>
+                        <p>Nenhum Comentário</p>
+                      </li>
+                      @endif
+                      
+                    </ul>
                   </div>
-                  <!-- /.col -->
                 </div>
-                <!-- /.row -->
+                <!-- /.widget-user -->
               </div>
-              <!-- /.col -->
-            </div>
-            <!-- /.row -->
-
-            <ul class="list-inline">
-              <li><a href="#" class="link-black text-sm"><i class="fa fa-share margin-r-5"></i> Share</a></li>
-              <li><a href="#" class="link-black text-sm"><i class="fa fa-thumbs-o-up margin-r-5"></i> Like</a>
-              </li>
-              <li class="pull-right">
-                <a href="#" class="link-black text-sm"><i class="fa fa-comments-o margin-r-5"></i> Comments
-                  (5)</a></li>
-            </ul>
-
-            <input class="form-control input-sm" type="text" placeholder="Type a comment">
           </div>
-          <!-- /.post -->
-        --}}</div> 
+      </div> 
         <!-- /.tab-pane -->
         <div class="tab-pane" id="timeline">
           {{-- <!-- The timeline -->

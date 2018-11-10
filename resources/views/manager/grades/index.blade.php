@@ -6,11 +6,11 @@
         <li><a href="{{ route('manager.home') }}">Dashboard</a></li>
         <li>Turmas</a></li>
     </ol>
-    <br>	
 @stop
 
 
 @section('content')
+<div class="row">
 <div class="col-xs-12">
     <div class="box">
         <div class="box-header">
@@ -61,5 +61,6 @@
         </div>
         @endforeach
     </div>
+</div>
 </div>
 @stop

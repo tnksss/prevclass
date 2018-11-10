@@ -11,7 +11,7 @@
         </div>
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">MAIN NAVIGATION</li>
-            <li class="treeview">
+            <li >
                 <a href="{{ route('manager.home') }}">
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 </a>

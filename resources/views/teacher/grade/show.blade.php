@@ -52,12 +52,17 @@
                   {{-- <td>student->avatar</td> --}}
                   
                   
-                   <td><a href="{{route('grades.students.show',['grade'=>$enrollment->grade->id, 'student' => $enrollment->student->id])}}">{{$enrollment->student->name}}</a></td>
+                  <td><a href="{{route('grades.students.show', [
+                      'grade'=>$enrollment->grade->id,
+                      'enrollment' => $enrollment->id
+                      ])}}"> {{$enrollment->student->name}}
+                      </a>
+                  </td>
                   <td>{{$enrollment->student->age()}}</td>
                   <td>{{$enrollment->status}}</td>
                   <td>
                     <button type="button"
-                            class="btn btn-{{$enrollment->teacherConcept()->filled ? "primary" : "warning"}}"
+                            class="btn btn-{{$enrollment->teacherConcept()->filled ? "success" : "danger"}}"
                             data-myconceptid  ="{{$enrollment->teacherConcept()->id}}"
                             data-mycomment    ="{{$enrollment->teacherConcept()->comment}}"
                             data-mycriterion1 ="{{$enrollment->teacherConcept()->criterion_1}}"

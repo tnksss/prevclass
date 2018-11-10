@@ -10,10 +10,10 @@
         <li><a href="{{ route('grades.index') }}">Turmas</a></li>
         <li><a href=""></a>{{$grade->name}}</a></li>
 	</ol>
-	<br>
 @stop
 
 @section('content')
+<div class="row">
 <div class=" container-fluid col-md-12 ">
 	<div class="box box-warning ">
     	<div class="box-header with-border">
@@ -77,6 +77,7 @@
 			</div>
 		</div>
 	</div>
+</div>
 </div>
 @stop
 

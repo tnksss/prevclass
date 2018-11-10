@@ -13,7 +13,7 @@ class Student extends Model
     public function age() {
         return Carbon::parse($this->bornDate)->diffInYears(Carbon::now());
     }
-    public function bornDate()
+    public function bornDateFormatted()
     {
         return Carbon::parse($this->bornDate)->format('d-m-Y');
     }

@@ -11,14 +11,22 @@ use Auth;
 
 class StudentController extends Controller
 {
-    public function show($enrollment_id,$student_id)
+
+    public function __construct()
+    {
+        return $this->middleware('auth');
+    }
+    public function show($grade_id, $enrollment_id)
     {
 
-
-        $concepts = Concept::where('enrollment_id',$enrollment_id)->where('user_id',Auth::user()->id)->get();
         
-        $student = Student::find($student_id);
+        $concepts = Concept::where('enrollment_id',$enrollment_id)
+                            ->where('user_id',Auth::user()->id)
+                            ->get();
         $enrollment = Enrollment::find($enrollment_id);
+        $student = Student::find($enrollment->student_id);
+        
+
         return view('teacher.student.show',[
             'student'   =>  $student,
             'enrollment' => $enrollment,

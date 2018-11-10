@@ -22,7 +22,7 @@
           
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
-          <a href="{{route('manager.profile')}}" class="dropdown-toggle" data-toggle="dropdown">
+          <a href="{{route('manager.profile')}}" class="dropdown-toggle">
               {{-- <img src="{{asset('images/profile.jpg')}}" class="user-image" alt="User Image"> --}}
               <img class="user-image" src="{{url('storage/managers/'.Auth::guard('manager')->user()->avatar)}}" />
 
