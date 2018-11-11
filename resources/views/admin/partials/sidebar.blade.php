@@ -17,8 +17,8 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
       
-        <li class="treeview">
-          <a href="#">
+        <li >
+          <a href="{{route('admin.home')}}">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
 
           </a>
@@ -28,19 +28,10 @@
         <a href="{{route('unities.index')}}">
             <i class="fa fa-university"></i> <span>Colégios</span>
             <span class="pull-right-container">
-              <small class="label pull-right bg-green">new</small>
+              <small class="label pull-right bg-green">3</small>
             </span>
           </a>
         </li>
-        <li>
-        <a href="{{route('managers')}}">
-            <i class="fa fa-users"></i> <span>Secretários</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-green">new</small>
-            </span>
-          </a>
-        </li>
-        
         <li class="treeview">
           <a href="#">
             <i class="fa fa-table"></i> <span>Relatórios</span>

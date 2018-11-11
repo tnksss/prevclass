@@ -2,9 +2,11 @@
 
 @section('content_header')
 <h1>Turmas</h1>
+@include('admin.partials.errors')
 <ol class="breadcrumb">
     <li><a href="{{ route('manager.home') }}">Dashboard</a></li>
     <li>Turmas</a></li>
+    
 </ol>
 @stop
 @section('content')
@@ -21,7 +23,7 @@
                         </div>
                     </div>
                 </div>
-                @include('admin.partials.errors')
+ 
             </div>
             <div class="box-body">
                 @foreach($courses as $course)
