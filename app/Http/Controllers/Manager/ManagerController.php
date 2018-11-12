@@ -38,6 +38,9 @@ class ManagerController extends Controller
         
     public function profileUpdate(Request $request)
     {
+        $this->validate($request,[
+            'avatar' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
+        ]);
         $manager = Auth::guard('manager')->user();
         $data = $request->all();
 
@@ -47,6 +50,7 @@ class ManagerController extends Controller
             unset($data['password']);
 
         $data['avatar'] = $manager->avatar;
+        
         if ($request->hasFile('avatar') && $request->file('avatar')->isValid())
         {               
             $avatarName = $manager->id.'_avatar'.time().'.'.request()->avatar->getClientOriginalExtension();

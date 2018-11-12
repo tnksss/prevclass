@@ -14,10 +14,10 @@
 			<div class="box-header with-border">		
 			</div>
 			<div class="box-body">
-				{!! Form::open(['route' => ['students.update', $student->id], 'method' => 'patch']) !!} 
+				{!! Form::open(['route' => ['students.update', $student->id], 'method' => 'patch', 'enctype' => 'multipart/form-data']) !!} 
 				@include('manager.student.form')
 				<div class="form-group">
-					<input type="submit" class="btn btn-primary" value="Salvar">
+					<input type="submit" class="btn btn-primary" value="Alterar">
 					{!! Form::close() !!} 
 					<a href="{{ route('students.index' )}}"class="btn btn-danger">Voltar</a>
 				</div> 

@@ -38,7 +38,7 @@
           
           @foreach($students as $student)
           <tr>       
-            <td><img class="img-circle img-bordered-sm img-mini" src="{{url('storage/managers/profile-default.png')}}" alt="User Image"></td>     
+            <td><img class="img-circle img-bordered-sm img-mini" src="{{url('storage/students/'.$student->avatar)}}" alt="User Image"></td>     
             <td>{{ $student->id }}</td>
             <td>{{ $student->cgm }}</td>
             <td>{{ $student->name }}</td>

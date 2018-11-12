@@ -7,7 +7,7 @@ use Carbon\Carbon;
 
 class Student extends Model
 {
-    protected $fillable = ['name', 'cgm','bornDate'];
+    protected $fillable = ['name', 'cgm','bornDate','avatar'];
     protected $guarded = ['id', 'created_at', 'update_at'];
 
     public function age() {

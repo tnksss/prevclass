@@ -33,11 +33,26 @@ class StudentController extends Controller
             'name'      => 'required|between:2,100',
             'cgm'       => 'required|between:2,10',
             'bornDate'  => 'required',
-            'avatar'    => 'image',
+            'avatar'    => 'image|mimes:png,jpeg,jpg,gif|max:2048'
+            
+            
         ]);
 
         $fields = $request->only('name', 'cgm','bornDate','avatar');
         $fields['name'] = strtoupper($fields['name']);
+        
+        if($request->file('avatar')){
+            $avatar = $request->file('avatar');
+            $new_name = rand() . '.' . $avatar->getClientOriginalExtension();
+            $request->avatar->storeAs('students', $new_name);
+            
+            $fields['avatar'] = $new_name;
+            
+        }else{
+            $fields['avatar'] = "student-default.png";
+        }
+        
+        
         (new Student($fields))->save();
             return redirect()
                 ->route('students.index')
@@ -56,12 +71,26 @@ class StudentController extends Controller
         $this->validate($request, [
             'name' => 'required|between:2,100',
             'cgm' => 'required|between:2,10',
-            'bornDate' => 'required'
+            'bornDate' => 'required',
+            'avatar'    => 'image|mimes:png,jpg,jpeg,gif|max:2048'
         ]);
+        $student = Student::find($id);
 
-        $fields = $request->only('name', 'cgm', 'bornDate');
+        $fields = $request->only('name', 'cgm', 'bornDate','avatar');
         $fields['name'] = strtoupper($fields['name']);
-        Student::find($id)->fill($fields)->save();
+        
+        if($request->file('avatar')){
+            $avatar = $request->file('avatar');
+            $new_name = rand() . '.' . $avatar->getClientOriginalExtension();
+            $request->avatar->storeAs('students', $new_name);
+            
+            $fields['avatar'] = $new_name;
+            
+        }else{
+            $fields['avatar'] = $student->avatar;
+        }
+        
+        $student->fill($fields)->save();
 
         return redirect()
             ->route('students.index')
