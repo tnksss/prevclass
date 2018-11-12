@@ -38,9 +38,9 @@
         </tr>
         
         @foreach($teachers as $teacher)
-        <tr>           
-          {{-- <td><img class="user-image image-mini" src="{{url('storage/users/'.$user->avatar)}}" /></td>  --}}
-          <td></td>
+        <tr>            
+            <td><img class="img-circle img-bordered-sm img-mini"  src="{{url('storage/teachers/'.$teacher->avatar)}}" /></td> 
+          
           <td>{{ $teacher->id }}</td>
           <td>{{ $teacher->name }}</td>
           <td>{{ $teacher->cpf }}</td>

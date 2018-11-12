@@ -1,11 +1,11 @@
 @extends('manager.layout.app')
 
 @section('content_header')
-<h1>Cadastro de Professor</h1>
+<h1>Editar Professor</h1>
 <ol class="breadcrumb">
 	<li><a href="{{ route('manager.home') }}">Dashboard</a></li>
 	<li><a href="{{ route('teachers.index') }}">Professores</a></li>
-	<li>Novo</li>
+    <li>{{$teacher->name}}</li>
 </ol>
 @stop
 
@@ -14,11 +14,12 @@
 	<div class=" container-fluid col-md-12 ">
 		<div class="box box-info ">
 			<div class="box-header with-border">
-				<h3 class="box-title">Formulário de Cadastro</h3>
+				<h3 class="box-title">Formulário de Edição</h3>
 				@include('admin.partials.errors')
 			</div>
-			<div class="box-body">				
-				{!! Form::open(['route' => 'teachers.store']) !!} 
+			<div class="box-body">				    
+                {!! Form::open(['route' => ['teachers.update', $teacher->id], 'method' => 'patch']) !!} 
+                
 				@include('manager.teacher.form')
 				<div class="form-group">
 					<input type="submit" class="btn btn-primary" value="Salvar">

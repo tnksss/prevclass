@@ -45,7 +45,7 @@ class TeacherController extends Controller
             'teacher' => User::find($id)
         ]);
     }
-    public function update()
+    public function update(Request $request, $id)
     {
         $fields = $request->only('name', 'cpf', 'email');
         
@@ -73,5 +73,15 @@ class TeacherController extends Controller
         return redirect()
                     ->route('teachers.index')
                     ->with('success', 'Professor removido com sucesso');
+    }
+    public function show($id)
+    {
+        $teacher = User::find($id);
+        $supplies = $teacher->supplies;
+        
+        return view ('manager.teacher.show',[
+                    'teacher' => $teacher,
+                    'supplies' => $supplies
+        ]);
     }
 }

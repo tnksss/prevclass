@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Manager;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Grade;
+use Illuminate\Support\Facades\DB;
 use Auth;
 
 
@@ -27,7 +29,16 @@ class ManagerController extends Controller
     public function index()
     {
         $manager = Auth::guard('manager')->user();
-        return view('manager.home',compact('manager'));
+
+        $grades = DB::select(DB::raw('SELECT count(u.id)
+                            FROM grades g
+                            JOIN courses c ON (g.course_id = c.id)
+                            JOIN unities u ON (c.unity_id = u.id)
+                            WHERE c.unity_id = :unity_id
+                            ORDER BY u.name, u.id'),array('unity_id' => $manager->unity->id));
+        
+                            
+        return view('manager.home',compact('manager','grades'));
     }
     
     public function profile()

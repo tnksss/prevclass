@@ -13,7 +13,7 @@
                             
                             <div class="info-box-content">
                                 <span class="info-box-text">Turmas</span>
-                                <span class="info-box-number">90<small>%</small></span>
+                                <span class="info-box-number">10</span>
                             </div>
                             <!-- /.info-box-content -->
                         </div>

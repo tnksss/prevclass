@@ -30,7 +30,7 @@
                 <a href="{{route('teachers.index')}}">
                     <i class="fa fa-users"></i> <span>Professores</span>
                     <span class="pull-right-container">
-                        <small class="label pull-right bg-yellow">+ ou -</small>
+                        <small class="label pull-right bg-green">{{\App\Models\Users\User::all()->count()}}</small>
                     </span>
                 </a>
             </li>
@@ -38,7 +38,7 @@
                 <a href="{{route('grades.index')}}">
                     <i class="fa fa-users"></i> <span>Turmas</span>
                     <span class="pull-right-container">
-                        <small class="label pull-right bg-green">ok</small>
+                        <small class="label pull-right bg-green">10</small>
                     </span>
                 </a>
             </li>
@@ -54,7 +54,7 @@
             <a href="{{route('students.index')}}">
                 <i class="fa fa-users"></i> <span>Alunos</span>
                 <span class="pull-right-container">
-                  <small class="label pull-right bg-yellow">+ ou -</small>
+                <small class="label pull-right bg-green">{{\App\Models\Student::all()->count()}}</small>
                 </span>
               </a>
             </li>
