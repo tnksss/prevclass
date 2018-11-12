@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-        <title>PrevClass</title>
+        <title>PrevClass - Unidade</title>
         <link rel="shortcut icon" href="{{ asset('prevclass.ico') }}" >
     
         {{ Html::style('css/bootstrap.css')}}
@@ -24,7 +24,6 @@
             <div class="content-wrapper" >
                 <section class="content-header">
                     @yield('content_header')
-                    {{-- @include('layouts.notifications') --}}
                 </section>
                 <section class="content">
                     @yield('content')

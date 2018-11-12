@@ -1,15 +1,14 @@
 @extends('teacher.layout.app')
 
-@section('content')
-    <section class="content-header">
-        <h1>Dashboard</h1>
-    </section>
-    <section class="content">
+@section('content_header')
+    
+        <h1>Meu Dashboard</h1>
+    @stop
+
+    @section('content')
         @include('admin.partials.errors')
         @if($teacher->has('supplies'))
         <div class="row">
-            
-    
         @foreach ($teacher->grades as $grade )
             <div class="col-lg-3 col-xs-6">
                 <!-- small box -->
@@ -33,6 +32,6 @@
         @endforeach
         </div>
         @endif
-    </section>
+    
 @endsection
 
