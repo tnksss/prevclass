@@ -9,19 +9,14 @@
 
 @stop
 @section('content')
-<section class="content">
+
 <div class="row">
   <div class="col-md-3">
-
-    <!-- Profile Image -->
     <div class="box box-primary">
       <div class="box-body box-profile">
-        <img class="profile-user-img img-responsive img-circle" src="{{url('storage/managers/profile-default.png')}}" alt="User profile picture">
-
+        <img class="profile-user-img img-responsive img-circle" src="{{url('storage/students/'.$enrollment->student->avatar)}}" alt="student profile picture">
         <h3 class="profile-username text-center">{{$enrollment->student->name}}</h3>
-
         <p class="text-muted text-center">Turma: {{$enrollment->grade->fullName()}}</p>
-
         <ul class="list-group list-group-unbordered">
           <li class="list-group-item">
             <b>Data de Nascimento:</b> <p class="pull-right">{{$enrollment->student->bornDateFormatted()}}</p>
@@ -114,16 +109,13 @@
                     <ul class="nav nav-stacked">
                       @if($concepts->where('comment', !null)->count() > 0)
                         @foreach($concepts as $concept)
-                        
-                        <li><strong>:</strong><p>{{$concept->comment}}</p></li>
-                        {{dd($concept->teacher)}}
+                        <li><p>{{$concept->comment}}</p></li>
                         @endforeach
                       @else
                       <li>
                         <p>Nenhum Comentário</p>
                       </li>
-                      @endif
-                      
+                      @endif                      
                     </ul>
                   </div>
                 </div>
@@ -291,5 +283,5 @@
   </div>
   <!-- /.col -->
 </div>
-</section>
+
 @endsection

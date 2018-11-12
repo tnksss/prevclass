@@ -1,21 +1,18 @@
 @extends('teacher.layout.app')
-
 @section('content_header')
 <h1>Lançar Conceitos - {{$grade->course->unity->name}}</h1>
 <ol class="breadcrumb">
     <li><a href="{{ route('teacher.home') }}">Dashboard</a></li>
     <li>{{$grade->fullName()}}</li>
 </ol>
-<br>
 @stop
 
 @section('content')
+<div class="row">
 <div class=" container-fluid col-md-12 ">
-    
     <div class="box box-success">
         <div class="box-header with-border">
             @include('admin.partials.errors')
-
             <table class="table">
               <tbody>
                 <tr>
@@ -38,7 +35,7 @@
                 <tbody>
                   <tr>
                   
-                  
+                  <th>Foto</th>
                   <th>Nome</th>
                   <th>Idade</th>
                   <th>Sit. Matrícula</th>
@@ -51,7 +48,7 @@
                     
                   {{-- <td>student->avatar</td> --}}
                   
-                  
+                  <td><img class="img-circle img-bordered-sm img-mini"  src="{{url('storage/students/'.$enrollment->student->avatar)}}" /></td> 
                   <td><a href="{{route('grades.students.show', [
                       'grade'=>$enrollment->grade->id,
                       'enrollment' => $enrollment->id
@@ -179,6 +176,7 @@
     </form>
     </div>
   </div>
+</div>
 </div>
 @stop
     

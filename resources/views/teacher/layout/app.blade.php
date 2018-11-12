@@ -16,7 +16,7 @@
         {{ Html::style('css/adminlte/dist/css/skins/skin-blue.min.css')}}
         {{ Html::style('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic')}}
 
-        @include('manager.partials.shim')
+        @include('layouts.shim')
 
     </head>
     <body class="hold-transition skin-blue sidebar-mini ">
@@ -27,7 +27,9 @@
                 <section class="content-header">
                     @yield('content_header')
                 </section>
-                @yield('content')
+                <section class="content">
+                    @yield('content')
+                </section>
             </div>
         </div>
         {{ Html::script('js/jquery/dist/jquery.min.js') }}
