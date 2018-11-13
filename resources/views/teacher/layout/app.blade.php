@@ -40,6 +40,23 @@
     {{ Html::script('js/custom.modal.js') }}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
     <script>
+        // new Chart(document.getElementById("pie-chart"), {
+        //     type: 'pie',
+        //     data: {
+        //         labels: ["Desinteresse","Não Produz", "Faltoso", "Indisciplinado", "Dificuldade", "Bom comportamento", "Boas Notas"],
+        //         datasets: [{
+        //             label: "Conceitos por professor",
+        //             backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#f56954","#00a65a","#f39c12"],
+        //             data: [2478,5267,734,784,433,223,290,500]
+        //         }]
+        //     },
+        //     options: {
+        //         title: {
+        //             display: true,
+        //             text: 'Conceitos por Professor'
+        //         }
+        //     }
+        // });
         // -------------
         // - PIE CHART -
         // -------------
@@ -47,17 +64,17 @@
         new Chart(document.getElementById("pie-chart"), {
             type: 'pie',
             data: {
-                labels: ["Desinteresse","Não Produz", "Faltoso", "Indisciplinado", "Dificuldade", "Bom comportamento", "Boas Notas"],
+                labels: ["Avaliado","Não Avaliado"],
                 datasets: [{
                     label: "Conceitos por professor",
-                    backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#f56954","#00a65a","f39c12"],
-                    data: [2478,5267,734,784,433,223,290,500]
+                    backgroundColor: ["#00a65a","#f39c12"],
+                    data: [42,22]
                 }]
             },
             options: {
                 title: {
                     display: true,
-                    text: 'Conceitos por Professor'
+                    text: 'Alunos Avaliados'
                 }
             }
         });
@@ -89,6 +106,7 @@
                 }
             }
         });
+        
         
     </script>
     
