@@ -25,16 +25,20 @@ $('#exampleModal').on('show.bs.modal',function (event){
     modal.find('.modal-body #criterion_1').val(button.data('mycriterion1'))
     modal.find('.modal-body #criterion_1').prop('checked',criterion_1);
 
-    modal.find('.modal-body #criterion_1').val(button.data('mycriterion2'))
+    modal.find('.modal-body #criterion_2').val(button.data('mycriterion2'))
     modal.find('.modal-body #criterion_2').attr('checked',criterion_2);
 
-    modal.find('.modal-body #criterion_1').val(button.data('mycriterion3'))
+    modal.find('.modal-body #criterion_3').val(button.data('mycriterion3'))
     modal.find('.modal-body #criterion_3').attr('checked',criterion_3);
 
-    modal.find('.modal-body #criterion_1').val(button.data('mycriterion4'))
+    modal.find('.modal-body #criterion_4').val(button.data('mycriterion4'))
     modal.find('.modal-body #criterion_4').attr('checked',criterion_4);
+    modal.find('.modal-body #criterion_5').val(button.data('mycriterion5'))
     modal.find('.modal-body #criterion_5').attr('checked',criterion_5);
+    modal.find('.modal-body #criterion_6').val(button.data('mycriterion6'))
     modal.find('.modal-body #criterion_6').attr('checked',criterion_6);
+    modal.find('.modal-body #criterion_7').val(button.data('mycriterion7'))
     modal.find('.modal-body #criterion_7').attr('checked',criterion_7);
+    modal.find('.modal-body #criterion_8').val(button.data('mycriterion8'))
     modal.find('.modal-body #criterion_8').attr('checked',criterion_8);
     })
