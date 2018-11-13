@@ -3,7 +3,7 @@
 @section('content')
 <div class="body"></div>
     <div class="grad"></div>
-    @include('admin.partials.errors')
+    @include('layouts.notifications')
     	<div class="header">
             <div>
                 <strong>Prev<span>Class</span></></strong>

@@ -14,7 +14,7 @@
     <div class=" container-fluid col-md-12 ">
         <div class="box box-success">
             <div class="box-header with-border">
-                @include('admin.partials.errors')
+                @include('layouts.notifications')
                 <h3>{{$teacher->name}}</h3>
                 <h4>CPF: {{$teacher->cpf}}</h4>
                 <h4>Email: {{$teacher->email}}</h4>

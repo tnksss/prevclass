@@ -31,7 +31,6 @@
         </div>
     </div>
     {{ Html::script('js/jquery/dist/jquery.min.js') }}
-    {{ Html::script('js/jquery/dist/jquery.slimscroll.min.js') }}
     {{ Html::script('js/bootstrap.min.js') }}
     {{ Html::script('js/jquery.dataTables.min.js') }}
     {{ Html::script('js/adminlte.min.js') }}

@@ -5,7 +5,7 @@
 <ol class="breadcrumb">
     <li><a href="{{ route('admin.home') }}">Dashboard</a></li>
     <li>Unidades</a></li>
-    @include('admin.partials.errors')
+    @include('layouts.notifications')
 </ol>
 @stop
 @section('content')

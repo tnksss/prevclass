@@ -1,68 +1,33 @@
 @extends('admin.layout.app')
 @section('content_header')
-    <h1>Unidade</h1>
-    @include('admin.partials.errors')
-
-    <ol class="breadcrumb">
-        <li><a href="{{ route('admin.home') }}">Dashboard</a></li>
-        <li><a href="{{ route('unities.index') }}">Unidades</a></li>
-        <li><a href=""></a>{{$unity->name}}</a></li>
-	</ol>
-	<br>
+<h1>Unidade</h1>
+@include('layouts.notifications')
+<ol class="breadcrumb">
+    <li><a href="{{ route('admin.home') }}">Dashboard</a></li>
+    <li><a href="{{ route('unities.index') }}">Unidades</a></li>
+    <li><a href=""></a>{{$unity->name}}</a></li>
+</ol>
 @stop
 
 @section('content')
-<div class=" container-fluid col-md-12 ">
-	<div class="box box-warning ">
-        <div class="box-header with-border">
-            <h3 class="box-title"><h3 class="box-title"><p><strong>Município:</strong> {{$unity->city->name}}</p>
-            <p><strong>Nome da Unidade:</strong> {{$unity->name}}</p></h3></h3>
-        </div>
-        <div class="box-body">
-        {!! Form::open(['route' => ['unities.update', $unity->id], 'method' => 'patch']) !!}
-            @include('admin.unity.form')
-        
-		   	{{-- <div class="form-group">
-			    <label for="name"> Nome da Unidade </label>
-			    <input  id="name" name="name" class="form-control" value="{{ old('name') ?? $unity->name ?? null }}" autofocus>
-			</div>
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="form-group">
-                        <label for="address"> Endereço </label>
-                        <input  id="address" name="address" class="form-control" value="{{ old('address') ?? $unity->address ?? null }}">
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label for="number"> Número </label>
-                        <input  id="number" name="number" class="form-control" value="{{ old('number') ?? $unity->number ?? null}}">
-                    </div>
-                </div>
-            </div> 
-            <div class="form-group">
-                <label for="city_id">Município</label>
-                <select name="city_id" class="form-control">
-                    @foreach ($cities as $city)
-                        <option class="form-control" value="{{old($city->id) ?? $city->id ?? null}}">{{old($city->name) ?? $city->name ?? null}}</option>
-                    @endforeach
-                </select>
+<div class="row">
+    <div class=" container-fluid col-md-12 ">
+        <div class="box box-warning ">
+            <div class="box-header with-border">
+                <h3 class="box-title"><h3 class="box-title"><p><strong>Município:</strong> {{$unity->city->name}}</p>
+                <p><strong>Nome da Unidade:</strong> {{$unity->name}}</p></h3></h3>
             </div>
-            <div class="form-group">
-                <label for="phone"> Telefone </label>
-                <input  id="phone" name="phone" class="form-control" value="{{ old('phone') ?? $unity->phone ?? null}}">
-            </div>
-            <div class="form-group">
-                <label for="email"> E-mail </label>
-                <input  id="email" name="email" class="form-control" value="{{ old('email') ?? $unity->email ?? null}}">
-            </div> --}}
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Salvar">
+            <div class="box-body">
+                {!! Form::open(['route' => ['unities.update', $unity->id], 'method' => 'patch']) !!}                    @include('admin.unity.form')
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary" value="Salvar">
                 {!! Form::close() !!}
-                <a href="{{ route('unities.index' )}}"class="btn btn-danger">Voltar</a>
+                    <a href="{{ route('unities.index' )}}"class="btn btn-danger">Voltar</a>                    
+                </div>
             </div>
         </div>
     </div>
 </div>
 @stop
-
+    
+    

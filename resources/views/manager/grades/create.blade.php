@@ -14,7 +14,7 @@
         <div class="box box-info ">
             <div class="box-header with-border">
                 <h3 class="box-title">Formulário de Cadastro</h3>
-                @include('admin.partials.errors')
+                @include('layouts.notifications')
             </div>
             <div class="box-body">
                 {!! Form::open(['route' => 'grades.store']) !!}

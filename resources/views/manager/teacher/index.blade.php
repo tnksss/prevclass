@@ -2,7 +2,7 @@
 
 @section('content_header')
   <h1>Professores</h1>
-  @include('admin.partials.errors')
+  @include('layouts.notifications')
   <ol class="breadcrumb">
     <li><a href="{{ route('manager.home') }}">Dashboard</a></li>
     <li>Professores</li>

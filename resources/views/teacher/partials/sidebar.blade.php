@@ -20,7 +20,7 @@
             
             <li>
                 <a href="{{route('teacher.profile')}}">
-                    <i class="fa fa-users"></i> <span>Meu Perfil</span>
+                    <i class="fa fa-user"></i> <span>Meu Perfil</span>
                     <span class="pull-right-container">
                         
                     </span>
@@ -35,8 +35,8 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> Simple tables</a></li>
-                <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
+                <li><a href="pages/tables/simple.html"><i class="fa fa-child"></i> Aluno</a></li>
+                <li><a href="pages/tables/data.html"><i class="fa fa-users"></i> Turma</a></li>
               </ul>
             </li>
         

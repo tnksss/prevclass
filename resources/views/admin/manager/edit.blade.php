@@ -16,7 +16,7 @@
 			<div class="box-header with-border">
 				<h3 class="box-title">Formulário de Edição</h3>
 			</div>
-			@include('admin.partials.errors')
+			@include('layouts.notifications')
 			<div class="box-body">
 				<div class="form-group">
 					<h3> {{$manager->unity->name}} </h3>

@@ -16,7 +16,7 @@
 		<div class="box box-warning ">
 			<div class="box-header with-border">
 				<h3 class="box-title">Editar Curso</h3>
-				@include('admin.partials.errors')
+				@include('layouts.notifications')
 			</div>
 			<div class="box-body">
 				{!! Form::open(['route' => ['courses.update', 'unity' => $course->unity->id,'course'=>$course->id],  'method' => 'patch']) !!}

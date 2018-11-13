@@ -14,7 +14,7 @@
     <div class=" container-fluid col-md-12 ">
         <div class="box box-success">
             <div class="box-header with-border">
-                @include('admin.partials.errors')
+                @include('layouts.notifications')
                 <h3 class="box-title"><p><strong>Município:</strong> {{$unity->city->name}}</p>
                 <p><strong>Nome da Unidade:</strong> {{$unity->name}}</p>
                 <p><strong>Código Inep:</strong> {{$unity->code}}</p></h3>

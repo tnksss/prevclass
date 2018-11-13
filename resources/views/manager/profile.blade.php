@@ -16,7 +16,7 @@
         <div class="box box-warning ">
             <div class="box-header with-border">
                 <h3 class="box-title">Meu Perfil</h3>
-                @include('admin.partials.errors')
+                @include('layouts.notifications')
             </div>
             <div class="box-body">
                 {!! Form::open(['route' => ['manager-profile.update', $manager->id], 'method' => 'patch', 'enctype' => 'multipart/form-data']) !!} 
