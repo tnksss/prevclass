@@ -2,7 +2,7 @@
       <section class="sidebar">
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="{{url('storage/managers/'.Auth::guard('web')->user()->avatar)}}" class="img-circle" alt="User Image">
+                <img src="{{url('storage/teachers/'.Auth::guard('web')->user()->avatar)}}" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
                 <p>{{Auth::user()->name}}</p>
@@ -19,10 +19,10 @@
             
             
             <li>
-                <a href="">
+                <a href="{{route('teacher.profile')}}">
                     <i class="fa fa-users"></i> <span>Meu Perfil</span>
                     <span class="pull-right-container">
-                        <small class="label pull-right bg-green">\\\\</small>
+                        
                     </span>
                 </a>
             </li>
