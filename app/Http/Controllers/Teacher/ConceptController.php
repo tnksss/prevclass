@@ -15,6 +15,16 @@ class ConceptController extends Controller
     public function update(Request $request)
     {
         $concept = Concept::find($request->concept_id);
+        
+        for ($i=1; $i <= 8; $i++) { 
+            if($request['criterion_'.$i] == null)
+                $request['criterion_'.$i] = 0;
+            else
+                $request['criterion_'.$i] = 1;
+        }
+        
+        
+        
         $fields = $request->all();
         
         $concept->update($fields);
