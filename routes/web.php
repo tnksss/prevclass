@@ -14,7 +14,8 @@ Route::get('/home', 'Teacher\TeacherController@index')->name('teacher.home');
 Route::get('grades/{grade}','Teacher\GradeController@show')->name('teacher.grade.show');
 Route::patch('concepts/update','Teacher\ConceptController@update')->name('concepts.update');
 Route::resource('grades.students','Teacher\StudentController')->only(['show']);
-
+Route::get('profile','Teacher\TeacherController@profile')->name('teacher.profile');
+Route::patch('profile','Teacher\TeacherController@profileUpdate')->name('teacher-profile.update');
 
 Route::prefix('admin')->group(function(){
     Route::get('/login', 'Auth\Admin\LoginController@showLoginForm')->name('admin.login');
