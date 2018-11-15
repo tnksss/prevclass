@@ -18,12 +18,12 @@ class UsersTableSeeder extends Seeder
         // $faker = Faker::create();
         // for ($i=0; $i <10 ; $i++) { 
                     
-        // User::create([
-        //     'name'      => $faker->name,
-        //     'email'     => $faker->unique()->safeEmail,
-        //     'cpf'       => $faker->cpf(false),
-        //     'password'  => bcrypt('abc123'),
-        // ]);   
+        User::create([
+            'name'      => 'Professor',
+            'email'     => 'teacher@teste.com',
+            'cpf'       => '99988877766',
+            'password'  => bcrypt('abc123'),
+        ]);   
 
         factory(User::class, 50)->create();
 

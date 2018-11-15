@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Supply;
 use App\Models\Unity;
+use App\Models\Concept;
 
 use Auth;
 
@@ -18,7 +19,10 @@ class TeacherController extends Controller
     public function index()
     {
         $teacher = Auth::user();
-        $grades = $teacher->grades;    
+        
+        $concepts['total'] = Concept::where('user_id',$teacher->id)->count();
+        $concepts['filled'] = Concept::where('user_id',$teacher->id)->where('filled',1)->count();
+        dd($concepts['filled'],$concepts['total']);
                         
         return view('teacher.home',compact('teacher','grades'));
     }

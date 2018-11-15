@@ -18,10 +18,6 @@ $('#exampleModal').on('show.bs.modal',function (event){
     modal.find('.modal-body #concept_id').val(id);
     modal.find('.modal-body #comment').val(comment);
 
-
-
-    
-    
     modal.find('.modal-body #criterion_1').val(button.data('mycriterion1'))
     modal.find('.modal-body #criterion_1').prop('checked',criterion_1);
 

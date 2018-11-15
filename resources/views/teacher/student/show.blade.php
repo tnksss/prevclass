@@ -2,7 +2,7 @@
 @section('content_header')
 <h1>Aluno</h1>
 <ol class="breadcrumb">
-  <li><a href="{{ route('teacher.home') }}">Dashboard</a></li>
+  <li><a href="{{ route('teacher.home') }}">Dashboard</a> <input type="hidden" value="10" id="teste"></li>
   <li><a href="{{ route('teacher.grade.show',$enrollment->grade->id) }}">{{$enrollment->grade->fullName()}}</a></li>
   <li>{{$enrollment->student->name}}</li>
 </ol>
@@ -142,6 +142,7 @@
                     <!-- /.nav-tabs-custom -->
                   </div>
                   <!-- /.col -->
+                  
                   
                   <div class="col-md-12">
                     <div class="box box-info">
