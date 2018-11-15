@@ -22,7 +22,7 @@ class TeacherController extends Controller
         
         $concepts['total'] = Concept::where('user_id',$teacher->id)->count();
         $concepts['filled'] = Concept::where('user_id',$teacher->id)->where('filled',1)->count();
-        dd($concepts['filled'],$concepts['total']);
+        // dd($concepts['filled'],$concepts['total']);
                         
         return view('teacher.home',compact('teacher','grades'));
     }
