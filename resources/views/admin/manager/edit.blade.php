@@ -8,7 +8,6 @@
 	<li>Editar secretário</a></li>
 </ol>
 @stop
-
 @section('content')
 <div class="row">
 	<div class=" container-fluid col-md-12 ">

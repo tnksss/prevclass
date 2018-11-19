@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Manager;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Grade;
-use Illuminate\Support\Facades\DB;
+use App\Models\Enrollment;
+use App\Models\Supply;
+use App\Models\Concept;
+
 use Auth;
 
 
@@ -29,16 +32,27 @@ class ManagerController extends Controller
     public function index()
     {
         $manager = Auth::guard('manager')->user();
+        $enrollments = Enrollment::join('grades','grades.id','=','enrollments.grade_id')
+                                 ->join('courses','courses.id','=', 'grades.course_id')
+                                 ->where('courses.unity_id', $manager->unity_id)
+                                 ->get();
+                                         
+        $grades = Grade::join('courses','courses.id','=', 'grades.course_id')
+                        ->where('courses.unity_id', $manager->unity_id)
+                        ->get();
 
-        $grades = DB::select(DB::raw('SELECT count(u.id)
-                            FROM grades g
-                            JOIN courses c ON (g.course_id = c.id)
-                            JOIN unities u ON (c.unity_id = u.id)
-                            WHERE c.unity_id = :unity_id
-                            ORDER BY u.name, u.id'),array('unity_id' => $manager->unity->id));
-        
+        $supplies = Supply::join('grades', 'grades.id','=','supplies.grade_id')
+                                 ->join('courses','courses.id','=', 'grades.course_id')
+                                 ->where('courses.unity_id', $manager->unity_id)
+                                 ->get();
+
+        $concepts = Concept::join('enrollments', 'enrollments.id','=','concepts.enrollment_id')
+                                 ->join('grades','grades.id','=','enrollments.grade_id')
+                                 ->join('courses','courses.id','=', 'grades.course_id')
+                                 ->where('courses.unity_id', $manager->unity_id)
+                                 ->get();
                             
-        return view('manager.home',compact('manager','grades'));
+        return view('manager.home',compact('manager','grades', 'enrollments','supplies','concepts'));
     }
     
     public function profile()

@@ -36,14 +36,14 @@ class ManagerController extends Controller
             ->route('unities.show', $id)
             ->with('success', 'Secretário adicionado com sucesso');
     }
-    public function edit($id)
+    public function edit($unity, $id)
     {
         $manager = Manager::find($id);
         return view('admin.manager.edit',[
             'manager' => $manager
         ]);
     }
-    public function update(Request $request, $id, $unity)
+    public function update(Request $request, $unity, $id)
     {
         $this->validate($request, Manager::RULES);
         $fields = $request->only('name', 'email', 'cpf');
@@ -52,7 +52,7 @@ class ManagerController extends Controller
         $fields['unity_id'] = $unity;
         Manager::find($id)->fill($fields)->save();
         return redirect()
-                        ->route('unities.show',$id)
+                        ->route('unities.show',$unity)
                         ->with('success','Secretário atualizado com sucesso!');
     }
 }
