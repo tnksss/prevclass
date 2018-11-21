@@ -36,13 +36,12 @@ class User extends Authenticatable
         return $this->hasMany(Supply::class);
     }
 
+    public function grades()
+    {
+        return $this->belongsToMany(Grade::class, 'supplies');
+    }
 
-    // public function grades()
-    // {
-    //     return Grade::join('supplies','supplies.id','=','grades.course_id')
-    //                 ->where('unity_id',$this->unity_id)
-    //                 ->get();
-    // }
+    
 
     const RULES = [
         'name'  => 'required|between:3,100',

@@ -20,15 +20,17 @@ class TeacherController extends Controller
     {
         $teacher = Auth::user();
         
-        $concepts['total'] = Concept::where('user_id',$teacher->id)->count();
-        $concepts['filled'] = Concept::where('user_id',$teacher->id)->where('filled',1)->count();
+        
+        // $concepts['total'] = Concept::where('user_id',$teacher->id)->count();
+        // $concepts['filled'] = Concept::where('user_id',$teacher->id)->where('filled',1)->count();
         
                         
-        return view('teacher.home',compact('teacher','grades'));
+        return view('teacher.home',compact('teacher'));
     }
     public function profile()
     {
         $teacher = Auth::user();
+        
         return view('teacher.profile',compact('teacher'));
     }
     public function profileUpdate(Request $request)
