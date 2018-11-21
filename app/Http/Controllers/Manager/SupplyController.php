@@ -16,6 +16,19 @@ class SupplyController extends Controller
     {
         $this->middleware('auth:manager');
     }
+    public function index()
+    {
+        $manager = Auth::guard('manager')->user();
+        $supplies = Supply::join('grades','grades.id','=','supplies.grade_id')
+                            ->join('courses','courses.id','=','grades.course_id')
+                            ->where('courses.id',$manager->unity_id)
+                            ->get();
+        
+        return view('manager.supplies.index',compact(
+            'manager',
+            'supplies'
+        ));
+    }
 
     public function find()
     {

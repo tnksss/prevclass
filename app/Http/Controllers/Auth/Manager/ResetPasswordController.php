@@ -1,9 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Auth\Manager;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use Illuminate\Http\Request;
+use Password;
+use Auth;
 
 class ResetPasswordController extends Controller
 {
@@ -25,7 +28,7 @@ class ResetPasswordController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/manager';
 
     /**
      * Create a new controller instance.
@@ -34,6 +37,24 @@ class ResetPasswordController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('guest:manager');
     }
+ 
+    protected function guard()
+    {
+      return Auth::guard('manager');
+    }
+
+    protected function broker()
+    {
+      return Password::broker('managers');
+    }
+
+    public function showResetForm(Request $request, $token = null)
+    {
+        return view('auth.manager.passwords.reset')->with(
+            ['token' => $token, 'email' => $request->email]
+        );
+    }
+   
 }

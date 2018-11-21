@@ -21,49 +21,49 @@
             <li>
                 <a href="{{ route('manager.myUnity') }}">
                     <i class="fa fa-university"></i> <span>Meu Colégio</span>
-                    <span class="pull-right-container">
-                        <small class="label pull-right bg-green">ok</small>
-                    </span>
+                
                 </a>
             </li>
+            <li class="treeview">
+                    <a href="#">
+                      <i class="fa fa-table"></i> <span>Professores</span>
+                      <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                      </span>
+                    </a>
+                    <ul class="treeview-menu">
+                      <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i>Geral</a></li>
+                      <li><a href="{{route('supplies.index')}}"><i class="fa fa-circle-o"></i>Supridos</a></li>
+                    </ul>
+                  </li>
             <li>
                 <a href="{{route('teachers.index')}}">
                     <i class="fa fa-users"></i> <span>Professores</span>
-                    <span class="pull-right-container">
-                        <small class="label pull-right bg-green">{{\App\Models\Users\User::all()->count()}}</small>
-                    </span>
+                
                 </a>
             </li>
             <li>
                 <a href="{{route('grades.index')}}">
                     <i class="fa fa-users"></i> <span>Turmas</span>
-                    <span class="pull-right-container">
-                        <small class="label pull-right bg-green">10</small>
-                    </span>
+                
                 </a>
             </li>
             <li>
                 <a href="{{route('supplies.find-teacher')}}">
                 <i class="fa fa-users"></i> <span>Suprimento</span>
-                <span class="pull-right-container">
-                  <small class="label pull-right bg-yellow">+ ou -</small>
-                </span>
+                
               </a>
             </li>
             <li>
             <a href="{{route('students.index')}}">
                 <i class="fa fa-users"></i> <span>Alunos</span>
-                <span class="pull-right-container">
-                <small class="label pull-right bg-green">{{\App\Models\Student::all()->count()}}</small>
-                </span>
+                
               </a>
             </li>
             <li>
                 <a href="{{route('enrollments.find-student')}}">
                 <i class="fa fa-users"></i> <span>Matrícular</span>
-                <span class="pull-right-container">
-                  <small class="label pull-right bg-green">ok</small>
-                </span>
+                
               </a>
             </li>
             <li class="treeview">
@@ -74,8 +74,8 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> Simple tables</a></li>
-                <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
+                <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i>Aluno</a></li>
+                <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i>Professor</a></li>
               </ul>
             </li>
         

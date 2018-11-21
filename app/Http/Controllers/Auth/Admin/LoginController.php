@@ -27,8 +27,17 @@ class LoginController extends Controller
                                         'password' => $request->password],
                                                       $request->remember))
             return redirect()->intended(route('admin.home'));
+        $admin = \App\Models\Users\Admin::where('email', $request->email)->first();
         
-        return redirect()->back()->withInput($request->only('email', 'remember'));
+        if (!$admin)
+            $errors = ['email' => 'E-Mail ou Senha Incorreto.'];
+        else if (!(\Hash::check($request->password, $admin->password)))
+            $errors = ['email' => 'E-Mail ou Senha Incorreto.'];
+        
+        return redirect()
+                        ->back()
+                        ->withInput($request->only('email', 'remember'))
+                        ->withErrors($errors);
     }
     public function logout()
     {

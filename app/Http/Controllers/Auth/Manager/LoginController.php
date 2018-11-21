@@ -23,18 +23,27 @@ class LoginController extends Controller
             'email' => 'required|email',
             'password'  =>  'required|min:6'
         ]);
+        
         if (Auth::guard('manager')->attempt(['email' => $request->email,
                                         'password' => $request->password],
                                                       $request->remember))
             return redirect()->intended(route('manager.home'));
+            
+        $manager = \App\Models\Users\Manager::where('email', $request->email)->first();
         
-        return redirect()->back()->withInput($request->only('email', 'remember'));
+        if (!$manager)
+            $errors = ['email' => 'E-Mail ou Senha Incorreto.'];
+        else if (!(\Hash::check($request->password, $manager->password)))
+            $errors = ['email' => 'E-Mail ou Senha Incorreto.'];
+        
+        return redirect()
+                        ->back()
+                        ->withInput($request->only('email', 'remember'))
+                        ->withErrors($errors);
     }
     public function logout()
     {
         Auth::guard('manager')->logout();
         return redirect('/');
     }
-
-
 }

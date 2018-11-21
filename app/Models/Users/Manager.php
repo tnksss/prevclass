@@ -4,6 +4,7 @@ namespace App\Models\Users;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Notifications\ManagerResetPasswordNotification;
 use App\Models\Unity;
 
 class Manager extends Authenticatable
@@ -35,5 +36,9 @@ class Manager extends Authenticatable
     public function unity() 
     {
         return $this->belongsTo(Unity::class);
+    }
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ManagerResetPasswordNotification($token));
     }
 }
