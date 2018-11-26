@@ -1,5 +1,5 @@
 @extends('manager.layout.app')
-
+@section('title','| Criar aluno')
 @section('content_header')
 <h1>Cadastro de Aluno</h1>
 @include('layouts.notifications')

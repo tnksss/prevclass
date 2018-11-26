@@ -1,5 +1,5 @@
 @extends('manager.layout.app')
-
+@section('title','| Professores')
 @section('content_header')
   <h1>Professores</h1>
   @include('layouts.notifications')

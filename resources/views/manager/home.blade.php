@@ -1,4 +1,5 @@
     @extends('manager.layout.app')
+    @section('title','| Home')
     @section('content_header')
     <h1>{{$manager->unity->name}}</h1>
     @stop

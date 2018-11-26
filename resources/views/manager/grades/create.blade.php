@@ -1,5 +1,5 @@
 @extends('manager.layout.app')
-
+@section('title','| Criar turma')
 @section('content_header')
 <h1>Cadastro de Turma</h1>
 <ol class="breadcrumb">

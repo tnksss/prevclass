@@ -1,5 +1,5 @@
 @extends('manager.layout.app')
-
+@section('title','| Buscar aluno')
 @section('content_header')
 <h1>Nova Matrícula</h1>
 <ol class="breadcrumb">

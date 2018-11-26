@@ -1,4 +1,5 @@
 @extends('manager.layout.app')
+@section('title','| Suprimentos')
 @section('content_header')
 <h1>Professores Supridos</h1>
 <ol class="breadcrumb">

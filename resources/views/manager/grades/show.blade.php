@@ -1,5 +1,5 @@
 @extends('manager.layout.app')
-
+@section('title','| Exibir turma')
 @section('content_header')
 <h1>Turma</h1>
 <ol class="breadcrumb">

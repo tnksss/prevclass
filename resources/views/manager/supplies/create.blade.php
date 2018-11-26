@@ -1,5 +1,5 @@
 @extends('manager.layout.app')
-
+@section('title','| Criar suprimento')
 @section('content_header')
 <h1>Suprimento de professor</h1>
 <ol class="breadcrumb">

@@ -1,5 +1,5 @@
 @extends('manager.layout.app')
-
+@section('title','| Criar professor')
 @section('content_header')
 <h1>Cadastro de Professor</h1>
 <ol class="breadcrumb">

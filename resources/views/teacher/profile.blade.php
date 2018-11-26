@@ -1,4 +1,5 @@
 @extends('teacher.layout.app')
+@section('title','| Meu Perfil')
 @section('content_header')
 <h1>Perfil</h1>
 <ol class="breadcrumb">

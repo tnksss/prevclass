@@ -1,7 +1,5 @@
 @extends('manager.layout.app')
-
-
-
+@section('title','| Meu perfil')
 @section('content_header')
 <h1>Perfil</h1>
 <ol class="breadcrumb">

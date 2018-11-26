@@ -1,5 +1,5 @@
 @extends('manager.layout.app')
-
+@section('title','| Exibir unidade')
 @section('content_header')
 <h1>Unidade</h1>
 <ol class="breadcrumb">

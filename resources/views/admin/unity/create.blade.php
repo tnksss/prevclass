@@ -1,4 +1,5 @@
 @extends('admin.layout.app')
+@section('title','| Criar unidade')
 @section('content_header')
 <h1>Cadastro de Unidade</h1>
 <ol class="breadcrumb">

@@ -1,4 +1,5 @@
 @extends('teacher.layout.app')
+@section('title','| Home')
 @section('content_header')
 <h1>Meu Dashboard</h1>
 @stop

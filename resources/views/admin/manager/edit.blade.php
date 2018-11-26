@@ -1,5 +1,5 @@
 @extends('admin.layout.app')
-
+@section('title','| Editar secretário')
 @section('content_header')
 <h1>Secretário</h1>
 <ol class="breadcrumb">

@@ -1,7 +1,5 @@
 @extends('admin.layout.app')
-
-
-
+@section('title','| Editar curso')
 @section('content_header')
 <h1>Editar Curso</h1>
 <ol class="breadcrumb">

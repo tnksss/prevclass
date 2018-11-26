@@ -1,8 +1,5 @@
 @extends('manager.layout.app')
-
-
-
-
+@section('title','| Editar turma')
 @section('content_header')
     <h1>Editar Turma</h1>
     <ol class="breadcrumb">

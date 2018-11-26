@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title','Administrador | Resetar Senha')
 @section('content')
 <div class="container">
     <div class="row">

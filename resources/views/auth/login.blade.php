@@ -11,14 +11,14 @@
         <form method="POST" action="{{ route('login') }}">
             {{ csrf_field() }}
             <div class="form-group has-feedback{{ $errors->has('email') ? ' has-error' : '' }}">
-                <input type="email" id="email" name="email" class="form-control" placeholder="Email">
+                <input type="email" id="email" name="email" value="{{ old('email') }}" class="form-control" placeholder="Email">
                 <span class="fa fa-envelope form-control-feedback"></span>
                 @if ($errors->has('email'))
                     <span class="help-block">
                         <strong>{{ $errors->first('email') }}</strong>
                     </span>
                 @endif
-            </div>
+            </div> 
             <div class="form-group has-feedback {{ $errors->has('password') ? ' has-error' : '' }}">
                 <input type="password" class="form-control" name="password" id="password" placeholder="Password">
                 <span class="fa fa-lock form-control-feedback"></span>

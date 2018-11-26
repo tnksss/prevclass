@@ -1,5 +1,5 @@
 @extends('manager.layout.app')
-
+@section('title','| Turmas')
 @section('content_header')
 <h1>Turmas</h1>
 @include('layouts.notifications')

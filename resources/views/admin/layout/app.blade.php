@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     
-    <title>PrevClass</title>
+    <title>PrevClass - Admin | @yield('title')</title>
     <link rel="shortcut icon" href="{{ asset('prevclass.ico') }}" >
     
     {{ Html::style('css/bootstrap.css')}}

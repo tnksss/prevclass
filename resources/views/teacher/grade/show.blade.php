@@ -1,4 +1,5 @@
 @extends('teacher.layout.app')
+@section('title','| Exibir turma')
 @section('content_header')
 <h1>Lançar Conceitos - {{$grade->course->unity->name}}</h1>
 <ol class="breadcrumb">
