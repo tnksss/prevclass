@@ -32,7 +32,7 @@ class UnityController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'code'      => 'unique|required|numeric|between:3,12',
+            'code'      => 'unique:unities|required|numeric|between:3,12',
             'name'      => 'required|between:3,100',
             'address'   => 'required|max:256', 
             'number'    => 'required|min:1|max:5',
@@ -66,36 +66,5 @@ class UnityController extends Controller
         return view('manager.unity.supply.show', 
             compact(['unity','supplies'])
         );
-    }
-    public function createSupply()
-    {
-        $unity = Auth::guard('manager')->user()->unity;
-        $teachers = User::all();
-        $disciplines = Discipline::all();
-        return view('manager.unity.supply.create', 
-            compact(['unity',
-                     'teachers',
-                     'disciplines'])
-        );
-        $fields = $request->only('user_id','discipline_id');
-    }
-    public function storeSupply(Request $request, Unity $unity)
-    {
-        $this->validate($request,[
-            'user_id' => 'required',
-            'discipline_id' => 'required'
-        ]);
-        $fields = $request->only('user_id','discipline_id');
-        $fields['unity_id'] = $unity->id;
-
-        dd($unity->id);
-        if((new Supply($fields))->save())
-            return redirect()
-                ->route('supplies.show')
-                ->with('success','Suprimento adicionado com sucesso');
-        
-        return redirect()
-            ->back()
-            ->with('error','reveja os campos');
     }
 }

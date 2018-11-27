@@ -23,14 +23,16 @@ class Manager extends Authenticatable
 
     const RULES = [
         'name' => 'required|between:3,100',
-        'email' => 'required',
-        'cpf' => 'required'
+        'email' => 'unique:managers|required|email',
+        'cpf' => 'unique:managers|required|digits:11'
 
     ];
 
     const MESSAGES = [
+        'unique'            => 'O campo :attribute já está sendo utilizado',
         'required'          => 'O campo :attribute é de preenchimento obrigatório!',
         'name.between'      => 'O campo nome deve ter entre 3 e 100 caracteres',
+        'digits'            => 'O campo cpf deve ter 11 caracteres',
     ];
 
     public function unity() 

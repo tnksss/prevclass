@@ -45,10 +45,11 @@ class User extends Authenticatable
 
     const RULES = [
         'name'  => 'required|between:3,100',
-        'cpf'   => 'required|numeric|digits:11',
-        'email' => 'required|email'
+        'cpf'   => 'unique:users|required|numeric|digits:11',
+        'email' => 'unique:users|required|email'
     ];
     const MESSAGES = [
+        'unique'            => 'O campo :attribute já está sendo utilizado',
         'required'          => 'O campo :attribute é de preenchimento obrigatório!',
         'name.between'      => 'O campo nome deve ter entre 3 e 100 caracteres',
         'digits'            => 'O campo cpf deve ter 11 caracteres',

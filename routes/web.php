@@ -1,7 +1,5 @@
 <?php
 
-
-
 Route::get('/', function () {
     return redirect()
                 ->route('login');
@@ -42,7 +40,6 @@ Route::prefix('manager')->group(function(){
     Route::post('/login', 'Auth\Manager\LoginController@login')->name('manager.login.submit');
     Route::get('/logout', 'Auth\Manager\LoginController@logout')->name('manager.logout');
     // Password Reset Routes
-    // Password Reset Routes.
     Route::get('/password/reset','Auth\Manager\ForgotPasswordController@ShowLinkRequestForm')->name('manager.password.request');
     Route::get('password/reset/{token?}', 'Auth\Manager\ResetPasswordController@showResetForm')->name('manager.password.reset');
     Route::post('password/email', 'Auth\Manager\ForgotPasswordController@sendResetLinkEmail')->name('manager.password.email');
