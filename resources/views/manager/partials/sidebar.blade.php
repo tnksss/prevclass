@@ -24,7 +24,7 @@
                 
                 </a>
             </li>
-            <li class="treeview">
+            {{-- <li class="treeview">
                     <a href="#">
                       <i class="fa fa-table"></i> <span>Professores</span>
                       <span class="pull-right-container">
@@ -36,7 +36,7 @@
                       <li><a href="{{route('supplies.index')}}"><i class="fa fa-circle-o"></i>Supridos</a></li>
                     </ul>
                   </li>
-            <li>
+            <li> --}}
                 <a href="{{route('teachers.index')}}">
                     <i class="fa fa-users"></i> <span>Professores</span>
                 
