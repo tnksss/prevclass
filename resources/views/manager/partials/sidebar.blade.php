@@ -35,8 +35,9 @@
                       <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i>Geral</a></li>
                       <li><a href="{{route('supplies.index')}}"><i class="fa fa-circle-o"></i>Supridos</a></li>
                     </ul>
-                  </li>
-            <li> --}}
+                  </li> --}}
+            <li>
+
                 <a href="{{route('teachers.index')}}">
                     <i class="fa fa-users"></i> <span>Professores</span>
                 
