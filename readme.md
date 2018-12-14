@@ -1,7 +1,7 @@
 <p align="center"><img src="https://github.com/tnksss/prevclass/blob/master/public/prevclass.png"></p>
 
 # PrevClass: Sistema para Agilizar o Conselho de Classe
-PrevClass é um aplicação web que realiza o cadastro de colégio, cursos, secretários, professores, turmas e alunos com o propósito de o professor avaliar pedagógicamente o aluno.
+PrevClass é um aplicação web que realiza o cadastro de colégio, cursos, secretários, professores, turmas e alunos com o propósito de o professor avaliar pedagogicamente o aluno.
 
 [![Assita ao Vídeo](https://i.imgur.com/KQtxYNQ.png)](https://www.youtube.com/watch?v=-1fqzNtJudU&t=34s)
 
