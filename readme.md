@@ -13,12 +13,14 @@ PrevClass é um aplicação web que realiza o cadastro de colégio, cursos, secr
 - Apache ou Nginx
 
 ## Instalação
-
-- git clone https://github.com/tnksss/prevclass.git
-- cd prevclass
-- composer update
+- ``$ it clone https://github.com/tnksss/prevclass.git``
+- ``$ cd prevclass``
+- ``$ composer update``
 - atualize o arquivo .env
-- mysql > create database prevclass
+- mysql 
+> `create database prevclass;`
+- ``$ php artisan migrate``
+- ``$ php artisan db:seed``
 
 ## Utilização
   ### Usuário Administrador
