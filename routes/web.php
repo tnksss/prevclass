@@ -32,7 +32,7 @@ Route::prefix('admin')->group(function(){
     Route::get('/unities/{unity}/create_manager','Admin\ManagerController@create')->name('unities.manager');
     Route::post('/unities/managers','Admin\ManagerController@store')->name('manager.store');    
     Route::get('/managers', 'Admin\AdminController@managers')->name('managers');    
-    Route::resource('/unities/{unity}/courses', 'Admin\CourseController');
+    Route::resource('/unities/courses', 'Admin\CourseController');
 });
 
 Route::prefix('manager')->group(function(){

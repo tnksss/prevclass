@@ -18,18 +18,17 @@ class CourseController extends Controller
         return view('admin.course.index',compact('courses'));
     }
 
-    public function create($id)
+    public function create()
     {
         
         
         return view('admin.course.create', [
             'course' => new Course(),
-            'id' => $id
         ]);
     }
 
     
-    public function store(Request $request, $id)
+    public function store(Request $request)
     {
        
             
@@ -43,7 +42,7 @@ class CourseController extends Controller
                 ->withInput();
         
         $course = new Course($fields);
-        $course->unity_id = $id;
+        
         $course->save();
 
         return redirect()

@@ -13,10 +13,7 @@ class Course extends Model
     {
         return $this->hasMany(Grade::class);
     }
-    public function unity()
-    {
-        return $this->belongsTo(Unity::class);
-    }
+    
     const RULES = [
         'name' => 'required|between:3,100',
         'code' => 'required|between:2,10',        

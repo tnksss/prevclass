@@ -89,14 +89,14 @@
                                 <th>Nome</th>
                                 <th class="pull-right">Ações</th>
                             </tr>
-                            @foreach($courses as $course)
+                            {{-- @foreach($courses as $course)
                             <tr>
                                 
                                 <td>{{$course->code}}</td>
                                 <td>{{$course->name}}</td>
                                 <td class="pull-right"> @include('admin.partials.course_buttons')</td>
                             </tr>
-                            @endforeach
+                            @endforeach --}}
                         </tbody>
                     </table>
                 </div>

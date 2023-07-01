@@ -86,11 +86,11 @@ class UnityController extends Controller
     public function show($id)
     {            
         $unity = Unity::find($id);
-        $courses = $unity->courses;       
+        
         
         return view('admin.unity.show', [
             'unity' => $unity,
-            'courses' => $courses
+        
         ]);
     }
     public function destroy($id)
