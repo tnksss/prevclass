@@ -17,12 +17,12 @@
 				@include('layouts.notifications')
 			</div>
 			<div class="box-body">
-				{!! Form::open(['route' => ['courses.update', 'unity' => $course->unity->id,'course'=>$course->id],  'method' => 'patch']) !!}
+				{!! Form::open(['route' => ['courses.update', 'course'=>$course->id],  'method' => 'patch']) !!}
 				@include('admin.course.form')
 				<div class="form-group">
 					<input type="submit" class="btn btn-primary" value="Salvar">
 					{!! Form::close() !!}
-					<a href="{{ Route('unities.show', $course->unity->id) }}"class="btn btn-danger">Voltar</a>
+					<a href="{{ Route('courses.index') }}"class="btn btn-danger">Voltar</a>
 				</div>
 			</div>
 		</div>

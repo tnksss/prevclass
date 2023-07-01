@@ -19,9 +19,7 @@ class CourseController extends Controller
     }
 
     public function create()
-    {
-        
-        
+    {               
         return view('admin.course.create', [
             'course' => new Course(),
         ]);
@@ -46,11 +44,11 @@ class CourseController extends Controller
         $course->save();
 
         return redirect()
-                ->route('unities.show',['id' => $course->unity_id])
+                ->route('courses.index')
                 ->with('success', 'Curso cadastrado com sucesso');
     }
 
-    public function edit($unity_id, $course_id)
+    public function edit($course_id)
     {
         
         return view('admin.course.edit', [
@@ -58,7 +56,7 @@ class CourseController extends Controller
         ]);
     }
 
-    public function update(Request $request, $course, $id)
+    public function update(Request $request, $course)
     {
         $this->validate($request, [
             'name' => 'required',
@@ -69,16 +67,16 @@ class CourseController extends Controller
         Course::find($course)->fill($fields)->save();
 
         return redirect()
-            ->route('unities.show',['id' => $id])
+            ->route('courses.index')
             ->with('success', 'Curso atualizado com sucesso.');
     }
     
-    public function destroy($unity_id, $course_id)
+    public function destroy($course_id)
     {
         
         Course::destroy($course_id);
         return redirect()
-        ->route('unities.show',['id' => $unity_id])
+        ->route('courses.index')
             ->with('success', 'Curso deletado com sucesso.');
     }
 }

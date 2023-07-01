@@ -28,10 +28,18 @@
         <a href="{{route('unities.index')}}">
             <i class="fa fa-university"></i> <span>Colégios</span>
             <span class="pull-right-container">
-              <small class="label pull-right bg-green">3</small>
+              <small class="label pull-right bg-green"></small>
             </span>
           </a>
         </li>
+        <li>
+          <a href="{{route('courses.index')}}">
+              <i class="fa fa-university"></i> <span>Cursos</span>
+              <span class="pull-right-container">
+                <small class="label pull-right bg-green"></small>
+              </span>
+            </a>
+          </li>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-table"></i> <span>Relatórios</span>

@@ -1,5 +1,5 @@
 @extends('admin.layout.app')
-@section('title','| Criar curso')
+@section('title','| Criar Curso')
 @section('content_header')
 <h1>Curso</h1>
 <ol class="breadcrumb">
@@ -16,12 +16,12 @@
 				@include('layouts.notifications')
 			</div>
 			<div class="box-body">
-				{!! Form::open(['route' => ['courses.store', $id]]) !!}
+				{!! Form::open(['route' => ['courses.store']]) !!}
 				@include('admin.course.form')
 				<div class="form-group">
 					<input type="submit" class="btn btn-primary" value="Salvar">
 					{!! Form::close() !!}
-					<a href="{{ Route('unities.show', $id) }}"class="btn btn-danger">Voltar</a>
+					<a href="{{ Route('courses.index') }}"class="btn btn-danger">Voltar</a>
 				</div>
 			</div>
 		</div>
